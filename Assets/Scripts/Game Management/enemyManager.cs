@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class enemyManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private gameManager gameManager;
+    [SerializeField] private playerManager playerManager;
+
+    //enemyStats
+    private int enemyMaxHealth;
+    private int enemyMinHealth;
+    public int enemyHealth;
+    [SerializeField] private int enemyDamage;
+    private int enemyMinDamage;
+    private int enemyMaxDamage;
+
+
+    public void EnemyTurn()
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
