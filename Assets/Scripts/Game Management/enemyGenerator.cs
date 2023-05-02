@@ -48,6 +48,7 @@ public class enemyGenerator : MonoBehaviour
                 spawnedEnemy = Instantiate(enemyType, new Vector2((Screen.width / (amount + 1)) * (i + 1), -15), Quaternion.identity);
                 spawnedEnemy.transform.SetParent(parent.transform, false);
                 spawnedEnemyList.Add(spawnedEnemy);
+
                 spawnedEnemy.GetComponent<enemyManager>().enemyCount = i;
                 
             }

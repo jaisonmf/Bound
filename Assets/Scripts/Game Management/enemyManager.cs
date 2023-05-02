@@ -10,20 +10,20 @@ public class enemyManager : MonoBehaviour
 
 
     //enemyStats
-    private float enemyMaxHealth = 100;
-    private float enemyMinHealth = 100;
-    public float enemyHealth = 100;
-    public float enemyCurrentHealth = 100;
-    [SerializeField] private float enemyDamage;
-    private float enemyMinDamage = 20;
-    private float enemyMaxDamage = 20;
+    //private int enemyMaxHealth = 100;
+    //private int enemyMinHealth = 100;
+    public int enemyMaxHealth = 100;
+    public int enemyCurrentHealth = 100;
+    [SerializeField] private int enemyDamage;
+    private int enemyMinDamage = 20;
+    private int enemyMaxDamage = 20;
     private int action;
 
 
     //enemyUI
     [SerializeField] private Slider enemyHealthBar;
     private bool isCoroutineOn = false;
-    [HideInInspector] public int enemyCount;
+    public int enemyCount;
 
 
 
@@ -31,16 +31,17 @@ public class enemyManager : MonoBehaviour
     {
         gameManager = GameObject.Find("GameManager").GetComponent<gameManager>();
         playerManager = GameObject.Find("playerManager").GetComponent<playerManager>();
-        enemyCurrentHealth = enemyHealth;
+        enemyCurrentHealth = enemyMaxHealth;
+        UpdateEnemyHealthBar(enemyCurrentHealth, enemyMaxHealth);
     }
 
     public void EnemyTurn()
     {
         if (enemyCurrentHealth > 0)
         {
-            if (enemyCurrentHealth > enemyHealth)
+            if (enemyCurrentHealth > enemyMaxHealth)
             {
-                enemyCurrentHealth = enemyHealth;
+                enemyCurrentHealth = enemyMaxHealth;
             }
 
 
@@ -69,7 +70,6 @@ public class enemyManager : MonoBehaviour
             enemyDamage = Random.Range(enemyMinDamage, enemyMaxDamage);
             
             playerManager.playerHealth -= enemyDamage;
-            Debug.Log(playerManager.playerHealth);
             playerManager.UpdateHealthBar(playerManager.playerHealth, playerManager.playerMaxHealth);
         }
         else if (action == 2)

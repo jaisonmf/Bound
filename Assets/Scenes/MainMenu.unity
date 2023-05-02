@@ -230,6 +230,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6572402757232593450, guid: 476cc1880845458438b0886922c1b329, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572402757232593450, guid: 476cc1880845458438b0886922c1b329, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Select
+      objectReference: {fileID: 0}
     - target: {fileID: 8124828832793792006, guid: 476cc1880845458438b0886922c1b329, type: 3}
       propertyPath: m_Name
       value: Goblin
@@ -1734,6 +1742,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4109734741948760142, guid: b9620277ec410cf45a2ed93d7cb5da6f, type: 3}
   m_PrefabInstance: {fileID: 4109734743049868749}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1315018116 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4109734741948760137, guid: b9620277ec410cf45a2ed93d7cb5da6f, type: 3}
+  m_PrefabInstance: {fileID: 4109734743049868749}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2755b4073654024292925bae30186ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1402991346
 GameObject:
   m_ObjectHideFlags: 0
@@ -2537,6 +2556,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1134567667773191955, guid: 8c70edacfa429a04a812c7c5d769e906, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1134567667773191955, guid: 8c70edacfa429a04a812c7c5d769e906, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Select
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470621306515052140, guid: 8c70edacfa429a04a812c7c5d769e906, type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8124828832793792006, guid: 8c70edacfa429a04a812c7c5d769e906, type: 3}
       propertyPath: m_Name
       value: enemyTwo
@@ -2767,7 +2798,7 @@ PrefabInstance:
     - target: {fileID: 8406144319381149724, guid: 4e799f419159116489997a6790f338ed, type: 3}
       propertyPath: playerManager
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1315018116}
     - target: {fileID: 8406144319381149724, guid: 4e799f419159116489997a6790f338ed, type: 3}
       propertyPath: enemyGenerator
       value: 

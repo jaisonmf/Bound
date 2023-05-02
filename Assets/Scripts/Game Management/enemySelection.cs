@@ -8,10 +8,13 @@ public class enemySelection : MonoBehaviour
 {
     [SerializeField] private playerManager playerManager;
     [SerializeField] private Button selectButton;
-
+    [SerializeField] private GameObject selectArrow;
+    [SerializeField] private GameObject enemy;
 
     public void Start()
     {
+        enemy = this.transform.parent.gameObject;
+        selectArrow = this.gameObject;
         playerManager = GameObject.Find("playerManager").GetComponent<playerManager>();
     }
 
@@ -27,6 +30,6 @@ public class enemySelection : MonoBehaviour
     public void Action()
     {
         playerManager.PlayerAttack(this.transform.parent.GetComponent<enemyManager>().enemyCount);
-        //this.transform.parent.GetComponent<enemyManager>().UpdateHealthBar(this.transform.parent.GetComponent<enemyManager>().enemyCurrentHealth, this.transform.parent.GetComponent<enemyManager>().enemyHealth);
+        //this.transform.parent.GetComponent<enemyManager>().UpdateEnemyHealthBar(this.transform.parent.GetComponent<enemyManager>().enemyCurrentHealth, this.transform.parent.GetComponent<enemyManager>().enemyHealth);
     }
 }

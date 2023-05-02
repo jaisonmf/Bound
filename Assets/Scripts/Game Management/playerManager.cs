@@ -10,11 +10,11 @@ public class playerManager : MonoBehaviour
     [SerializeField] private enemyGenerator enemyGenerator;
 
     //playerStats
-    public float playerMaxHealth = 100;
-    public float playerHealth;
-    [SerializeField] private float playerDamage;
-    private float playerMinDamage = 5;
-    private float playerMaxDamage = 10;
+    public int playerMaxHealth = 100;
+    public int playerHealth;
+    [SerializeField] private int playerDamage;
+    private int playerMinDamage = 5;
+    private int playerMaxDamage = 10;
 
     //UI
     [SerializeField] private Button action1;
@@ -93,13 +93,11 @@ public class playerManager : MonoBehaviour
 
     public void PlayerAttack(int listIndex)
     {
-        
-
         GameObject enemy = enemyGenerator.spawnedEnemyList[listIndex];
-        
+        Debug.Log(enemy.GetComponent<enemyManager>().enemyCount);
         playerDamage = Random.Range(playerMinDamage, playerMaxDamage);
-        enemy.GetComponent<enemyManager>().enemyHealth -= playerDamage;
-        enemy.GetComponent<enemyManager>().UpdateEnemyHealthBar(enemy.GetComponent<enemyManager>().enemyCurrentHealth, enemy.GetComponent<enemyManager>().enemyHealth);
+        enemy.GetComponent<enemyManager>().enemyCurrentHealth -= playerDamage;
+        enemy.GetComponent<enemyManager>().UpdateEnemyHealthBar(enemy.GetComponent<enemyManager>().enemyCurrentHealth, enemy.GetComponent<enemyManager>().enemyMaxHealth);
 
 
         selecting = false;
