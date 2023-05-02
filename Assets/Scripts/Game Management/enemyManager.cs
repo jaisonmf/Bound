@@ -10,19 +10,20 @@ public class enemyManager : MonoBehaviour
 
 
     //enemyStats
-    private int enemyMaxHealth = 100;
-    private int enemyMinHealth = 100;
-    public int enemyHealth = 100;
-    public int enemyCurrentHealth = 100;
-    [SerializeField] private int enemyDamage;
-    private int enemyMinDamage = 20;
-    private int enemyMaxDamage = 20;
+    private float enemyMaxHealth = 100;
+    private float enemyMinHealth = 100;
+    public float enemyHealth = 100;
+    public float enemyCurrentHealth = 100;
+    [SerializeField] private float enemyDamage;
+    private float enemyMinDamage = 20;
+    private float enemyMaxDamage = 20;
     private int action;
 
 
     //enemyUI
     [SerializeField] private Slider enemyHealthBar;
     private bool isCoroutineOn = false;
+    [HideInInspector] public int enemyCount;
 
 
 
@@ -60,8 +61,7 @@ public class enemyManager : MonoBehaviour
 
         yield return new WaitForSeconds(time);
 
-        //action = Random.Range(1, 3);
-        action = 1;
+        action = Random.Range(1, 3);
         
         if (action == 1)
         {
@@ -74,17 +74,11 @@ public class enemyManager : MonoBehaviour
         }
         else if (action == 2)
         {
-            enemyDamage = Random.Range(enemyMinDamage, enemyMaxDamage);
-
-            playerManager.playerHealth -= enemyDamage;
-            playerManager.UpdateHealthBar(playerManager.playerHealth, playerManager.playerMaxHealth);
+            Debug.Log("i did a thing");
         }
         else
         {
-            enemyDamage = Random.Range(enemyMinDamage, enemyMaxDamage);
-
-            playerManager.playerHealth -= enemyDamage;
-            playerManager.UpdateHealthBar(playerManager.playerHealth, playerManager.playerMaxHealth);
+            Debug.Log("i did another thing");
         }
 
         gameManager.playerTurn();
@@ -93,10 +87,11 @@ public class enemyManager : MonoBehaviour
 
 
 
-    public void UpdateHealthBar(float Currentvalue, float maxValue)
+    public void UpdateEnemyHealthBar(float Currentvalue, float maxValue)
     {
         float percentageResult = Currentvalue / maxValue;
         enemyHealthBar.value = percentageResult;
+
     }
 
 }

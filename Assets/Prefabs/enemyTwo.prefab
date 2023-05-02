@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 2066569530817778808}
   - component: {fileID: 7158910267681711998}
   - component: {fileID: 1134567667773191955}
+  - component: {fileID: 1829580465027066023}
   m_Layer: 5
   m_Name: Button (Legacy)
   m_TagString: Untagged
@@ -197,7 +198,33 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7158910267681711998}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1829580465027066023}
+        m_TargetAssemblyTypeName: enemySelection, Assembly-CSharp
+        m_MethodName: Action
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1829580465027066023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976490173588459169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56f709d6cf3f634409d3ebc08e41af29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerManager: {fileID: 0}
+  selectButton: {fileID: 1134567667773191955}
 --- !u!1 &3584743100307166102
 GameObject:
   m_ObjectHideFlags: 0
@@ -493,12 +520,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1559986c0b432b14cb32171c9332c35e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 8406144319381149724, guid: 4e799f419159116489997a6790f338ed, type: 3}
+  gameManager: {fileID: 0}
   playerManager: {fileID: 0}
   enemyHealth: 100
   enemyCurrentHealth: 0
   enemyDamage: 0
   enemyHealthBar: {fileID: 3470621306515052140}
+  enemyCount: 0
 --- !u!1 &8161701908499223734
 GameObject:
   m_ObjectHideFlags: 0

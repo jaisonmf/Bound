@@ -25,7 +25,6 @@ public class gameManager : MonoBehaviour
 
     public void playerTurn()
     {
-        Debug.Log("lmao");
         playerManager.PlayerTurn();
     }
 

@@ -10,11 +10,11 @@ public class playerManager : MonoBehaviour
     [SerializeField] private enemyGenerator enemyGenerator;
 
     //playerStats
-    public int playerMaxHealth = 100;
-    public int playerHealth;
-    [SerializeField] private int playerDamage;
-    private int playerMinDamage = 5;
-    private int playerMaxDamage = 10;
+    public float playerMaxHealth = 100;
+    public float playerHealth;
+    [SerializeField] private float playerDamage;
+    private float playerMinDamage = 5;
+    private float playerMaxDamage = 10;
 
     //UI
     [SerializeField] private Button action1;
@@ -22,7 +22,7 @@ public class playerManager : MonoBehaviour
     [SerializeField] private Button action3;
     [SerializeField] private Button action4;
     [SerializeField] private Slider playerHealthbar;
-
+    public bool selecting = false;
 
 
 
@@ -36,8 +36,7 @@ public class playerManager : MonoBehaviour
 
         playerHealth = playerMaxHealth;
         UpdateHealthBar(playerHealth, playerMaxHealth);
-        Debug.Log(playerHealth);
-        Debug.Log(playerMaxHealth);
+
     }
     public void PlayerTurn()
     {
@@ -64,6 +63,7 @@ public class playerManager : MonoBehaviour
     {
         if(Button == 1)
         {
+            selecting = true;
             action1.interactable = false; 
             action2.interactable = false;
             action3.interactable = false;
@@ -93,13 +93,16 @@ public class playerManager : MonoBehaviour
 
     public void PlayerAttack(int listIndex)
     {
-        playerDamage = Random.Range(playerMinDamage, playerMaxDamage);
+        
 
         GameObject enemy = enemyGenerator.spawnedEnemyList[listIndex];
-
+        
+        playerDamage = Random.Range(playerMinDamage, playerMaxDamage);
         enemy.GetComponent<enemyManager>().enemyHealth -= playerDamage;
-        enemy.GetComponent<enemyManager>().UpdateHealthBar(enemy.GetComponent<enemyManager>().enemyCurrentHealth, enemy.GetComponent<enemyManager>().enemyHealth);
+        enemy.GetComponent<enemyManager>().UpdateEnemyHealthBar(enemy.GetComponent<enemyManager>().enemyCurrentHealth, enemy.GetComponent<enemyManager>().enemyHealth);
 
+
+        selecting = false;
         action1.interactable = true;
         action2.interactable = true;
         action3.interactable = true;
