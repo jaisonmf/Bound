@@ -7,13 +7,14 @@ public class playerManager : MonoBehaviour
 {
     [SerializeField] private gameManager gameManager;
     [SerializeField] private enemyManager enemyManager;
+    [SerializeField] private enemyGenerator enemyGenerator;
 
     //playerStats
-    [SerializeField] private int playerMaxHealth = 100;
+    public int playerMaxHealth = 100;
     public int playerHealth;
     [SerializeField] private int playerDamage;
-    private int playerMinDamage;
-    private int playerMaxDamage;
+    private int playerMinDamage = 5;
+    private int playerMaxDamage = 10;
 
     //UI
     [SerializeField] private Button action1;
@@ -21,6 +22,8 @@ public class playerManager : MonoBehaviour
     [SerializeField] private Button action3;
     [SerializeField] private Button action4;
     [SerializeField] private Slider playerHealthbar;
+
+
 
 
   
@@ -32,6 +35,9 @@ public class playerManager : MonoBehaviour
         action4.interactable = false;
 
         playerHealth = playerMaxHealth;
+        UpdateHealthBar(playerHealth, playerMaxHealth);
+        Debug.Log(playerHealth);
+        Debug.Log(playerMaxHealth);
     }
     public void PlayerTurn()
     {
@@ -58,8 +64,10 @@ public class playerManager : MonoBehaviour
     {
         if(Button == 1)
         {
-            playerHealth -= 10;
-            UpdateHealthBar(playerHealth, playerMaxHealth);
+            action1.interactable = false; 
+            action2.interactable = false;
+            action3.interactable = false;
+            action4.interactable = false;
         }
 
         if(Button == 2)
@@ -69,7 +77,8 @@ public class playerManager : MonoBehaviour
 
         if(Button == 3)
         {
-
+            playerHealth -= 10;
+            UpdateHealthBar(playerHealth, playerMaxHealth);
         }
 
         if(Button == 4)
@@ -81,6 +90,24 @@ public class playerManager : MonoBehaviour
             action4.interactable = false;
         }
     }
+
+    public void PlayerAttack(int listIndex)
+    {
+        playerDamage = Random.Range(playerMinDamage, playerMaxDamage);
+
+        GameObject enemy = enemyGenerator.spawnedEnemyList[listIndex];
+
+        enemy.GetComponent<enemyManager>().enemyHealth -= playerDamage;
+        enemy.GetComponent<enemyManager>().UpdateHealthBar(enemy.GetComponent<enemyManager>().enemyCurrentHealth, enemy.GetComponent<enemyManager>().enemyHealth);
+
+        action1.interactable = true;
+        action2.interactable = true;
+        action3.interactable = true;
+        action4.interactable = true;
+    }
+
+
+
 
 
     public void UpdateHealthBar(float Currentvalue, float maxValue)

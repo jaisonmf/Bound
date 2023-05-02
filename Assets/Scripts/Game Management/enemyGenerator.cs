@@ -6,6 +6,7 @@ using UnityEngine;
 public class enemyGenerator : MonoBehaviour
 {
     [SerializeField] private gameManager gameManager;
+    private playerManager playerManager;
 
 
     private int amount;
@@ -31,6 +32,8 @@ public class enemyGenerator : MonoBehaviour
         Type[1] = enemyTwo;
 
 
+        goblin.SetActive(true);
+        enemyTwo.SetActive(true);
         
     }
 
@@ -45,6 +48,8 @@ public class enemyGenerator : MonoBehaviour
                 spawnedEnemy = Instantiate(enemyType, new Vector2((Screen.width / (amount + 1)) * (i + 1), -15), Quaternion.identity);
                 spawnedEnemy.transform.SetParent(parent.transform, false);
                 spawnedEnemyList.Add(spawnedEnemy);
+                
+                
             }
         }
     }

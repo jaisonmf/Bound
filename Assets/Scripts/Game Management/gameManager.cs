@@ -11,6 +11,7 @@ public class gameManager : MonoBehaviour
 
     private void Start()
     {
+        playerManager = GameObject.Find("playerManager").GetComponent<playerManager>();
         enemyGeneration();
         playerTurn();
 
@@ -24,12 +25,16 @@ public class gameManager : MonoBehaviour
 
     public void playerTurn()
     {
+        Debug.Log("lmao");
         playerManager.PlayerTurn();
     }
 
     public void enemyTurn()
     {
-        enemyManager.EnemyTurn();
+        for(int i = 0; i < enemyGenerator.spawnedEnemyList.Count; i++)
+        {
+            enemyGenerator.spawnedEnemyList[i].GetComponent<enemyManager>().EnemyTurn();
+        }
     }
 
 
