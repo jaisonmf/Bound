@@ -6,12 +6,19 @@ public class gameManager : MonoBehaviour
 {
     [SerializeField] private playerManager playerManager;
     [SerializeField] private enemyManager enemyManager;
-
+    [SerializeField] private enemyGenerator enemyGenerator;
 
 
     private void Start()
     {
-        playerTurn();
+        enemyGeneration();
+        //playerTurn();
+
+    }
+
+    public void enemyGeneration()
+    {
+        enemyGenerator.Generation();
 
     }
 

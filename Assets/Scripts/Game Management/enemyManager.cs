@@ -6,6 +6,7 @@ public class enemyManager : MonoBehaviour
 {
     [SerializeField] private gameManager gameManager;
     [SerializeField] private playerManager playerManager;
+    
 
     //enemyStats
     private int enemyMaxHealth;
