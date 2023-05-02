@@ -12,7 +12,7 @@ public class gameManager : MonoBehaviour
     private void Start()
     {
         enemyGeneration();
-        //playerTurn();
+        playerTurn();
 
     }
 
