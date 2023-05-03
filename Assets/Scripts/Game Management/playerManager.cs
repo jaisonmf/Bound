@@ -24,6 +24,8 @@ public class playerManager : MonoBehaviour
     [SerializeField] private Slider playerHealthbar;
     public bool selecting = false;
 
+    private bool isCoroutineOn;
+
 
 
   
@@ -94,7 +96,7 @@ public class playerManager : MonoBehaviour
     public void PlayerAttack(int listIndex)
     {
         GameObject enemy = enemyGenerator.spawnedEnemyList[listIndex];
-
+        Debug.Log(enemy);
         playerDamage = Random.Range(playerMinDamage, playerMaxDamage);
         enemy.GetComponent<enemyManager>().enemyCurrentHealth -= playerDamage;
         enemy.GetComponent<enemyManager>().UpdateEnemyHealthBar(enemy.GetComponent<enemyManager>().enemyCurrentHealth, enemy.GetComponent<enemyManager>().enemyMaxHealth);
@@ -105,6 +107,55 @@ public class playerManager : MonoBehaviour
         action2.interactable = true;
         action3.interactable = true;
         action4.interactable = true;
+        StartCoroutine(Delay(0.5f));
+
+        IEnumerator Delay(float time)
+        {
+            if (isCoroutineOn)
+                yield break;
+
+            isCoroutineOn = true;
+            yield return new WaitForSeconds(time);
+
+            if (enemy.GetComponent<enemyManager>().enemyCurrentHealth <= 0)
+            {
+                enemy.GetComponent<enemyManager>().alive = false;
+                
+                if(enemy.GetComponent<enemyManager>().alive == false)
+                {
+                    enemy.GetComponentInChildren<Image>().enabled = false;
+                    //enemy.GetComponentInChildren<Slider>().image.enabled = false;
+                    enemy.GetComponentInChildren<Button>().image.enabled = false;
+                }
+                
+            }
+        }
+
+        isCoroutineOn = false;
+
+
+        bool alive = false;
+        for(int i = 0; i <enemyGenerator.spawnedEnemyList.Count; i++)
+        {
+            if(enemyGenerator.spawnedEnemyList[i].GetComponent<enemyManager>().enemyCurrentHealth > 0)
+            {
+                alive = true;
+            }
+        }
+
+        if(alive == false)
+        {
+            for (int i = 0; i < enemyGenerator.spawnedEnemyList.Count; i++)
+            {
+                if (enemyGenerator.spawnedEnemyList[i].GetComponent<enemyManager>().enemyCurrentHealth < 0)
+                {
+                    //Destroy(enemyGenerator.spawnedEnemyList[i]);
+                }
+            }
+
+
+        }
+
     }
 
 

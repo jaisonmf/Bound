@@ -17,10 +17,11 @@ public class enemyManager : MonoBehaviour
     [HideInInspector] public int enemyMinDamage;
     [HideInInspector] public int enemyMaxDamage;
     private int action;
+    public bool alive;
 
 
     //enemyUI
-    [SerializeField] private Slider enemyHealthBar;
+    public Slider enemyHealthBar;
     private bool isCoroutineOn = false;
     public int enemyCount;
 
@@ -28,6 +29,7 @@ public class enemyManager : MonoBehaviour
 
     public void Start()
     {
+        alive = true;
         gameManager = GameObject.Find("GameManager").GetComponent<gameManager>();
         playerManager = GameObject.Find("playerManager").GetComponent<playerManager>();
     }
@@ -43,8 +45,15 @@ public class enemyManager : MonoBehaviour
 
 
         }
+        if(alive == true)
+        {
+            StartCoroutine(EnemyAction(3));
+        }
+        else
+        {
+            this.gameObject.SetActive(false);
+        }
         
-        StartCoroutine(EnemyAction(3));
 
     }
 
