@@ -10,13 +10,12 @@ public class enemyManager : MonoBehaviour
 
 
     //enemyStats
-    //private int enemyMaxHealth = 100;
-    //private int enemyMinHealth = 100;
-    public int enemyMaxHealth = 100;
-    public int enemyCurrentHealth = 100;
+    public int enemyMinHealth;
+    public int enemyMaxHealth;
+    public int enemyCurrentHealth;
     [SerializeField] private int enemyDamage;
-    private int enemyMinDamage = 20;
-    private int enemyMaxDamage = 20;
+    [HideInInspector] public int enemyMinDamage;
+    [HideInInspector] public int enemyMaxDamage;
     private int action;
 
 
@@ -31,8 +30,6 @@ public class enemyManager : MonoBehaviour
     {
         gameManager = GameObject.Find("GameManager").GetComponent<gameManager>();
         playerManager = GameObject.Find("playerManager").GetComponent<playerManager>();
-        enemyCurrentHealth = enemyMaxHealth;
-        UpdateEnemyHealthBar(enemyCurrentHealth, enemyMaxHealth);
     }
 
     public void EnemyTurn()
@@ -62,8 +59,8 @@ public class enemyManager : MonoBehaviour
 
         yield return new WaitForSeconds(time);
 
-        action = Random.Range(1, 3);
-        
+        //action = Random.Range(1, 3);
+        action = 1;
         if (action == 1)
         {
             

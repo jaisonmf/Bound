@@ -14,9 +14,13 @@ public class enemyGenerator : MonoBehaviour
     [SerializeField] private int MinSpawn;
 
 
-
+    //Enemy Objects
     [SerializeField] private GameObject goblin;
-    [SerializeField] private GameObject enemyTwo;
+    [SerializeField] private GameObject knight;
+
+    //Enemy Scripts
+    [SerializeField] private Goblin goblinScript;
+    [SerializeField] private Knight knightScript;
 
     private GameObject spawnedEnemy;
     private GameObject enemyType;
@@ -26,14 +30,17 @@ public class enemyGenerator : MonoBehaviour
     public List<GameObject> spawnedEnemyList = new List<GameObject>();
     public List<GameObject> Type = new List<GameObject>();
 
+
     private void Start()
     {
         Type[0] = goblin;
-        Type[1] = enemyTwo;
+        Type[1] = knight;
 
+        goblinScript.goblinStat();
+        knightScript.knightStat();
 
         goblin.SetActive(true);
-        enemyTwo.SetActive(true);
+        knight.SetActive(true);
         
     }
 
@@ -48,11 +55,17 @@ public class enemyGenerator : MonoBehaviour
                 spawnedEnemy = Instantiate(enemyType, new Vector2((Screen.width / (amount + 1)) * (i + 1), -15), Quaternion.identity);
                 spawnedEnemy.transform.SetParent(parent.transform, false);
                 spawnedEnemyList.Add(spawnedEnemy);
-
+                StatGeneration();
                 spawnedEnemy.GetComponent<enemyManager>().enemyCount = i;
                 
             }
         }
+    }
+
+    public void StatGeneration()
+    {
+        spawnedEnemy.GetComponent<enemyManager>().enemyMaxHealth = Random.Range(spawnedEnemy.GetComponent<enemyManager>().enemyMinHealth, spawnedEnemy.GetComponent<enemyManager>().enemyMaxHealth);
+        spawnedEnemy.GetComponent<enemyManager>().enemyCurrentHealth = spawnedEnemy.GetComponent<enemyManager>().enemyMaxHealth;
     }
 
 }

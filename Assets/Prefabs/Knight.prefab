@@ -201,8 +201,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1829580465027066023}
         m_TargetAssemblyTypeName: enemySelection, Assembly-CSharp
-        m_MethodName: Action
-        m_Mode: 1
+        m_MethodName: Select
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -225,6 +225,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerManager: {fileID: 0}
   selectButton: {fileID: 1134567667773191955}
+  selectArrow: {fileID: 0}
+  enemy: {fileID: 0}
 --- !u!1 &3584743100307166102
 GameObject:
   m_ObjectHideFlags: 0
@@ -479,7 +481,7 @@ GameObject:
   - component: {fileID: 158769618793387343}
   - component: {fileID: 8138993678892320006}
   m_Layer: 5
-  m_Name: enemyTwo
+  m_Name: Knight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -522,7 +524,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   playerManager: {fileID: 0}
-  enemyHealth: 100
+  enemyMaxHealth: 100
   enemyCurrentHealth: 0
   enemyDamage: 0
   enemyHealthBar: {fileID: 3470621306515052140}

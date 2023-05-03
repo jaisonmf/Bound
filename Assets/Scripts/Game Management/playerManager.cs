@@ -94,7 +94,7 @@ public class playerManager : MonoBehaviour
     public void PlayerAttack(int listIndex)
     {
         GameObject enemy = enemyGenerator.spawnedEnemyList[listIndex];
-        Debug.Log(enemy.GetComponent<enemyManager>().enemyCount);
+
         playerDamage = Random.Range(playerMinDamage, playerMaxDamage);
         enemy.GetComponent<enemyManager>().enemyCurrentHealth -= playerDamage;
         enemy.GetComponent<enemyManager>().UpdateEnemyHealthBar(enemy.GetComponent<enemyManager>().enemyCurrentHealth, enemy.GetComponent<enemyManager>().enemyMaxHealth);
