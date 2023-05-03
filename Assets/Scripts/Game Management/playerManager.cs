@@ -25,8 +25,17 @@ public class playerManager : MonoBehaviour
     public bool selecting = false;
 
     private bool isCoroutineOn;
+    [SerializeField] private GameObject UI;
 
+    public void Map()
+    {
+        action1.interactable = false;
+        action2.interactable = false;
+        action3.interactable = false;
+        action4.interactable = false;
+        UI.SetActive(false);
 
+    }
 
   
     private void Start()
