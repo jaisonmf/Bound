@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Knight : MonoBehaviour
 {
-    [SerializeField]private enemyManager enemyManager;
+    [SerializeField] private enemyManager enemyManager;
     [SerializeField] private CSVReader cSVReader;
     [SerializeField] private playerManager playerManager;
 
@@ -17,6 +17,7 @@ public class Knight : MonoBehaviour
 
         enemy.GetComponent<enemyManager>().enemyMaxDamage = cSVReader.myEnemyList.enemy[1].maxDamage;
         enemy.GetComponent<enemyManager>().enemyMinDamage = cSVReader.myEnemyList.enemy[1].minDamage;
+
     }
 
 

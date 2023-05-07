@@ -160,6 +160,7 @@ public class playerManager : MonoBehaviour
                 if (enemyGenerator.spawnedEnemyList[i].GetComponent<enemyManager>().enemyCurrentHealth < 0)
                 {
                     //Destroy(enemyGenerator.spawnedEnemyList[i]);
+                    SceneManager.LoadScene("Win");
                     
                 }
             }

@@ -7,7 +7,6 @@ using UnityEngine;
 public class enemyGenerator : MonoBehaviour
 {
     [SerializeField] private gameManager gameManager;
-    private playerManager playerManager;
 
 
     private int amount;
