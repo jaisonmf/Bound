@@ -28,6 +28,8 @@ public class playerManager : MonoBehaviour
     private bool isCoroutineOn;
     [SerializeField] private GameObject UI;
 
+
+    /*
     public void Map()
     {
         action1.interactable = false;
@@ -37,15 +39,16 @@ public class playerManager : MonoBehaviour
         UI.SetActive(false);
 
     }
-
+    */
   
     private void Start()
     {
+        /*
         action1.interactable = false;
         action2.interactable = false;
         action3.interactable = false;
         action4.interactable = false;
-
+        */
         playerHealth = playerMaxHealth;
         UpdateHealthBar(playerHealth, playerMaxHealth);
 
@@ -84,7 +87,7 @@ public class playerManager : MonoBehaviour
 
         if(Button == 2)
         {
-
+            gameManager.enemyGeneration();
         }
 
         if(Button == 3)
@@ -106,7 +109,7 @@ public class playerManager : MonoBehaviour
     public void PlayerAttack(int listIndex)
     {
         GameObject enemy = enemyGenerator.spawnedEnemyList[listIndex];
-        Debug.Log(enemy);
+       
         playerDamage = Random.Range(playerMinDamage, playerMaxDamage);
         enemy.GetComponent<enemyManager>().enemyCurrentHealth -= playerDamage;
         enemy.GetComponent<enemyManager>().UpdateEnemyHealthBar(enemy.GetComponent<enemyManager>().enemyCurrentHealth, enemy.GetComponent<enemyManager>().enemyMaxHealth);

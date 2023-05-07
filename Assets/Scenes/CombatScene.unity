@@ -299,6 +299,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 356113564}
     - target: {fileID: 6820964557853440674, guid: c724d240baad9574daae2a807ba2b51d, type: 3}
+      propertyPath: MinSpawn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6820964557853440674, guid: c724d240baad9574daae2a807ba2b51d, type: 3}
       propertyPath: enemyTwo
       value: 
       objectReference: {fileID: 1892037154}
@@ -309,11 +313,11 @@ PrefabInstance:
     - target: {fileID: 6820964557853440674, guid: c724d240baad9574daae2a807ba2b51d, type: 3}
       propertyPath: goblinScript
       value: 
-      objectReference: {fileID: 651582215}
+      objectReference: {fileID: 651582219}
     - target: {fileID: 6820964557853440674, guid: c724d240baad9574daae2a807ba2b51d, type: 3}
       propertyPath: knightScript
       value: 
-      objectReference: {fileID: 1892037155}
+      objectReference: {fileID: 1892037156}
     - target: {fileID: 6820964557853440675, guid: c724d240baad9574daae2a807ba2b51d, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -969,6 +973,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1850138387024882731, guid: 476cc1880845458438b0886922c1b329, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 227898484}
+    - target: {fileID: 1850138387024882731, guid: 476cc1880845458438b0886922c1b329, type: 3}
+      propertyPath: playerManager
+      value: 
+      objectReference: {fileID: 1683774407}
+    - target: {fileID: 1850138387024882731, guid: 476cc1880845458438b0886922c1b329, type: 3}
       propertyPath: enemyMaxHealth
       value: 0
       objectReference: {fileID: 0}
@@ -984,19 +996,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Goblin
       objectReference: {fileID: 0}
+    - target: {fileID: 8124828832793792006, guid: 476cc1880845458438b0886922c1b329, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 476cc1880845458438b0886922c1b329, type: 3}
---- !u!114 &651582215 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 818172425, guid: 476cc1880845458438b0886922c1b329, type: 3}
-  m_PrefabInstance: {fileID: 651582214}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 651582217}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a3a27b2593adb84fa406caca57c7555, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &651582216 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1850138387024882731, guid: 476cc1880845458438b0886922c1b329, type: 3}
@@ -1018,6 +1023,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 158769618793387343, guid: 476cc1880845458438b0886922c1b329, type: 3}
   m_PrefabInstance: {fileID: 651582214}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &651582219 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 818172425, guid: 476cc1880845458438b0886922c1b329, type: 3}
+  m_PrefabInstance: {fileID: 651582214}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 651582217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3a27b2593adb84fa406caca57c7555, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &891940246
 GameObject:
   m_ObjectHideFlags: 0
@@ -2522,6 +2538,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Knight
       objectReference: {fileID: 0}
+    - target: {fileID: 8124828832793792006, guid: 8c70edacfa429a04a812c7c5d769e906, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8138993678892320006, guid: 8c70edacfa429a04a812c7c5d769e906, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 227898484}
+    - target: {fileID: 8138993678892320006, guid: 8c70edacfa429a04a812c7c5d769e906, type: 3}
+      propertyPath: playerManager
+      value: 
+      objectReference: {fileID: 1683774407}
     - target: {fileID: 8138993678892320006, guid: 8c70edacfa429a04a812c7c5d769e906, type: 3}
       propertyPath: enemyMaxHealth
       value: 0
@@ -2546,7 +2574,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8124828832793792006, guid: 8c70edacfa429a04a812c7c5d769e906, type: 3}
   m_PrefabInstance: {fileID: 1892037152}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1892037155 stripped
+--- !u!114 &1892037156 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 456606838, guid: 8c70edacfa429a04a812c7c5d769e906, type: 3}
   m_PrefabInstance: {fileID: 1892037152}

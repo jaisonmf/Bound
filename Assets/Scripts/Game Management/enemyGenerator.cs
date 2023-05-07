@@ -36,17 +36,24 @@ public class enemyGenerator : MonoBehaviour
         Type[0] = goblin;
         Type[1] = knight;
 
-        goblinScript.goblinStat();
-        knightScript.knightStat();
+        
 
         goblin.SetActive(true);
         knight.SetActive(true);
-        
+
+       
     }
 
     public void Generation()
     {
+        goblinScript.goblinStat();
+        knightScript.knightStat();
+
+
         amount = Random.Range(MinSpawn, MaxSpawn);
+        Debug.Log(amount);
+        
+      
 
         for (int i = 0; i < amount; i++)
         {
@@ -64,6 +71,7 @@ public class enemyGenerator : MonoBehaviour
 
     public void StatGeneration()
     {
+
         spawnedEnemy.GetComponent<enemyManager>().enemyMaxHealth = Random.Range(spawnedEnemy.GetComponent<enemyManager>().enemyMinHealth, spawnedEnemy.GetComponent<enemyManager>().enemyMaxHealth);
         spawnedEnemy.GetComponent<enemyManager>().enemyCurrentHealth = spawnedEnemy.GetComponent<enemyManager>().enemyMaxHealth;
     }
