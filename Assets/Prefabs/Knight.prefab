@@ -525,12 +525,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   playerManager: {fileID: 0}
-  enemyMinHealth: 0
-  enemyMaxHealth: 100
+  enemyMinHealth: 15
+  enemyMaxHealth: 30
   enemyCurrentHealth: 0
   enemyDamage: 0
-  enemyMinDamage: 0
-  enemyMaxDamage: 0
+  enemyMinDamage: 2
+  enemyMaxDamage: 10
   alive: 0
   enemyHealthBar: {fileID: 3470621306515052140}
   enemyCount: 0

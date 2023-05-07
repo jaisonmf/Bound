@@ -11,11 +11,12 @@ public class Goblin : MonoBehaviour
     [SerializeField] private GameObject enemy;
 
 
+  
 
-    
     public void goblinStat()
     {
-        
+        cSVReader = GameObject.Find("enemyCSV").GetComponent<CSVReader>();
+
         enemy.GetComponent<enemyManager>().enemyMaxHealth = cSVReader.myEnemyList.enemy[0].maxHealth;
         enemy.GetComponent<enemyManager>().enemyMinHealth = cSVReader.myEnemyList.enemy[0].minHealth;
 

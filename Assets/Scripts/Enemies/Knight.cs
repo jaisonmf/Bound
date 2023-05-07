@@ -10,8 +10,11 @@ public class Knight : MonoBehaviour
 
     [SerializeField] private GameObject enemy;
 
+
     public void knightStat()
     {
+        cSVReader = GameObject.Find("enemyCSV").GetComponent<CSVReader>();
+
         enemy.GetComponent<enemyManager>().enemyMaxHealth = cSVReader.myEnemyList.enemy[1].maxHealth;
         enemy.GetComponent<enemyManager>().enemyMinHealth = cSVReader.myEnemyList.enemy[1].minHealth;
 
