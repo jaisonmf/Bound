@@ -14,8 +14,8 @@ public class playerManager : MonoBehaviour
     public int playerMaxHealth = 100;
     public int playerHealth;
     [SerializeField] private int playerDamage;
-    private int playerMinDamage = 5;
-    private int playerMaxDamage = 10;
+    [SerializeField] private int playerMinDamage = 5;
+    [SerializeField] private int playerMaxDamage = 10;
 
     //UI
     [SerializeField] private Button action1;
@@ -67,6 +67,10 @@ public class playerManager : MonoBehaviour
             action3.interactable = true;
             action4.interactable = true;
         }
+        else
+        {
+            //Lose nerd
+        }
 
 
         
@@ -109,7 +113,7 @@ public class playerManager : MonoBehaviour
     public void PlayerAttack(int listIndex)
     {
         GameObject enemy = enemyGenerator.spawnedEnemyList[listIndex];
-       
+        bool alive = false;
         playerDamage = Random.Range(playerMinDamage, playerMaxDamage);
         enemy.GetComponent<enemyManager>().enemyCurrentHealth -= playerDamage;
         enemy.GetComponent<enemyManager>().UpdateEnemyHealthBar(enemy.GetComponent<enemyManager>().enemyCurrentHealth, enemy.GetComponent<enemyManager>().enemyMaxHealth);
@@ -122,6 +126,7 @@ public class playerManager : MonoBehaviour
         action4.interactable = true;
         StartCoroutine(Delay(0.5f));
 
+        
         IEnumerator Delay(float time)
         {
             if (isCoroutineOn)
@@ -130,7 +135,7 @@ public class playerManager : MonoBehaviour
             isCoroutineOn = true;
             yield return new WaitForSeconds(time);
 
-            if (enemy.GetComponent<enemyManager>().enemyCurrentHealth <= 0)
+            if (enemy.GetComponent<enemyManager>().enemyCurrentHealth <= 0 && enemy == alive)
             {
                 enemy.GetComponent<enemyManager>().alive = false;
                 
@@ -147,7 +152,7 @@ public class playerManager : MonoBehaviour
         isCoroutineOn = false;
 
 
-        bool alive = false;
+        
         for(int i = 0; i <enemyGenerator.spawnedEnemyList.Count; i++)
         {
             if(enemyGenerator.spawnedEnemyList[i].GetComponent<enemyManager>().enemyCurrentHealth > 0)
@@ -162,9 +167,14 @@ public class playerManager : MonoBehaviour
             {
                 if (enemyGenerator.spawnedEnemyList[i].GetComponent<enemyManager>().enemyCurrentHealth < 0)
                 {
-                    //Destroy(enemyGenerator.spawnedEnemyList[i]);
+                    Destroy(enemyGenerator.spawnedEnemyList[i]);
+                    enemyGenerator.spawnedEnemyList.Clear();
                     SceneManager.LoadScene("Win");
-                    
+                    action1.interactable = false;
+                    action2.interactable = false;
+                    action3.interactable = false;
+                    action4.interactable = false;
+
                 }
             }
 
