@@ -74,28 +74,7 @@ public class MapEvent : MonoBehaviour
 
                 for (int l = 0; l < location[currentRow].Count; l++)
                 {
-                    if (location[otherRow].Count - otherListIndex * 2 <= location[currentRow].Count - currentListIndex && iteratingTheCurrent && otherListIndex != 0)
-                    {
-                        location[i][currentListIndex].GetComponent<MapNode>().previousnodes.Add(location[i - 1][otherListIndex - 1]);
-                        location[i - 1][otherListIndex - 1].GetComponent<MapNode>().futurenodes.Add(location[i][currentListIndex]);
-                        currentListIndex++;
-                        if (location[i - 1][otherListIndex].GetComponent<MapNode>().futurenodes.Count == 2)
-                        {
-                            otherListIndex++;
-                        }
-                    }
-                    else if (location[otherRow].Count - otherListIndex * 2 < location[currentRow].Count - currentListIndex && iteratingTheCurrent == false && otherListIndex != 0)
-                    {
-                        location[i - 1][currentListIndex].GetComponent<MapNode>().futurenodes.Add(location[i][otherListIndex - 1]);
-                        location[i][otherListIndex - 1].GetComponent<MapNode>().previousnodes.Add(location[i - 1][currentListIndex]);
-                        currentListIndex++;
-                        if (location[i - 1][otherListIndex].GetComponent<MapNode>().previousnodes.Count == 2)
-                        {
-                            otherListIndex++;
-                        }
-                    }
-
-                    else if (location[otherRow].Count - otherListIndex == location[currentRow].Count - currentListIndex)
+                    if (location[otherRow].Count - otherListIndex == location[currentRow].Count - currentListIndex)
                     {
                         Debug.Log("equal");
                         if (iteratingTheCurrent)
@@ -114,29 +93,55 @@ public class MapEvent : MonoBehaviour
                         }
 
                     }
+                    
+                    else if (location[otherRow].Count - otherListIndex * 2 < location[currentRow].Count - currentListIndex && iteratingTheCurrent == false && otherListIndex != 0 && location[i - 1][otherListIndex - 1].GetComponent<MapNode>().maxPreviousConnections == false)
+                    {
+                        location[i - 1][currentListIndex].GetComponent<MapNode>().futurenodes.Add(location[i][otherListIndex - 1]);
+                        location[i][otherListIndex - 1].GetComponent<MapNode>().previousnodes.Add(location[i - 1][currentListIndex]);
+                        currentListIndex++;
+                        if (location[i - 1][otherListIndex - 1].GetComponent<MapNode>().previousnodes.Count == 2)
+                        {
+                            Debug.Log("run");
+                            location[i - 1][otherListIndex - 1].GetComponent<MapNode>().maxPreviousConnections = true;
+                        }
+                    }
+
+                    else if (location[otherRow].Count - otherListIndex * 2 < location[currentRow].Count - currentListIndex && iteratingTheCurrent && otherListIndex != 0 && location[i - 1][otherListIndex - 1].GetComponent<MapNode>().maxFutureConnections == false)
+                    {
+                        location[i][currentListIndex].GetComponent<MapNode>().previousnodes.Add(location[i - 1][otherListIndex - 1]);
+                        location[i - 1][otherListIndex - 1].GetComponent<MapNode>().futurenodes.Add(location[i][currentListIndex]);
+                        currentListIndex++;
+                        if (location[i - 1][otherListIndex - 1].GetComponent<MapNode>().futurenodes.Count == 2)
+                        {
+                            Debug.Log("run");
+                            location[i - 1][otherListIndex - 1].GetComponent<MapNode>().maxFutureConnections = true;
+                        }
+                    }
                     else
                     {
                         Debug.Log("choice");
 
 
-                        if (Random.Range(0, location[i].Count - currentListIndex) == 0 && otherListIndex != 0 && iteratingTheCurrent)
+                        if (Random.Range(0, location[i].Count - currentListIndex) == 0 && otherListIndex != 0 && iteratingTheCurrent && location[i - 1][otherListIndex - 1].GetComponent<MapNode>().maxFutureConnections == false)
                         {
                             location[i][currentListIndex].GetComponent<MapNode>().previousnodes.Add(location[i - 1][otherListIndex - 1]);
                             location[i - 1][otherListIndex - 1].GetComponent<MapNode>().futurenodes.Add(location[i][currentListIndex]);
                             currentListIndex++;
-                            if (location[i - 1][otherListIndex].GetComponent<MapNode>().futurenodes.Count == 2)
+                            if (location[i - 1][otherListIndex - 1].GetComponent<MapNode>().futurenodes.Count == 2)
                             {
-                                otherListIndex++;
+                                Debug.Log("run");
+                                location[i - 1][otherListIndex - 1].GetComponent<MapNode>().maxFutureConnections = true;
                             }
                         }
-                        else if (Random.Range(0, location[i].Count - currentListIndex) == 0 && otherListIndex != 0 && iteratingTheCurrent)
+                        else if (Random.Range(0, location[i].Count - currentListIndex) == 0 && otherListIndex != 0 && iteratingTheCurrent && location[i - 1][otherListIndex - 1].GetComponent<MapNode>().maxPreviousConnections == false)
                         {
                             location[i - 1][currentListIndex].GetComponent<MapNode>().futurenodes.Add(location[i][otherListIndex - 1]);
                             location[i][otherListIndex - 1].GetComponent<MapNode>().previousnodes.Add(location[i - 1][currentListIndex]);
                             currentListIndex++;
-                            if (location[i - 1][otherListIndex].GetComponent<MapNode>().previousnodes.Count == 2)
+                            if (location[i - 1][otherListIndex - 1].GetComponent<MapNode>().previousnodes.Count == 2)
                             {
-                                otherListIndex++;
+                                Debug.Log("run");
+                                location[i - 1][otherListIndex - 1].GetComponent<MapNode>().maxPreviousConnections = true;
                             }
                         }
                     
