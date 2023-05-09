@@ -51,7 +51,6 @@ public class enemyGenerator : MonoBehaviour
 
 
         amount = Random.Range(MinSpawn, MaxSpawn);
-        Debug.Log(amount);
         
       
 

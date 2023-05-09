@@ -54,6 +54,7 @@ public class playerManager : MonoBehaviour
     public void PlayerTurn()
     {
         playerStats = GameObject.Find("playerStats").GetComponent<playerStats>();
+       // UpdateHealthBar(playerStats.playerHealth, playerStats.playerMaxHealth);
         if (playerStats.playerHealth > playerStats.playerMaxHealth)
         {
             playerStats.playerHealth = playerStats.playerMaxHealth;
