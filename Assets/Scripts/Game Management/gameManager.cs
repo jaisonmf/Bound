@@ -12,7 +12,7 @@ public class gameManager : MonoBehaviour
     private void Start()
     {
         playerManager = GameObject.Find("playerManager").GetComponent<playerManager>();
-        //enemyGeneration();
+        
         playerTurn();
 
     }

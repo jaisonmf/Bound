@@ -9,6 +9,13 @@ public class MapNode : MonoBehaviour
     public List<GameObject> previousnodes = new List<GameObject>();
     public bool maxFutureConnections;
     public bool maxPreviousConnections;
+    public GameObject arrow;
+
+    public void Start()
+    {
+
+    }
+
 
 
     public void ButtonInteract(int Number)
@@ -27,4 +34,5 @@ public class MapNode : MonoBehaviour
             SceneManager.LoadScene("UpgradeScene");
         }
     }
+
 }

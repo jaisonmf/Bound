@@ -30,6 +30,7 @@ public class enemyManager : MonoBehaviour
 
     public void Start()
     {
+        //Find all scripts
         alive = true;
         gameManager = GameObject.Find("GameManager").GetComponent<gameManager>();
         playerStats = GameObject.Find("playerStats").GetComponent<playerStats>();
@@ -38,8 +39,10 @@ public class enemyManager : MonoBehaviour
 
     public void EnemyTurn()
     {
+        //Check if enemy health is more than 0
         if (enemyCurrentHealth > 0)
         {
+            //Makes sure health is not higher than max health
             if (enemyCurrentHealth > enemyMaxHealth)
             {
                 enemyCurrentHealth = enemyMaxHealth;
@@ -59,7 +62,7 @@ public class enemyManager : MonoBehaviour
 
     }
 
-
+    //Enemy turn, delay is there so it doesnt happen immediately
     IEnumerator EnemyAction(float time)
     {
  

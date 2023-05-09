@@ -30,7 +30,7 @@ public class enemyGenerator : MonoBehaviour
     public List<GameObject> spawnedEnemyList = new List<GameObject>();
     public List<GameObject> Type = new List<GameObject>();
 
-
+    
     private void Start()
     {
         Type[0] = goblin;
@@ -53,9 +53,10 @@ public class enemyGenerator : MonoBehaviour
         amount = Random.Range(MinSpawn, MaxSpawn);
         
       
-
+        //Randomises how many enemies spawn
         for (int i = 0; i < amount; i++)
         {
+            //Randomises which enemy from the list spawn
             enemyType = Type[Random.Range(0, Type.Count)];
             {
                 spawnedEnemy = Instantiate(enemyType, new Vector2((Screen.width / (amount + 1)) * (i + 1), -15), Quaternion.identity);
@@ -68,6 +69,7 @@ public class enemyGenerator : MonoBehaviour
         }
     }
 
+    //Grabs stats from individual enemy csv
     public void StatGeneration()
     {
 

@@ -40,6 +40,7 @@ public class MapEvent : MonoBehaviour
 
     public void ButtonSpawn()
     {
+        //Generates how many buttons are in a row
         for (int i = 0; i < rows; i++)
         {
             List<GameObject> innerList = new List<GameObject>();
@@ -47,6 +48,7 @@ public class MapEvent : MonoBehaviour
             int tempListLength = Random.Range(2, 5);
             for (int j = 0; j < tempListLength; j++)
             {
+                //Generates what button spawns
                 
                 var tempSpawn = Instantiate(events[Random.Range(0, events.Count)]);
                 location[i].Add(tempSpawn);
@@ -57,6 +59,7 @@ public class MapEvent : MonoBehaviour
 
             if (i != 0)
             {
+                //Current Row is smaller than future row
                 int currentRow;
                 int otherRow;
                 bool iteratingTheCurrent;
@@ -69,6 +72,7 @@ public class MapEvent : MonoBehaviour
                 }
                 else
                 {
+                //Current row is larger than future row
 
                     otherRow = i - 1;
                     currentRow = i;
@@ -83,6 +87,7 @@ public class MapEvent : MonoBehaviour
                 {
                     if (location[otherRow].Count - otherListIndex == location[currentRow].Count - currentListIndex)
                     {
+                        //Current row is equal to future row
  
                         if (iteratingTheCurrent)
                         {
@@ -92,6 +97,7 @@ public class MapEvent : MonoBehaviour
                             otherListIndex++;
                         }
                         else
+                        
                         {
                             location[i - 1][currentListIndex].GetComponent<MapNode>().futurenodes.Add(location[i][otherListIndex]);
                             location[i][otherListIndex].GetComponent<MapNode>().previousnodes.Add(location[i - 1][currentListIndex]);
@@ -126,6 +132,7 @@ public class MapEvent : MonoBehaviour
                     }
                     else
                     {
+                        //Current row has a choice to what they connect to
                         
                         int tempRand = Random.Range(0, location[i].Count - currentListIndex);
 
@@ -180,25 +187,19 @@ public class MapEvent : MonoBehaviour
             }
 
         }
-        LineRenderer
-        lineRenderer = GameObject.Find("LineRenderer").GetComponent<LineRenderer>();
-        lineRenderer.positionCount = 2;
-        
-        int linecounter = 0;
+
+
+        //Arrow spawn
         for (int i = 0; i < location.Count; i++)
         {
             for(int l = 0; l < location[i].Count; l++)
             {
                 for (int j = 0; j < location[i][l].GetComponent<MapNode>().futurenodes.Count; j++)
                 {
-                    
-                    lineRenderer.SetPosition(linecounter, location[i][l].transform.position); 
-                    lineRenderer.SetPosition(linecounter+1, location[i][l].GetComponent<MapNode>().futurenodes[j].transform.position);
-                    lineRenderer.positionCount += 2;
-                    linecounter += 2;
-
-                    Vector3 spawnposition = lineRenderer.transform.position;
+                   Vector3 spawnposition = location[i][l].GetComponent<MapNode>().futurenodes[j].transform.position;
+                   
                     GameObject instantiatedObject = Instantiate(Arrow, spawnposition, Quaternion.identity);
+                    instantiatedObject.transform.position = (location[i][l].transform.position);
                     instantiatedObject.transform.SetParent(parent.transform, false);
                     
                 }

@@ -54,7 +54,7 @@ public class playerManager : MonoBehaviour
     public void PlayerTurn()
     {
         playerStats = GameObject.Find("playerStats").GetComponent<playerStats>();
-       // UpdateHealthBar(playerStats.playerHealth, playerStats.playerMaxHealth);
+     
         if (playerStats.playerHealth > playerStats.playerMaxHealth)
         {
             playerStats.playerHealth = playerStats.playerMaxHealth;
@@ -112,6 +112,7 @@ public class playerManager : MonoBehaviour
 
     public void PlayerAttack(int listIndex)
     {
+        //Player attacks individual enemy so it doesnt hit all
         GameObject enemy = enemyGenerator.spawnedEnemyList[listIndex];
         bool alive = false;
         damage = Random.Range(playerStats.playerMinDamage, playerStats.playerMaxDamage);
@@ -126,7 +127,7 @@ public class playerManager : MonoBehaviour
         action4.interactable = true;
         StartCoroutine(Delay(0.5f));
 
-        
+        //Delay between attack and continue turn
         IEnumerator Delay(float time)
         {
             if (isCoroutineOn)
@@ -152,7 +153,7 @@ public class playerManager : MonoBehaviour
         isCoroutineOn = false;
 
 
-        
+        //If all enemies are considered 'alive', keep going
         for(int i = 0; i <enemyGenerator.spawnedEnemyList.Count; i++)
         {
             if(enemyGenerator.spawnedEnemyList[i].GetComponent<enemyManager>().enemyCurrentHealth > 0)
@@ -160,7 +161,7 @@ public class playerManager : MonoBehaviour
                 alive = true;
             }
         }
-
+        //If all enemies are dead, win the battle
         if(alive == false)
         {
             for (int i = 0; i < enemyGenerator.spawnedEnemyList.Count; i++)
@@ -186,7 +187,7 @@ public class playerManager : MonoBehaviour
 
 
 
-
+    
     public void UpdateHealthBar(float Currentvalue, float maxValue)
     {
         float percentageResult = Currentvalue / maxValue;
