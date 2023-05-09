@@ -22,5 +22,9 @@ public class MapNode : MonoBehaviour
         {
             SceneManager.LoadScene("RestScene");
         }
+        if(Number == 3)
+        {
+            SceneManager.LoadScene("UpgradeScene");
+        }
     }
 }

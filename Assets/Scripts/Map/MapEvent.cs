@@ -11,9 +11,11 @@ public class MapEvent : MonoBehaviour
 
     [SerializeField] private GameObject enemyEncounter;
     [SerializeField] private GameObject rest;
+    [SerializeField] private GameObject upgrade;
     [SerializeField] private GameObject parent;
     [SerializeField] private int rows;
-    [SerializeField] private int connections = 2;
+    [SerializeField] private GameObject Arrow;
+    [SerializeField] private GameObject spawnedArrow;
 
     [SerializeField] private GameObject point1;
     [SerializeField] private GameObject point2;
@@ -28,8 +30,8 @@ public class MapEvent : MonoBehaviour
     {
         events[0] = enemyEncounter;
         events[1] = enemyEncounter;
-        events[2] = enemyEncounter;
-        events[3] = rest;
+        events[2] = rest;
+        events[3] = upgrade;
 
 
         ButtonSpawn();
@@ -181,6 +183,7 @@ public class MapEvent : MonoBehaviour
         LineRenderer
         lineRenderer = GameObject.Find("LineRenderer").GetComponent<LineRenderer>();
         lineRenderer.positionCount = 2;
+        
         int linecounter = 0;
         for (int i = 0; i < location.Count; i++)
         {
@@ -193,6 +196,11 @@ public class MapEvent : MonoBehaviour
                     lineRenderer.SetPosition(linecounter+1, location[i][l].GetComponent<MapNode>().futurenodes[j].transform.position);
                     lineRenderer.positionCount += 2;
                     linecounter += 2;
+
+                    Vector3 spawnposition = lineRenderer.transform.position;
+                    GameObject instantiatedObject = Instantiate(Arrow, spawnposition, Quaternion.identity);
+                    instantiatedObject.transform.SetParent(parent.transform, false);
+                    
                 }
             }
         }

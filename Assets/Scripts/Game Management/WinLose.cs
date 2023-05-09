@@ -31,6 +31,10 @@ public class WinLose : MonoBehaviour
             SceneManager.LoadScene("MainMenu");
 
         }
+        else if (Button == 1)
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
     }
 
 }
