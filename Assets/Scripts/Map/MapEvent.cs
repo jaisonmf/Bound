@@ -15,6 +15,9 @@ public class MapEvent : MonoBehaviour
     [SerializeField] private int rows;
     [SerializeField] private int connections = 2;
 
+    [SerializeField] private GameObject point1;
+    [SerializeField] private GameObject point2;
+
 
     [SerializeField] public List<List<GameObject>> location = new List<List<GameObject>>();
 
@@ -39,15 +42,17 @@ public class MapEvent : MonoBehaviour
         {
             List<GameObject> innerList = new List<GameObject>();
             location.Add(innerList);
-            for (int j = 0; j < Random.Range(2, 5); j++)
+            int tempListLength = Random.Range(2, 5);
+            for (int j = 0; j < tempListLength; j++)
             {
                 
                 var tempSpawn = Instantiate(events[Random.Range(0, events.Count)]);
                 location[i].Add(tempSpawn);
                 tempSpawn.transform.SetParent(parent.transform, false);
-                tempSpawn.transform.position = new Vector3(i * 100, j * -100, 0);
+                tempSpawn.transform.position = new Vector3((point2.transform.position.x - point1.transform.position.x)/ (rows + 1) * (i + 1) - (0 - point1.transform.position.x), Screen.height / (tempListLength + 1) * (j + 1), 0);
+
             }
-            Debug.Log(i);
+
             if (i != 0)
             {
                 int currentRow;
@@ -55,14 +60,14 @@ public class MapEvent : MonoBehaviour
                 bool iteratingTheCurrent;
                 if (location[i].Count < location[i - 1].Count)
                 {
-                    Debug.Log("current is smaller");
+
                     currentRow = i - 1;
                     otherRow = i;
                     iteratingTheCurrent = false;
                 }
                 else
                 {
-                    Debug.Log("current is larger");
+
                     otherRow = i - 1;
                     currentRow = i;
                     iteratingTheCurrent = true;
@@ -76,7 +81,7 @@ public class MapEvent : MonoBehaviour
                 {
                     if (location[otherRow].Count - otherListIndex == location[currentRow].Count - currentListIndex)
                     {
-                        Debug.Log("equal");
+ 
                         if (iteratingTheCurrent)
                         {
                             location[i][currentListIndex].GetComponent<MapNode>().previousnodes.Add(location[i - 1][otherListIndex]);
@@ -101,7 +106,7 @@ public class MapEvent : MonoBehaviour
                         currentListIndex++;
                         if (location[i - 1][otherListIndex - 1].GetComponent<MapNode>().previousnodes.Count == 2)
                         {
-                            Debug.Log("run");
+                            
                             location[i - 1][otherListIndex - 1].GetComponent<MapNode>().maxPreviousConnections = true;
                         }
                     }
@@ -113,34 +118,34 @@ public class MapEvent : MonoBehaviour
                         currentListIndex++;
                         if (location[i - 1][otherListIndex - 1].GetComponent<MapNode>().futurenodes.Count == 2)
                         {
-                            Debug.Log("run");
+                            
                             location[i - 1][otherListIndex - 1].GetComponent<MapNode>().maxFutureConnections = true;
                         }
                     }
                     else
                     {
-                        Debug.Log("choice");
+                        
+                        int tempRand = Random.Range(0, location[i].Count - currentListIndex);
 
-
-                        if (Random.Range(0, location[i].Count - currentListIndex) == 0 && otherListIndex != 0 && iteratingTheCurrent && location[i - 1][otherListIndex - 1].GetComponent<MapNode>().maxFutureConnections == false)
+                        if (tempRand == 0 && otherListIndex != 0 && iteratingTheCurrent && location[i - 1][otherListIndex - 1].GetComponent<MapNode>().maxFutureConnections == false)
                         {
                             location[i][currentListIndex].GetComponent<MapNode>().previousnodes.Add(location[i - 1][otherListIndex - 1]);
                             location[i - 1][otherListIndex - 1].GetComponent<MapNode>().futurenodes.Add(location[i][currentListIndex]);
                             currentListIndex++;
                             if (location[i - 1][otherListIndex - 1].GetComponent<MapNode>().futurenodes.Count == 2)
                             {
-                                Debug.Log("run");
+                                
                                 location[i - 1][otherListIndex - 1].GetComponent<MapNode>().maxFutureConnections = true;
                             }
                         }
-                        else if (Random.Range(0, location[i].Count - currentListIndex) == 0 && otherListIndex != 0 && iteratingTheCurrent && location[i - 1][otherListIndex - 1].GetComponent<MapNode>().maxPreviousConnections == false)
+                        else if (tempRand == 0 && otherListIndex != 0 && iteratingTheCurrent == false && location[i - 1][otherListIndex - 1].GetComponent<MapNode>().maxPreviousConnections == false)
                         {
                             location[i - 1][currentListIndex].GetComponent<MapNode>().futurenodes.Add(location[i][otherListIndex - 1]);
                             location[i][otherListIndex - 1].GetComponent<MapNode>().previousnodes.Add(location[i - 1][currentListIndex]);
                             currentListIndex++;
                             if (location[i - 1][otherListIndex - 1].GetComponent<MapNode>().previousnodes.Count == 2)
                             {
-                                Debug.Log("run");
+                                
                                 location[i - 1][otherListIndex - 1].GetComponent<MapNode>().maxPreviousConnections = true;
                             }
                         }
@@ -173,19 +178,21 @@ public class MapEvent : MonoBehaviour
             }
 
         }
-
+        LineRenderer
+        lineRenderer = GameObject.Find("LineRenderer").GetComponent<LineRenderer>();
+        lineRenderer.positionCount = 2;
+        int linecounter = 0;
         for (int i = 0; i < location.Count; i++)
         {
             for(int l = 0; l < location[i].Count; l++)
             {
                 for (int j = 0; j < location[i][l].GetComponent<MapNode>().futurenodes.Count; j++)
                 {
-                    LineRenderer
-
-
-                    lineRenderer = GetComponent<LineRenderer>();
-                    lineRenderer.SetPosition(0, location[i][l].transform.position); 
-                    lineRenderer.SetPosition(1, location[i][l].GetComponent<MapNode>().futurenodes[j].transform.position);
+                    
+                    lineRenderer.SetPosition(linecounter, location[i][l].transform.position); 
+                    lineRenderer.SetPosition(linecounter+1, location[i][l].GetComponent<MapNode>().futurenodes[j].transform.position);
+                    lineRenderer.positionCount += 2;
+                    linecounter += 2;
                 }
             }
         }

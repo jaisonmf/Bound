@@ -121,7 +121,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2101188842510586061}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5090063746813615123}
+        m_TargetAssemblyTypeName: MapNode, Assembly-CSharp
+        m_MethodName: ButtonInteract
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &5090063746813615123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,3 +148,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   futurenodes: []
   previousnodes: []
+  maxFutureConnections: 0
+  maxPreviousConnections: 0

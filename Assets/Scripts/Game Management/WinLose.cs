@@ -5,30 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class WinLose : MonoBehaviour
 {
-    [SerializeField] enemyGenerator enemyGenerator;
-
-
-
-    private void Start()
-    {
-        enemyGenerator = GameObject.Find("enemyGenerator").GetComponent<enemyGenerator>();
-    }
-
+    
 
     //Win
     public void Win(int Button)
     {
         if(Button == 0)
         {
-            for(int i = 0; i < enemyGenerator.spawnedEnemyList.Count; i++)
-            {
-                Destroy(enemyGenerator.spawnedEnemyList[i]);
-            }
-
-
-            enemyGenerator.spawnedEnemyList.Clear();
             SceneManager.LoadScene("MapScene");
 
+        }
+        else if (Button == 1)
+        {
+            SceneManager.LoadScene("MainMenu");
         }
     }
 
@@ -37,7 +26,11 @@ public class WinLose : MonoBehaviour
     //Lose
     public void Lose(int Button)
     {
+        if (Button == 0)
+        {
+            SceneManager.LoadScene("MainMenu");
 
+        }
     }
 
 }

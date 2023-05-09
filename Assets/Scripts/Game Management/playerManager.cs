@@ -9,13 +9,8 @@ public class playerManager : MonoBehaviour
     [SerializeField] private gameManager gameManager;
     [SerializeField] private enemyManager enemyManager;
     [SerializeField] private enemyGenerator enemyGenerator;
+    [SerializeField] private playerStats playerStats;
 
-    //playerStats
-    public int playerMaxHealth = 100;
-    public int playerHealth;
-    [SerializeField] private int playerDamage;
-    [SerializeField] private int playerMinDamage = 5;
-    [SerializeField] private int playerMaxDamage = 10;
 
     //UI
     [SerializeField] private Button action1;
@@ -23,8 +18,9 @@ public class playerManager : MonoBehaviour
     [SerializeField] private Button action3;
     [SerializeField] private Button action4;
     [SerializeField] private Slider playerHealthbar;
+    
     public bool selecting = false;
-
+    private int damage;
     private bool isCoroutineOn;
     [SerializeField] private GameObject UI;
 
@@ -43,24 +39,27 @@ public class playerManager : MonoBehaviour
   
     private void Start()
     {
+        playerStats = GameObject.Find("playerStats").GetComponent<playerStats>();
         /*
         action1.interactable = false;
         action2.interactable = false;
         action3.interactable = false;
         action4.interactable = false;
         */
-        playerHealth = playerMaxHealth;
-        UpdateHealthBar(playerHealth, playerMaxHealth);
+        playerStats.playerHealth = playerStats.playerMaxHealth;
+        UpdateHealthBar(playerStats.playerHealth, playerStats.playerMaxHealth);
+
 
     }
     public void PlayerTurn()
     {
-        if(playerHealth > playerMaxHealth)
+        playerStats = GameObject.Find("playerStats").GetComponent<playerStats>();
+        if (playerStats.playerHealth > playerStats.playerMaxHealth)
         {
-            playerHealth = playerMaxHealth;
+            playerStats.playerHealth = playerStats.playerMaxHealth;
         }
 
-        if(playerHealth > 0)
+        if(playerStats.playerHealth > 0)
         {
             action1.interactable = true;
             action2.interactable = true;
@@ -96,8 +95,8 @@ public class playerManager : MonoBehaviour
 
         if(Button == 3)
         {
-            playerHealth -= 10;
-            UpdateHealthBar(playerHealth, playerMaxHealth);
+            playerStats.playerHealth -= 10;
+            UpdateHealthBar(playerStats.playerHealth, playerStats.playerMaxHealth);
         }
 
         if(Button == 4)
@@ -114,8 +113,8 @@ public class playerManager : MonoBehaviour
     {
         GameObject enemy = enemyGenerator.spawnedEnemyList[listIndex];
         bool alive = false;
-        playerDamage = Random.Range(playerMinDamage, playerMaxDamage);
-        enemy.GetComponent<enemyManager>().enemyCurrentHealth -= playerDamage;
+        damage = Random.Range(playerStats.playerMinDamage, playerStats.playerMaxDamage);
+        enemy.GetComponent<enemyManager>().enemyCurrentHealth -= damage;
         enemy.GetComponent<enemyManager>().UpdateEnemyHealthBar(enemy.GetComponent<enemyManager>().enemyCurrentHealth, enemy.GetComponent<enemyManager>().enemyMaxHealth);
 
 

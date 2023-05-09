@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MapNode : MonoBehaviour
 {
@@ -10,5 +11,16 @@ public class MapNode : MonoBehaviour
     public bool maxPreviousConnections;
 
 
+    public void ButtonInteract(int Number)
+    {
+        if(Number == 1)
+        {
+            SceneManager.LoadScene("CombatScene");
+        }
 
+        if(Number == 2)
+        {
+            SceneManager.LoadScene("RestScene");
+        }
+    }
 }

@@ -38,6 +38,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Map
+    uniqueID: 4072554673
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Buttons
+    uniqueID: 4164896055
+    locked: 0
+  - name: Line
+    uniqueID: 3812703811
     locked: 0

@@ -524,6 +524,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
+  playerStats: {fileID: 0}
   playerManager: {fileID: 0}
   enemyMinHealth: 15
   enemyMaxHealth: 30

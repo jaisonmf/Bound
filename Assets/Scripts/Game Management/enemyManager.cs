@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class enemyManager : MonoBehaviour
 {
     [SerializeField] private gameManager gameManager;
+    [SerializeField] private playerStats playerStats;
     [SerializeField] private playerManager playerManager;
 
 
@@ -31,6 +32,7 @@ public class enemyManager : MonoBehaviour
     {
         alive = true;
         gameManager = GameObject.Find("GameManager").GetComponent<gameManager>();
+        playerStats = GameObject.Find("playerStats").GetComponent<playerStats>();
         playerManager = GameObject.Find("playerManager").GetComponent<playerManager>();
     }
 
@@ -68,15 +70,15 @@ public class enemyManager : MonoBehaviour
 
         yield return new WaitForSeconds(time);
 
-        //action = Random.Range(1, 3);
+        action = Random.Range(1, 3);
         action = 1;
         if (action == 1)
         {
             
             enemyDamage = Random.Range(enemyMinDamage, enemyMaxDamage);
-            
-            playerManager.playerHealth -= enemyDamage;
-            playerManager.UpdateHealthBar(playerManager.playerHealth, playerManager.playerMaxHealth);
+
+            playerStats.playerHealth -= enemyDamage;
+            playerManager.UpdateHealthBar(playerStats.playerHealth, playerStats.playerMaxHealth);
         }
         else if (action == 2)
         {
