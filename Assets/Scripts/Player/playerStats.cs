@@ -8,10 +8,16 @@ public class playerStats : MonoBehaviour
     public int playerHealth;
     public int playerMaxDamage = 10;
     public int playerMinDamage = 5;
-    public int playerEnergy = 3;
+    public int playerEnergy;
+    public int playerMaxEnergy = 3;
 
     public bool returnToMap;
 
+    public void Start()
+    {
+        playerHealth = playerMaxHealth;
+        playerEnergy = playerMaxEnergy;
+    }
 
 
 }

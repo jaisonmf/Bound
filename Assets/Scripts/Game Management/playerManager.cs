@@ -18,6 +18,7 @@ public class playerManager : MonoBehaviour
     [SerializeField] private Button action3;
     [SerializeField] private Button action4;
     [SerializeField] private Slider playerHealthbar;
+    [SerializeField] private Slider playerEnergybar;
     
     public bool selecting = false;
     private int damage;
@@ -35,8 +36,9 @@ public class playerManager : MonoBehaviour
         action3.interactable = false;
         action4.interactable = false;
         */
-        playerStats.playerHealth = playerStats.playerMaxHealth;
         UpdateHealthBar(playerStats.playerHealth, playerStats.playerMaxHealth);
+        playerStats.playerEnergy = playerStats.playerMaxEnergy;
+        UpdateEnergyBar(playerStats.playerEnergy, playerStats.playerMaxEnergy);
 
 
     }
@@ -47,6 +49,8 @@ public class playerManager : MonoBehaviour
         if (playerStats.playerHealth > playerStats.playerMaxHealth)
         {
             playerStats.playerHealth = playerStats.playerMaxHealth;
+            UpdateHealthBar(playerStats.playerHealth, playerStats.playerMaxHealth);
+            
         }
 
         if(playerStats.playerHealth > 0)
@@ -55,6 +59,8 @@ public class playerManager : MonoBehaviour
             action2.interactable = true;
             action3.interactable = true;
             action4.interactable = true;
+            playerStats.playerEnergy = playerStats.playerMaxEnergy;
+            UpdateEnergyBar(playerStats.playerEnergy, playerStats.playerMaxEnergy);
         }
         else
         {
@@ -69,13 +75,15 @@ public class playerManager : MonoBehaviour
 
     public void playerActions(int Button)
     {
-        if(Button == 1)
+        if(Button == 1 && playerStats.playerEnergy >= 1)
         {
             selecting = true;
             action1.interactable = false; 
             action2.interactable = false;
             action3.interactable = false;
             action4.interactable = false;
+            playerStats.playerEnergy -= 1;
+            UpdateEnergyBar(playerStats.playerEnergy, playerStats.playerMaxEnergy);
         }
 
         if(Button == 2)
@@ -85,8 +93,7 @@ public class playerManager : MonoBehaviour
 
         if(Button == 3)
         {
-            playerStats.playerHealth -= 10;
-            UpdateHealthBar(playerStats.playerHealth, playerStats.playerMaxHealth);
+
         }
 
         if(Button == 4)
@@ -181,6 +188,11 @@ public class playerManager : MonoBehaviour
     {
         float percentageResult = Currentvalue / maxValue;
         playerHealthbar.value = percentageResult;
+    }
+    public void UpdateEnergyBar(float Currentvalue, float maxValue)
+    {
+        float percentageResult = Currentvalue / maxValue;
+        playerEnergybar.value = percentageResult;
     }
 
 }
