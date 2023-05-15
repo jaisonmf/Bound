@@ -44,6 +44,13 @@ public class enemyGenerator : MonoBehaviour
        
     }
 
+    private void OnLevelWasLoaded()
+    {
+        // goblinScript.goblinStat();
+        //  knightScript.knightStat();
+      //  gameManager.enemyGeneration();
+    }
+
     public void Generation()
     {
         goblinScript.goblinStat();

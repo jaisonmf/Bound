@@ -33,6 +33,10 @@ public class MapNode : MonoBehaviour
         {
             SceneManager.LoadScene("UpgradeScene");
         }
+        if(Number == 4)
+        {
+            SceneManager.LoadScene("ItemScene)");
+        }
     }
 
 }

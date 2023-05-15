@@ -316,6 +316,7 @@ MonoBehaviour:
   - {fileID: 1830213872993935678, guid: b2cd6ca10c7a1ba44a96ce70144a33d2, type: 3}
   - {fileID: 6688367706017289505, guid: 007a006a2e26c3c4a83eab0f328cb87e, type: 3}
   - {fileID: 1830213872993935678, guid: ebf1b1187eb1111469ba44961e8262ee, type: 3}
+  - {fileID: 6688367706017289505, guid: 1359a83349fe10a4baf42a78b0bbac2c, type: 3}
   enemyEncounter: {fileID: 1830213872993935678, guid: b2cd6ca10c7a1ba44a96ce70144a33d2, type: 3}
   rest: {fileID: 6688367706017289505, guid: 007a006a2e26c3c4a83eab0f328cb87e, type: 3}
   upgrade: {fileID: 1830213872993935678, guid: ebf1b1187eb1111469ba44961e8262ee, type: 3}

@@ -2446,6 +2446,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textAssetData: {fileID: 4900000, guid: 861cbeecc4bb2cd4784371aac464b76c, type: 3}
+  gameManager: {fileID: 227898484}
   myEnemyList:
     enemy: []
 --- !u!4 &1950061821

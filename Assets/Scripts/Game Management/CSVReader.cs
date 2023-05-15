@@ -7,6 +7,8 @@ public class CSVReader : MonoBehaviour
 {
     public TextAsset textAssetData;
 
+    [SerializeField] private gameManager gameManager;
+
 
     [System.Serializable]
     public class Enemy
@@ -49,6 +51,8 @@ public class CSVReader : MonoBehaviour
             myEnemyList.enemy[i].minDamage = int.Parse(data[5 * (i + 1) + 4]);
 
         }
+
+        gameManager.enemyGeneration();
     }
 
 }

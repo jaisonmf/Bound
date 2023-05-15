@@ -12,7 +12,17 @@ public class WinLose : MonoBehaviour
     {
         if(Button == 0)
         {
-            SceneManager.LoadScene("MapScene");
+            int random;
+            random = Random.Range(1, 10);
+            if(random == 1)
+            {
+                SceneManager.LoadScene("ItemScene");
+            }
+            else
+            {
+                SceneManager.LoadScene("MapScene");
+            }
+            
 
         }
         else if (Button == 1)
