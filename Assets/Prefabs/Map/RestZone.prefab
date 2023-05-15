@@ -110,7 +110,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 21300000, guid: fcf842dade04b67428675a7214a51826, type: 3}
     m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 21300000, guid: bad05d9f0fc37bc4287fd21b5d50758f, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -150,3 +150,4 @@ MonoBehaviour:
   previousnodes: []
   maxFutureConnections: 0
   maxPreviousConnections: 0
+  arrow: {fileID: 0}

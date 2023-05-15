@@ -83,11 +83,12 @@ public class enemyManager : MonoBehaviour
 
             playerStats.playerHealth -= enemyDamage;
             playerManager.UpdateHealthBar(playerStats.playerHealth, playerStats.playerMaxHealth);
-
+            /*
             if(playerStats.playerHealth <= 0)
             {
                 SceneManager.LoadScene("LoseScene");
             }
+            */
         }
         else if (action == 2)
         {

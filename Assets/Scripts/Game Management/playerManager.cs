@@ -46,13 +46,14 @@ public class playerManager : MonoBehaviour
     {
         playerStats = GameObject.Find("playerStats").GetComponent<playerStats>();
      
+        //player doesnt go over max health
         if (playerStats.playerHealth > playerStats.playerMaxHealth)
         {
             playerStats.playerHealth = playerStats.playerMaxHealth;
             UpdateHealthBar(playerStats.playerHealth, playerStats.playerMaxHealth);
             
         }
-
+        //player is above 0 health and can take their turn
         if(playerStats.playerHealth > 0)
         {
             action1.interactable = true;
@@ -62,9 +63,10 @@ public class playerManager : MonoBehaviour
             playerStats.playerEnergy = playerStats.playerMaxEnergy;
             UpdateEnergyBar(playerStats.playerEnergy, playerStats.playerMaxEnergy);
         }
+        //player is dead
         else
         {
-            //Lose nerd
+            SceneManager.LoadScene("LoseScene");
         }
 
 
@@ -75,6 +77,7 @@ public class playerManager : MonoBehaviour
 
     public void playerActions(int Button)
     {
+        //Attack
         if(Button == 1 && playerStats.playerEnergy >= 1)
         {
             selecting = true;
@@ -86,17 +89,18 @@ public class playerManager : MonoBehaviour
             UpdateEnergyBar(playerStats.playerEnergy, playerStats.playerMaxEnergy);
         }
 
+        //idk
         if(Button == 2)
         {
             gameManager.enemyGeneration();
         }
-
-        if(Button == 3)
+        //idk
+        if (Button == 3)
         {
 
         }
-
-        if(Button == 4)
+        //end turn
+        if (Button == 4)
         {
             gameManager.enemyTurn();
             action1.interactable = false;
