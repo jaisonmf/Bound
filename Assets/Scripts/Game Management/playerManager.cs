@@ -25,18 +25,7 @@ public class playerManager : MonoBehaviour
     [SerializeField] private GameObject UI;
 
 
-    /*
-    public void Map()
-    {
-        action1.interactable = false;
-        action2.interactable = false;
-        action3.interactable = false;
-        action4.interactable = false;
-        UI.SetActive(false);
-
-    }
-    */
-  
+ 
     private void Start()
     {
         playerStats = GameObject.Find("playerStats").GetComponent<playerStats>();

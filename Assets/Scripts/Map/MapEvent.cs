@@ -19,7 +19,9 @@ public class MapEvent : MonoBehaviour
 
     [SerializeField] private GameObject point1;
     [SerializeField] private GameObject point2;
-
+    public GameObject map;
+    private playerStats playerStats;
+    public bool mainMenu;
 
     [SerializeField] public List<List<GameObject>> location = new List<List<GameObject>>();
 
@@ -33,8 +35,26 @@ public class MapEvent : MonoBehaviour
         events[2] = rest;
         events[3] = upgrade;
 
+        playerStats = GameObject.Find("playerStats").GetComponent<playerStats>();
 
-        ButtonSpawn();
+        
+    }
+    public void MapGeneration()
+    {
+        //Generate map at start of game
+        if (playerStats.returnToMap == false && mainMenu == false)
+        {
+
+            ButtonSpawn();
+            
+            
+        }
+        //Player returns to map from another scene
+        else if (playerStats.returnToMap == true && mainMenu == false)
+        {
+            map.SetActive(true);
+        }
+
     }
 
 
@@ -187,8 +207,9 @@ public class MapEvent : MonoBehaviour
             }
 
         }
+        playerStats.returnToMap = true;
 
-
+        /*
         //Arrow spawn
         for (int i = 0; i < location.Count; i++)
         {
@@ -205,5 +226,6 @@ public class MapEvent : MonoBehaviour
                 }
             }
         }
+        */
     }
 }

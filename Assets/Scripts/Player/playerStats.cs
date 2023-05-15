@@ -10,6 +10,8 @@ public class playerStats : MonoBehaviour
     public int playerMinDamage = 5;
     public int playerEnergy = 3;
 
+    public bool returnToMap;
+
 
 
 }

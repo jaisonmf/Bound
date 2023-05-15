@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class enemyManager : MonoBehaviour
@@ -82,6 +83,11 @@ public class enemyManager : MonoBehaviour
 
             playerStats.playerHealth -= enemyDamage;
             playerManager.UpdateHealthBar(playerStats.playerHealth, playerStats.playerMaxHealth);
+
+            if(playerStats.playerHealth <= 0)
+            {
+                SceneManager.LoadScene("LoseScene");
+            }
         }
         else if (action == 2)
         {

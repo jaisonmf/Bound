@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class playerUpgrades : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class playerUpgrades : MonoBehaviour
         {
             playerStats.playerMaxDamage += 5;
             playerStats.playerMinDamage += 5;
+            SceneManager.LoadScene("MapScene");
         }
         else if (Upgrade == 1)
         {
@@ -26,11 +28,16 @@ public class playerUpgrades : MonoBehaviour
             {
                 playerStats.playerHealth = playerStats.playerMaxHealth;
             }
+
+            SceneManager.LoadScene("MapScene");
         }
         else if (Upgrade == 2)
         {
             playerStats.playerEnergy += 1;
+            SceneManager.LoadScene("MapScene");
         }
+
+
 
     }
 }

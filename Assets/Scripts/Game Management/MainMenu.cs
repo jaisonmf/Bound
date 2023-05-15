@@ -5,7 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-
+    private MapEvent mapEvent;
+    public void Start()
+    {
+        mapEvent = GameObject.Find("Map").GetComponent<MapEvent>();
+    }
 
 
     public void Menu(int Button)
@@ -14,6 +18,8 @@ public class MainMenu : MonoBehaviour
         {
             SceneManager.LoadScene("MapScene");
 
+            mapEvent.mainMenu = false;
+            mapEvent.MapGeneration();
         }
         else if (Button == 1)
         {
