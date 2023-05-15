@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4763894006670847162}
   - component: {fileID: 4763894006670847163}
   - component: {fileID: 4763894006670847164}
+  - component: {fileID: 1492969883617042054}
   m_Layer: 5
   m_Name: item1
   m_TagString: Untagged
@@ -121,10 +122,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MapNode, Assembly-CSharp
-        m_MethodName: ButtonInteract
-        m_Mode: 3
+      - m_Target: {fileID: 1492969883617042054}
+        m_TargetAssemblyTypeName: ItemScript, Assembly-CSharp
+        m_MethodName: exit
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -133,3 +134,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1492969883617042054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6688367706017289505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97057557d5bc97c4db0b9dc84f657a69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

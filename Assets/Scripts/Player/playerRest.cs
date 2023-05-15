@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class playerRest : MonoBehaviour
 {
@@ -23,6 +24,8 @@ public class playerRest : MonoBehaviour
             {
                 playerStats.playerHealth = playerStats.playerMaxHealth;
             }
+
+            SceneManager.LoadScene("MapScene");
             
         }
     }

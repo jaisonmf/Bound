@@ -10,10 +10,9 @@ public class Chest : MonoBehaviour
     [SerializeField] private GameObject chestSpawn;
     [SerializeField] private int random;
 
-    public void ChestGenerate()
+    public void Start()
     {
-        //random = Random.Range(0, 11);
-        random = 1;
+        random = Random.Range(0, 11);
         if(random <= 5)
         {
             chestSpawn = Instantiate(chest1, chestSpawn.transform);

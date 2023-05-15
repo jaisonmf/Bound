@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MapNode : MonoBehaviour
 {
@@ -13,7 +14,14 @@ public class MapNode : MonoBehaviour
 
     public void Start()
     {
-
+        if(previousnodes.Count == 0)
+        {
+            gameObject.GetComponent<Button>().interactable = true;
+        }
+        else
+        {
+            gameObject.GetComponent<Button>().interactable = false;
+        }
     }
 
 
@@ -35,8 +43,15 @@ public class MapNode : MonoBehaviour
         }
         if(Number == 4)
         {
-            SceneManager.LoadScene("ItemScene)");
+            SceneManager.LoadScene("ItemScene");
         }
+
+        foreach (GameObject gameObject in futurenodes)
+        {
+            gameObject.GetComponent<Button>().interactable = true;
+        }
+        gameObject.GetComponent<Button>().interactable = false;
+
     }
 
 }
