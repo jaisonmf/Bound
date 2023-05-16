@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class ItemScript : MonoBehaviour
@@ -9,6 +10,7 @@ public class ItemScript : MonoBehaviour
     private playerInventory playerInventory;
     public bool Equipped;
     public GameObject myprefab;
+    public bool inInventory = false;
 
     public void Start()
     {
@@ -18,11 +20,12 @@ public class ItemScript : MonoBehaviour
 
     public void GrabItem()
     {
-        if (playerInventory.inventory.Count != 9)
+        if (playerInventory.inventory.Count != 9 && inInventory == false)
         {
             playerInventory.inventory.Add(myprefab);
+            exit();
         }
-        else
+        else if (playerInventory.inventory.Count == 9 && inInventory == false)
         {
             exit();
         }
@@ -31,8 +34,16 @@ public class ItemScript : MonoBehaviour
 
     public void exit()
     {
+        inInventory = false; 
         SceneManager.LoadScene("MapScene");
     }
 
+    
+    public void Equip(BaseEventData eventData)
+    {
+
+        Debug.Log("selected");
+    }
+    
 }
 

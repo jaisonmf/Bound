@@ -12,15 +12,22 @@ public class Inventory : MonoBehaviour
     [SerializeField] private GameObject parent;
     private GameObject spawnedItem;
     private float scaleMultiplier = 0.5f;
+    private ItemScript itemScript;
 
     //Inventory Grid
     private int columns = 3;
-    private float spacing = 1.0f;
     private Vector2 gridSize = new Vector2(941f, 1163f);
 
     private void Start()
     {
         playerInventory = GameObject.Find("playerStats").GetComponent<playerInventory>();
+        ItemScript[] objectsWithScript = FindObjectsOfType<ItemScript>();
+
+        foreach (ItemScript obj in objectsWithScript)
+        {
+            obj.inInventory = true;
+        }
+        
 
         GenerateInventory();
     }
