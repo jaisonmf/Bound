@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4763894006670847164}
   - component: {fileID: 1595411275033994326}
   - component: {fileID: 2372720874748631155}
+  - component: {fileID: 220124019428971009}
   m_Layer: 5
   m_Name: Body1
   m_TagString: Body
@@ -150,6 +151,7 @@ MonoBehaviour:
   Equipped: 0
   myprefab: {fileID: 0}
   inInventory: 1
+  inventory: {fileID: 0}
 --- !u!114 &2372720874748631155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,3 +181,16 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &220124019428971009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6688367706017289505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5583a71e00fd9db49af1561a3e58d309, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  validDropZoneTag: inventorySlot

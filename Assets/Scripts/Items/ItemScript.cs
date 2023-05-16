@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
+
 public class ItemScript : MonoBehaviour
 {
     private playerInventory playerInventory;
@@ -12,6 +13,9 @@ public class ItemScript : MonoBehaviour
     public GameObject myprefab;
     public bool inInventory = false;
     public Inventory inventory;
+
+
+
     public void Start()
     {
         playerInventory = GameObject.Find("playerStats").GetComponent<playerInventory>();
@@ -46,10 +50,7 @@ public class ItemScript : MonoBehaviour
     
     public void Equip(BaseEventData eventData)
     {
-        if(inventory.inInventory == true)
-        {
-            Debug.Log("IsAMajorVibeAlert!");
-        }
+
         
     }
 
