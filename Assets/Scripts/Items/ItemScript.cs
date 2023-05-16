@@ -11,7 +11,7 @@ public class ItemScript : MonoBehaviour
     public bool Equipped;
     public GameObject myprefab;
     public bool inInventory = false;
-
+    public Inventory inventory;
     public void Start()
     {
         playerInventory = GameObject.Find("playerStats").GetComponent<playerInventory>();
@@ -20,12 +20,12 @@ public class ItemScript : MonoBehaviour
 
     public void GrabItem()
     {
-        if (playerInventory.inventory.Count != 9 && inInventory == false)
+        if (playerInventory.inventory.Count != 9 && inventory == null)
         {
             playerInventory.inventory.Add(myprefab);
             exit();
         }
-        else if (playerInventory.inventory.Count == 9 && inInventory == false)
+        else if (playerInventory.inventory.Count == 9 && inventory == null)
         {
             exit();
         }
@@ -38,12 +38,23 @@ public class ItemScript : MonoBehaviour
         SceneManager.LoadScene("MapScene");
     }
 
+    public void FindInventory()
+    {
+        inventory = GameObject.Find("InventoryContainer").GetComponent<Inventory>();
+       
+    }
     
     public void Equip(BaseEventData eventData)
     {
-
-        Debug.Log("selected");
+        if(inventory.inInventory == true)
+        {
+            Debug.Log("IsAMajorVibeAlert!");
+        }
+        
     }
+
+
+
     
 }
 

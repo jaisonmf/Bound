@@ -12,24 +12,30 @@ public class Inventory : MonoBehaviour
     [SerializeField] private GameObject parent;
     private GameObject spawnedItem;
     private float scaleMultiplier = 0.5f;
-    private ItemScript itemScript;
+    private GameObject item;
+    public bool inInventory;
+    
 
     //Inventory Grid
     private int columns = 3;
     private Vector2 gridSize = new Vector2(941f, 1163f);
 
-    private void Start()
+    public void Start()
     {
         playerInventory = GameObject.Find("playerStats").GetComponent<playerInventory>();
+        
+       
+
+        GenerateInventory();
+
+
         ItemScript[] objectsWithScript = FindObjectsOfType<ItemScript>();
 
         foreach (ItemScript obj in objectsWithScript)
         {
-            obj.inInventory = true;
+            obj.FindInventory();
         }
-        
-
-        GenerateInventory();
+        inInventory = true;
     }
 
 
@@ -56,9 +62,11 @@ public class Inventory : MonoBehaviour
 
             Vector3 position = transform.TransformPoint(localPosition);
 
-            spawnedItem = Instantiate(playerInventory.inventory[i], position, Quaternion.identity, transform);
-            spawnedItem.transform.SetParent(parent.transform, false);
-            spawnedItem.transform.localScale = Vector3.one * scaleMultiplier;
+            
+            item = Instantiate(playerInventory.inventory[i], position, Quaternion.identity, transform);
+
+            item.transform.SetParent(parent.transform, false);
+            item.transform.localScale = Vector3.one * scaleMultiplier;
         }
     }
 
