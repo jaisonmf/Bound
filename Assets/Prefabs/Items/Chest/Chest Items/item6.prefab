@@ -124,7 +124,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7289775737842055084}
         m_TargetAssemblyTypeName: ItemScript, Assembly-CSharp
-        m_MethodName: exit
+        m_MethodName: GrabItem
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5027555914231235909}
   - component: {fileID: 355705035643864433}
   - component: {fileID: 1637948870996977847}
+  - component: {fileID: 1387446922038180432}
   m_Layer: 5
   m_Name: playerStats
   m_TagString: Untagged
@@ -54,6 +55,9 @@ MonoBehaviour:
   playerHealth: 0
   playerMaxDamage: 0
   playerMinDamage: 0
+  playerEnergy: 0
+  playerMaxEnergy: 3
+  returnToMap: 0
 --- !u!114 &1637948870996977847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,3 +70,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8216150513d3bef4fbe8c27b118f6872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1387446922038180432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7403037351760300437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cce9f28f3453d5048a5e977aca2d6004, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory:
+  - {fileID: 6688367706017289505, guid: 72b8030a6e855ff41b472032e853ff5c, type: 3}
+  - {fileID: 6688367706017289505, guid: af4b650b43e743746933e5e286c5c382, type: 3}
+  - {fileID: 6688367706017289505, guid: 2b80a144bffe6da40aa2edf66547ddf4, type: 3}
+  - {fileID: 6688367706017289505, guid: a4400dfd88658334cb61e383bcd89acc, type: 3}
+  - {fileID: 6688367706017289505, guid: be7fcbdd240b3a04cbbd0c2899d10cf2, type: 3}
+  - {fileID: 6688367706017289505, guid: f8292ce134ae22046ab0c2cbe6ae38a2, type: 3}
