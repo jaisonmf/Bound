@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 4763894006670847162}
   - component: {fileID: 4763894006670847163}
   - component: {fileID: 4763894006670847164}
-  - component: {fileID: 6867758359079426940}
+  - component: {fileID: 1595411275033994326}
   m_Layer: 5
-  m_Name: item7
-  m_TagString: Untagged
+  m_Name: Body1
+  m_TagString: Body
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68,7 +68,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: cd2ec14b0ef14664da5defcc2afb223e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8a0b6e444bac1ce4caa404eda127104f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6867758359079426940}
+      - m_Target: {fileID: 1595411275033994326}
         m_TargetAssemblyTypeName: ItemScript, Assembly-CSharp
         m_MethodName: GrabItem
         m_Mode: 1
@@ -134,7 +134,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6867758359079426940
+--- !u!114 &1595411275033994326
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,3 +146,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97057557d5bc97c4db0b9dc84f657a69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myprefab: {fileID: 0}

@@ -49,7 +49,7 @@ public class Inventory : MonoBehaviour
 
             Vector3 position = transform.TransformPoint(localPosition);
 
-            spawnedItem = Instantiate(playerInventory.Instance.inventory[i], position, Quaternion.identity, transform);
+            spawnedItem = Instantiate(playerInventory.inventory[i], position, Quaternion.identity, transform);
             spawnedItem.transform.SetParent(parent.transform, false);
             spawnedItem.transform.localScale = Vector3.one * scaleMultiplier;
         }

@@ -7,19 +7,20 @@ using UnityEngine.SceneManagement;
 public class ItemScript : MonoBehaviour
 {
     private playerInventory playerInventory;
-    private GameObject item;
+    public bool Equipped;
+    public GameObject myprefab;
 
     public void Start()
     {
         playerInventory = GameObject.Find("playerStats").GetComponent<playerInventory>();
-        item = this.gameObject;
+ 
     }
 
     public void GrabItem()
     {
         if (playerInventory.inventory.Count != 9)
         {
-            playerInventory.Instance.inventory.Add(item);
+            playerInventory.inventory.Add(myprefab);
         }
         else
         {

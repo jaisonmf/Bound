@@ -27,6 +27,7 @@ public class Chest1 : MonoBehaviour
             spawneditem = ChestList[Random.Range(0, ChestList.Count)];
             {
                 item = Instantiate(spawneditem, new Vector2((Screen.width / (amount + 1)) * (i + 1), -15), Quaternion.identity);
+                item.GetComponent<ItemScript>().myprefab = spawneditem;
                 item.transform.SetParent(parent.transform, false);
             }
             
