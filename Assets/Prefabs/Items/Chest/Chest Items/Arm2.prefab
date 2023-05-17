@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5464894591189209871}
   - component: {fileID: 4943344811201216309}
   - component: {fileID: 7436326774459127421}
+  - component: {fileID: 9051038543863066844}
   m_Layer: 5
   m_Name: Arm2
   m_TagString: Arm
@@ -193,4 +194,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5583a71e00fd9db49af1561a3e58d309, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rectTransform: {fileID: 0}
   validDropZoneTag: inventorySlot
+--- !u!225 &9051038543863066844
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6688367706017289505}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0

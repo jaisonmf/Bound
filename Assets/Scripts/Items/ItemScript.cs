@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 public class ItemScript : MonoBehaviour
 {
     private playerInventory playerInventory;
+    
     public bool Equipped;
     public GameObject myprefab;
     public bool inInventory = false;
@@ -45,14 +46,18 @@ public class ItemScript : MonoBehaviour
     public void FindInventory()
     {
         inventory = GameObject.Find("InventoryContainer").GetComponent<Inventory>();
+        if(inventory != null)
+        {
+            this.gameObject.GetComponent<DragDrop>().isEnabled = true;
+        }
+        else
+        {
+            this.gameObject.GetComponent<DragDrop>().isEnabled = false;
+        }
        
     }
     
-    public void Equip(BaseEventData eventData)
-    {
-
-        
-    }
+    
 
 
 

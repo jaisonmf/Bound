@@ -43,26 +43,21 @@ public class Inventory : MonoBehaviour
 
     public void GenerateInventory()
     {
-       inventoryCount = playerInventory.inventory.Count;
+        inventoryCount = playerInventory.inventory.Count;
         int rows = Mathf.CeilToInt((float)inventoryCount / (float)columns);
 
-
         float elementSizeX = gridSize.x / columns;
-        float elementSizeY = gridSize.y / columns;  
+        float elementSizeY = gridSize.y / rows;  // Divide by rows instead of columns
 
-
-
-        for(int i = 0; i < inventoryCount; i++)
+        for (int i = 0; i < inventoryCount; i++)
         {
             int row = i / columns;
             int column = i % columns;
 
-            Vector3 localPosition = new Vector3((column * elementSizeX) + (elementSizeX / 2f), (row * elementSizeY) + (elementSizeY / 2f), 0f);
-
+            Vector3 localPosition = new Vector3((column * elementSizeX) + (elementSizeX / 2f), -(row * elementSizeY) - (elementSizeY / 2f), 0f);  // Adjust the Y position calculation
 
             Vector3 position = transform.TransformPoint(localPosition);
 
-            
             item = Instantiate(playerInventory.inventory[i], position, Quaternion.identity, transform);
 
             item.transform.SetParent(parent.transform, false);
