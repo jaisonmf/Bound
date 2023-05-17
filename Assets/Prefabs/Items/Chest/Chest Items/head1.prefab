@@ -14,8 +14,7 @@ GameObject:
   - component: {fileID: 4763894006670847164}
   - component: {fileID: 1492969883617042054}
   - component: {fileID: 4202795719551705608}
-  - component: {fileID: 6051920970246906905}
-  - component: {fileID: 7395174359535480533}
+  - component: {fileID: 377290184957895641}
   m_Layer: 5
   m_Name: head1
   m_TagString: Head
@@ -125,9 +124,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1492969883617042054}
-        m_TargetAssemblyTypeName: ItemScript, Assembly-CSharp
-        m_MethodName: GrabItem
+      - m_Target: {fileID: 377290184957895641}
+        m_TargetAssemblyTypeName: imageSnap, Assembly-CSharp
+        m_MethodName: SnapToTarget
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -169,20 +168,8 @@ MonoBehaviour:
   - eventID: 2
     callback:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1492969883617042054}
-          m_TargetAssemblyTypeName: ItemScript, Assembly-CSharp
-          m_MethodName: Equip
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
---- !u!114 &6051920970246906905
+        m_Calls: []
+--- !u!114 &377290184957895641
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -191,20 +178,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6688367706017289505}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5583a71e00fd9db49af1561a3e58d309, type: 3}
+  m_Script: {fileID: 11500000, guid: ab337dd8deb99304eb7fcfac79196b1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rectTransform: {fileID: 0}
-  validDropZoneTag: inventorySlot
---- !u!225 &7395174359535480533
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6688367706017289505}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0

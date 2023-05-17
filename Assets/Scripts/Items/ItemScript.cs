@@ -46,6 +46,7 @@ public class ItemScript : MonoBehaviour
     public void FindInventory()
     {
         inventory = GameObject.Find("InventoryContainer").GetComponent<Inventory>();
+       /*
         if(inventory != null)
         {
             this.gameObject.GetComponent<DragDrop>().isEnabled = true;
@@ -54,8 +55,10 @@ public class ItemScript : MonoBehaviour
         {
             this.gameObject.GetComponent<DragDrop>().isEnabled = false;
         }
+       */
        
     }
+       
     
     
 

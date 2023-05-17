@@ -36,7 +36,6 @@ public class DragDrop : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDrag
             }
         }
 
-        Debug.LogWarning("No drop zone object found with tag: " + validDropZoneTag);
         return null;
     }
 
@@ -69,10 +68,20 @@ public class DragDrop : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDrag
         {
             if (dropZone != null)
             {
-                // Snap to drop zone position
-                Vector2 snapPosition = dropZone.anchoredPosition;
-                snapPosition += dropZone.pivot - rectTransform.pivot;
-                rectTransform.anchoredPosition = snapPosition;
+                // Convert the draggable object's position to the drop zone's local space
+                Vector2 localPosition = Vector2.zero;
+                RectTransformUtility.ScreenPointToLocalPointInRectangle(dropZone, eventData.position, canvas.worldCamera, out localPosition);
+
+                // Adjust the local position based on the pivot and size of the draggable object
+                Vector2 draggablePivot = rectTransform.pivot;
+                Vector2 draggableSize = rectTransform.sizeDelta;
+                localPosition -= new Vector2(draggablePivot.x * draggableSize.x, (1 - draggablePivot.y) * draggableSize.y);
+
+                // Adjust the local position from top-left to bottom-left coordinate system
+                localPosition += new Vector2(0, dropZone.sizeDelta.y);
+
+                // Set the anchored position of the draggable object to the calculated local position
+                rectTransform.anchoredPosition = localPosition;
             }
         }
         else
@@ -80,6 +89,7 @@ public class DragDrop : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDrag
             rectTransform.anchoredPosition = initialPosition; // Reset the object's position
         }
     }
+
 
     private bool IsDropZoneValid(Vector2 position)
     {

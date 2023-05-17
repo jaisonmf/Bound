@@ -5,10 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Head
-  - Arm
   - Body
-  - Leg
   - inventorySlot
+  - LeftArm
+  - RightArm
+  - LeftLeg
+  - RightLeg
   layers:
   - Default
   - TransparentFX

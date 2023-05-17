@@ -14,11 +14,10 @@ GameObject:
   - component: {fileID: 4763894006670847164}
   - component: {fileID: 1377868729092208043}
   - component: {fileID: -4067377850660488789}
-  - component: {fileID: 1383838089772505563}
-  - component: {fileID: 6616278309849821467}
+  - component: {fileID: 3250212091891422065}
   m_Layer: 5
   m_Name: Arm1
-  m_TagString: Arm
+  m_TagString: Body
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,9 +124,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1377868729092208043}
-        m_TargetAssemblyTypeName: ItemScript, Assembly-CSharp
-        m_MethodName: GrabItem
+      - m_Target: {fileID: 3250212091891422065}
+        m_TargetAssemblyTypeName: imageSnap, Assembly-CSharp
+        m_MethodName: SnapToTarget
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -169,20 +168,8 @@ MonoBehaviour:
   - eventID: 2
     callback:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1383838089772505563}
-          m_TargetAssemblyTypeName: ItemScript, Assembly-CSharp
-          m_MethodName: 
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
---- !u!114 &1383838089772505563
+        m_Calls: []
+--- !u!114 &3250212091891422065
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -191,20 +178,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6688367706017289505}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5583a71e00fd9db49af1561a3e58d309, type: 3}
+  m_Script: {fileID: 11500000, guid: ab337dd8deb99304eb7fcfac79196b1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rectTransform: {fileID: 0}
-  validDropZoneTag: inventorySlot
---- !u!225 &6616278309849821467
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6688367706017289505}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0

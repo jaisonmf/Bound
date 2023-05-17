@@ -14,8 +14,7 @@ GameObject:
   - component: {fileID: 4763894006670847164}
   - component: {fileID: 5464894591189209871}
   - component: {fileID: 4943344811201216309}
-  - component: {fileID: 7436326774459127421}
-  - component: {fileID: 9051038543863066844}
+  - component: {fileID: 3126045116565345534}
   m_Layer: 5
   m_Name: Arm2
   m_TagString: Arm
@@ -121,13 +120,13 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 4763894006670847163}
+  m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5464894591189209871}
-        m_TargetAssemblyTypeName: ItemScript, Assembly-CSharp
-        m_MethodName: GrabItem
+      - m_Target: {fileID: 3126045116565345534}
+        m_TargetAssemblyTypeName: imageSnap, Assembly-CSharp
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -169,20 +168,8 @@ MonoBehaviour:
   - eventID: 2
     callback:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 5464894591189209871}
-          m_TargetAssemblyTypeName: ItemScript, Assembly-CSharp
-          m_MethodName: Equip
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
---- !u!114 &7436326774459127421
+        m_Calls: []
+--- !u!114 &3126045116565345534
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -191,20 +178,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6688367706017289505}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5583a71e00fd9db49af1561a3e58d309, type: 3}
+  m_Script: {fileID: 11500000, guid: ab337dd8deb99304eb7fcfac79196b1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rectTransform: {fileID: 0}
-  validDropZoneTag: inventorySlot
---- !u!225 &9051038543863066844
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6688367706017289505}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
