@@ -6,20 +6,28 @@ using UnityEngine.EventSystems;
 
 public class imageSnap : MonoBehaviour
 {
-    private bool isSnapped = false;
+    [SerializeField] private bool isSnapped = false;
+    private Transform transform;
     private Image image;
     private Transform targetTransform;
+    private Transform previousTransform;
+    public bool isEnabled;
 
 
     void Start()
     {
         image = GetComponent<Image>();
+        transform = GetComponent<Transform>();
     }
 
     public void SnapToTarget()
     {
+        if (!isEnabled)
+            return;
+
         GameObject snapPointObject = null;
         string currentTag = gameObject.tag;
+        previousTransform = transform;
 
         if (currentTag == "Head")
         {
@@ -57,6 +65,16 @@ public class imageSnap : MonoBehaviour
                 image.rectTransform.anchoredPosition = Vector2.zero;
                 isSnapped = true;
             }
+        }
+    }
+
+    public void ReturntoInventory()
+    {
+        GameObject inventorySlot = null;
+        if (isSnapped)
+        {
+            Transform inventorySnapPoint = inventorySlot.transform;
+            
         }
     }
 

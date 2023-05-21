@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.U2D.Path;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,7 +20,7 @@ public class MapEvent : MonoBehaviour
     [SerializeField] private GameObject point2;
     public GameObject map;
     private playerStats playerStats;
-    public bool mainMenu;
+    public bool mainMenu = false;
 
     [SerializeField] public List<List<GameObject>> location = new List<List<GameObject>>();
 
@@ -34,8 +33,10 @@ public class MapEvent : MonoBehaviour
         events[1] = enemyEncounter;
         events[2] = rest;
         events[3] = upgrade;
-
+        
         playerStats = GameObject.Find("playerStats").GetComponent<playerStats>();
+
+        
 
         
     }

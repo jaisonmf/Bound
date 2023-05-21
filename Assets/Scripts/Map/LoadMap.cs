@@ -1,22 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class backToMap : MonoBehaviour
+public class LoadMap : MonoBehaviour
 {
 
-
     private MapEvent mapEvent;
+
+
     public void Start()
     {
         mapEvent = GameObject.Find("Map").GetComponent<MapEvent>();
-
+       // mapEvent.GetComponent<Canvas>().enabled = true; 
     }
 
-    public void ToMap()
-    {
-        SceneManager.LoadScene("MapScene");
-        mapEvent.GetComponent<Canvas>().enabled = true;
-    }
+
+
 }

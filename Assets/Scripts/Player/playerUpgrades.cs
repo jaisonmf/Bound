@@ -6,10 +6,12 @@ using UnityEngine.SceneManagement;
 public class playerUpgrades : MonoBehaviour
 {
     private playerStats playerStats;
+    private MapEvent mapEvent;
 
     public void Start()
     {
         playerStats = GameObject.Find("playerStats").GetComponent<playerStats>();
+        mapEvent = GameObject.Find("Map").GetComponent<MapEvent>();
     }
     public void PlayerUpgrade(int Upgrade)
     {
@@ -18,6 +20,7 @@ public class playerUpgrades : MonoBehaviour
             playerStats.playerMaxDamage += 5;
             playerStats.playerMinDamage += 5;
             SceneManager.LoadScene("MapScene");
+            mapEvent.GetComponent<Canvas>().enabled = true;
         }
         else if (Upgrade == 1)
         {
@@ -30,11 +33,13 @@ public class playerUpgrades : MonoBehaviour
             }
 
             SceneManager.LoadScene("MapScene");
+            mapEvent.GetComponent<Canvas>().enabled = true;
         }
         else if (Upgrade == 2)
         {
             playerStats.playerEnergy += 1;
             SceneManager.LoadScene("MapScene");
+            mapEvent.GetComponent<Canvas>().enabled = true;
         }
 
 

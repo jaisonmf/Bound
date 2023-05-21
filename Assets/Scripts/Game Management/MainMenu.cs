@@ -6,9 +6,13 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     private MapEvent mapEvent;
+
+
     public void Start()
     {
         mapEvent = GameObject.Find("Map").GetComponent<MapEvent>();
+
+
     }
 
 
@@ -16,6 +20,10 @@ public class MainMenu : MonoBehaviour
     {
         if (Button == 0)
         {
+            if(mapEvent.mainMenu == false)
+            {
+                mapEvent.GetComponent<Canvas>().enabled = true;
+            }
             SceneManager.LoadScene("MapScene");
 
             mapEvent.mainMenu = false;

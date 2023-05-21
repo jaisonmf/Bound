@@ -6,10 +6,11 @@ using UnityEngine.SceneManagement;
 public class playerRest : MonoBehaviour
 {
     private playerStats playerStats;
-
+    private MapEvent mapEvent;
     public void Start()
     {
         playerStats = GameObject.Find("playerStats").GetComponent<playerStats>();
+        mapEvent = GameObject.Find("Map").GetComponent<MapEvent>();
     }
 
     public void Rest(int Button)
@@ -26,7 +27,8 @@ public class playerRest : MonoBehaviour
             }
 
             SceneManager.LoadScene("MapScene");
-            
+            mapEvent.GetComponent<Canvas>().enabled = true;
+
         }
     }
 }

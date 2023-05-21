@@ -16,8 +16,8 @@ GameObject:
   - component: {fileID: 1640646011676019112}
   - component: {fileID: 9028128261717774139}
   m_Layer: 5
-  m_Name: Body2
-  m_TagString: Body
+  m_Name: LeftLeg
+  m_TagString: LeftArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

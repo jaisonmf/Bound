@@ -5,7 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class WinLose : MonoBehaviour
 {
-    
+    private MapEvent mapEvent;
+
+
+    public void Start()
+    {
+        mapEvent = GameObject.Find("Map").GetComponent<MapEvent>();
+    }
 
     //Win
     public void Win(int Button)

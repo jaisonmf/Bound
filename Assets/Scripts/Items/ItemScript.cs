@@ -14,13 +14,14 @@ public class ItemScript : MonoBehaviour
     public GameObject myprefab;
     public bool inInventory = false;
     public Inventory inventory;
-
+    private MapEvent mapEvent;
 
 
     public void Start()
     {
         playerInventory = GameObject.Find("playerStats").GetComponent<playerInventory>();
- 
+        mapEvent = GameObject.Find("Map").GetComponent<MapEvent>();
+
     }
 
     public void GrabItem()
@@ -41,29 +42,30 @@ public class ItemScript : MonoBehaviour
     {
         inInventory = false; 
         SceneManager.LoadScene("MapScene");
+        mapEvent.GetComponent<Canvas>().enabled = true;
     }
 
     public void FindInventory()
     {
         inventory = GameObject.Find("InventoryContainer").GetComponent<Inventory>();
-       /*
-        if(inventory != null)
-        {
-            this.gameObject.GetComponent<DragDrop>().isEnabled = true;
-        }
-        else
-        {
-            this.gameObject.GetComponent<DragDrop>().isEnabled = false;
-        }
-       */
+        
+         if(inventory != null)
+         {
+             this.gameObject.GetComponent<imageSnap>().isEnabled = true;
+         }
+         else
+         {
+            this.gameObject.GetComponent<imageSnap>().isEnabled = false;
+         }
        
+
     }
-       
-    
-    
 
 
 
-    
+
+
+
+
 }
 
