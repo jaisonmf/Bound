@@ -73,7 +73,7 @@ public class imageSnap : MonoBehaviour
                     image.rectTransform.anchoredPosition = Vector2.zero;
                     isSnapped = true;
                     inInventory = false;
-                    itemScript.RemoveFromList(this.gameObject);
+                    Playerinventory.inventory.Remove(this.gameObject);
 
 
                 }
@@ -105,6 +105,7 @@ public class imageSnap : MonoBehaviour
                 image.rectTransform.anchoredPosition = Vector2.zero;
                 isSnapped = false;
                 inInventory = true;
+                Playerinventory.inventory.Add(this.gameObject);
             }
         }
     }

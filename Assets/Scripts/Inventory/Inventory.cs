@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -23,8 +24,15 @@ public class Inventory : MonoBehaviour
     public void Start()
     {
         playerInventory = GameObject.Find("playerStats").GetComponent<playerInventory>();
+
+
+        foreach (GameObject prefab in playerInventory.Prefabinventory)
+        {
+            GameObject copiedPrefab = Instantiate(prefab);
+            playerInventory.inventory.Add(copiedPrefab);
+        }
+
         
-       
 
         GenerateInventory();
 
