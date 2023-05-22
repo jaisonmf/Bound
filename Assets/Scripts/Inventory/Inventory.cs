@@ -11,7 +11,7 @@ public class Inventory : MonoBehaviour
     public int inventoryCount;
     [SerializeField] private GameObject parent;
     private GameObject spawnedItem;
-    private float scaleMultiplier = 0.5f;
+    [SerializeField] private float scaleMultiplier;
     private GameObject item;
     public bool inInventory;
     
@@ -49,6 +49,7 @@ public class Inventory : MonoBehaviour
         float elementSizeX = gridSize.x / columns;
         float elementSizeY = gridSize.y / rows;  // Divide by rows instead of columns
 
+        int nameNumber = 0;
         for (int i = 0; i < inventoryCount; i++)
         {
             int row = i / columns;
@@ -58,10 +59,17 @@ public class Inventory : MonoBehaviour
 
             Vector3 position = transform.TransformPoint(localPosition);
 
-            item = Instantiate(playerInventory.inventory[i], position, Quaternion.identity, transform);
+            
+            GameObject Inventoryslot = Instantiate(new GameObject(), position, Quaternion.identity, transform);
+            nameNumber++;
+            Inventoryslot.name = "InventorySlot" + nameNumber;
+            Inventoryslot.transform.SetParent(parent.transform, false);
 
+            item = Instantiate(playerInventory.inventory[i], position, Quaternion.identity, transform);
             item.transform.SetParent(parent.transform, false);
             item.transform.localScale = Vector3.one * scaleMultiplier;
+            item.GetComponent<ItemScript>().inventorySpot = Inventoryslot;
+
         }
     }
 

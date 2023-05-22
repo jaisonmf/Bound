@@ -15,6 +15,7 @@ public class ItemScript : MonoBehaviour
     public bool inInventory = false;
     public Inventory inventory;
     private MapEvent mapEvent;
+    public GameObject inventorySpot;
 
 
     public void Start()
@@ -44,7 +45,7 @@ public class ItemScript : MonoBehaviour
         SceneManager.LoadScene("MapScene");
         mapEvent.GetComponent<Canvas>().enabled = true;
     }
-
+    
     public void FindInventory()
     {
         inventory = GameObject.Find("InventoryContainer").GetComponent<Inventory>();
@@ -60,7 +61,7 @@ public class ItemScript : MonoBehaviour
        
 
     }
-
+  
 
 
 

@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 4763894006670847163}
   - component: {fileID: 4763894006670847164}
   - component: {fileID: 686681552626031779}
-  - component: {fileID: 9162008307388728008}
   - component: {fileID: 1789393704850703107}
   m_Layer: 5
   m_Name: head2
@@ -124,6 +123,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 686681552626031779}
+        m_TargetAssemblyTypeName: ItemScript, Assembly-CSharp
+        m_MethodName: GrabItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1789393704850703107}
         m_TargetAssemblyTypeName: imageSnap, Assembly-CSharp
         m_MethodName: SnapToTarget
@@ -131,7 +142,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -152,23 +163,7 @@ MonoBehaviour:
   myprefab: {fileID: 0}
   inInventory: 0
   inventory: {fileID: 0}
---- !u!114 &9162008307388728008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6688367706017289505}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls: []
+  inventorySpot: {fileID: 0}
 --- !u!114 &1789393704850703107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,3 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab337dd8deb99304eb7fcfac79196b1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSnapped: 0
+  previousTransform: {x: 0, y: 0}
+  isEnabled: 0
+  inInventory: 1
