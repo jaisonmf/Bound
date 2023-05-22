@@ -10,7 +10,6 @@ public class ItemScript : MonoBehaviour
 {
     private playerInventory playerInventory;
     
-    public bool Equipped;
     public GameObject myprefab;
     public bool inInventory = false;
     public Inventory inventory;
@@ -29,7 +28,7 @@ public class ItemScript : MonoBehaviour
     {
         if (playerInventory.inventory.Count != 9 && inventory == null)
         {
-            playerInventory.inventory.Add(myprefab);
+            playerInventory.Prefabinventory.Add(myprefab);
             exit();
         }
         else if (playerInventory.inventory.Count == 9 && inventory == null)
@@ -63,7 +62,10 @@ public class ItemScript : MonoBehaviour
     }
   
 
-
+    public void RemoveFromList(GameObject objToRemove)
+    {
+        playerInventory.inventory.Remove(objToRemove);
+    }
 
 
 

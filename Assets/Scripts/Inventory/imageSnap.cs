@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 public class imageSnap : MonoBehaviour
 {
     [SerializeField] private bool isSnapped;
-    private Transform transform;
+    private Inventory inventory;
     private Image image;
     private Transform targetTransform;
     [SerializeField] private Vector2 previousTransform;
@@ -15,16 +15,16 @@ public class imageSnap : MonoBehaviour
     private playerInventory Playerinventory;
     private ItemScript itemScript;
     public bool inInventory = true;
-
+    public List<GameObject> list;
 
     void Start()
     {
         image = GetComponent<Image>();
-        transform = GetComponent<Transform>();
+        
         previousTransform = transform.position;
         Playerinventory = GameObject.Find("playerStats").GetComponent<playerInventory>();
         itemScript = GetComponent<ItemScript>();
-        Debug.Log(inInventory);
+        inventory = GameObject.Find("InventoryContainer").GetComponent<Inventory>();
     }
     
     public void SnapToTarget()
@@ -32,9 +32,10 @@ public class imageSnap : MonoBehaviour
         if (isEnabled && inInventory == true)
         {
             GameObject snapPointObject = null;
-            Transform inventorySnap = transform;
+
             string currentTag = gameObject.tag;
-            
+            GameObject parent = itemScript.inventorySpot;
+            bool full = parent.transform.childCount > 0;
 
             if (currentTag == "Head")
             {
@@ -61,7 +62,7 @@ public class imageSnap : MonoBehaviour
                 snapPointObject = GameObject.Find("LeftLeg");
             }
 
-            if (snapPointObject != null)
+            if (snapPointObject != null && full == false)
             {
                 Transform snapPointTransform = snapPointObject.transform;
 
@@ -72,8 +73,14 @@ public class imageSnap : MonoBehaviour
                     image.rectTransform.anchoredPosition = Vector2.zero;
                     isSnapped = true;
                     inInventory = false;
-  
+                    itemScript.RemoveFromList(this.gameObject);
+
+
                 }
+            }
+            else
+            {
+                ReturntoInventory();
             }
         }
         else
@@ -94,7 +101,7 @@ public class imageSnap : MonoBehaviour
             if(snapPointTransform != null)
             {
                 targetTransform = snapPointTransform;
-                image.transform.SetParent(targetTransform, false);
+                image.transform.SetParent(targetTransform.transform, false);
                 image.rectTransform.anchoredPosition = Vector2.zero;
                 isSnapped = false;
                 inInventory = true;

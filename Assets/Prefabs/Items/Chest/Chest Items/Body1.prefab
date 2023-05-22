@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Equipped: 0
-  myprefab: {fileID: 0}
+  myprefab: {fileID: 6688367706017289505}
   inInventory: 0
   inventory: {fileID: 0}
   inventorySpot: {fileID: 0}

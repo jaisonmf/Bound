@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class playerInventory : MonoBehaviour
 {
-     
     public List<GameObject> inventory;
-   
+    public List<GameObject> Prefabinventory;
+
+
 }

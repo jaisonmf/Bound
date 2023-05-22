@@ -65,7 +65,9 @@ public class Inventory : MonoBehaviour
             Inventoryslot.name = "InventorySlot" + nameNumber;
             Inventoryslot.transform.SetParent(parent.transform, false);
 
-            item = Instantiate(playerInventory.inventory[i], position, Quaternion.identity, transform);
+            GameObject itemPrefab = playerInventory.inventory[i];
+            GameObject item = Instantiate(itemPrefab, position, Quaternion.identity, transform);
+            playerInventory.inventory[i] = item;
             item.transform.SetParent(parent.transform, false);
             item.transform.localScale = Vector3.one * scaleMultiplier;
             item.GetComponent<ItemScript>().inventorySpot = Inventoryslot;
