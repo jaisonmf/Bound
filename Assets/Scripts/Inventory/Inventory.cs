@@ -25,6 +25,26 @@ public class Inventory : MonoBehaviour
 
     public void Start()
     {
+        playerInventory = GameObject.Find("playerStats").GetComponent<playerInventory>();
+
+
+        //Grabbing the inventory to add to prefab inventory
+        foreach (GameObject prefab in playerInventory.Prefabinventory)
+        {
+            GameObject copiedPrefab = prefab;
+            playerInventory.inventory.Add(copiedPrefab);
+        }
+
+        ItemScript[] objectsWithScript = FindObjectsOfType<ItemScript>();
+
+        foreach (ItemScript obj in objectsWithScript)
+        {
+            obj.FindInventory();
+        }
+        inInventory = true;
+        GenerateInventory();
+
+
 
         /*
         GameObject[] instance = FindObjectsOfType<GameObject>();
@@ -52,23 +72,7 @@ public class Inventory : MonoBehaviour
     public void GenerateInventory()
     {
 
-        playerInventory = GameObject.Find("playerStats").GetComponent<playerInventory>();
-
-
-        //Grabbing the inventory to add to prefab inventory
-        foreach (GameObject prefab in playerInventory.Prefabinventory)
-        {
-            GameObject copiedPrefab = prefab;
-            playerInventory.inventory.Add(copiedPrefab);
-        }
-
-        ItemScript[] objectsWithScript = FindObjectsOfType<ItemScript>();
-
-        foreach (ItemScript obj in objectsWithScript)
-        {
-            obj.FindInventory();
-        }
-        inInventory = true;
+       
 
 
         //Inventory Generator

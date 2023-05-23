@@ -19,12 +19,12 @@ public class InventorySlot : MonoBehaviour
         }
 
     }
-
+    /*
     public void Start()
     {
         Instantiate(storedItem);
         storedItem.transform.SetParent(gameObject.transform, false);
         storedItem.GetComponent<ItemScript>().EquippedItem();
     }
-
+    */
 }
