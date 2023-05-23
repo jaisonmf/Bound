@@ -10,7 +10,7 @@ public class Inventory : MonoBehaviour
 {
     private playerInventory playerInventory;
     public int inventoryCount;
-    [SerializeField] private GameObject parent;
+    [HideInInspector] public GameObject parent;
     private GameObject spawnedItem;
     [SerializeField] private float scaleMultiplier;
     private GameObject item;
@@ -28,7 +28,7 @@ public class Inventory : MonoBehaviour
 
         foreach (GameObject prefab in playerInventory.Prefabinventory)
         {
-            GameObject copiedPrefab = Instantiate(prefab);
+            GameObject copiedPrefab = prefab;
             playerInventory.inventory.Add(copiedPrefab);
         }
 
@@ -72,13 +72,16 @@ public class Inventory : MonoBehaviour
             nameNumber++;
             Inventoryslot.name = "InventorySlot" + nameNumber;
             Inventoryslot.transform.SetParent(parent.transform, false);
+            Inventoryslot.AddComponent<removeChild>();
 
             GameObject itemPrefab = playerInventory.inventory[i];
             GameObject item = Instantiate(itemPrefab, position, Quaternion.identity, transform);
             playerInventory.inventory[i] = item;
             item.transform.SetParent(parent.transform, false);
             item.transform.localScale = Vector3.one * scaleMultiplier;
+            
             item.GetComponent<ItemScript>().inventorySpot = Inventoryslot;
+         
 
         }
     }

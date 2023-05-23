@@ -10,12 +10,13 @@ public class imageSnap : MonoBehaviour
     private Inventory inventory;
     private Image image;
     private Transform targetTransform;
-    [SerializeField] private Vector2 previousTransform;
+    public Vector2 previousTransform;
     public bool isEnabled;
     private playerInventory Playerinventory;
     private ItemScript itemScript;
     public bool inInventory = true;
-    public List<GameObject> list;
+    public GameObject parent;
+    private removeChild removeChild;
 
     void Start()
     {
@@ -87,28 +88,43 @@ public class imageSnap : MonoBehaviour
         {
             ReturntoInventory();
         }
-            
 
-       
+
+
     }
-    
+
     public void ReturntoInventory()
     {
         if (inInventory == false)
         {
             Transform snapPointTransform = itemScript.inventorySpot.transform;
+            parent = GameObject.Find("InventoryContainer");
 
-            if(snapPointTransform != null)
+            if (snapPointTransform != null)
             {
+
                 targetTransform = snapPointTransform;
-                image.transform.SetParent(targetTransform.transform, false);
+                image.transform.SetParent(snapPointTransform.transform, false);
                 image.rectTransform.anchoredPosition = Vector2.zero;
                 isSnapped = false;
                 inInventory = true;
+
+                removeChild[] objectswithScript = GameObject.FindObjectsOfType<removeChild>();
+                foreach (removeChild action in objectswithScript)
+                {
+                    action.RemoveChild();
+                }
+
+
                 Playerinventory.inventory.Add(this.gameObject);
+              
+
+
+
             }
         }
     }
-    
-    
+
+
+
 }
