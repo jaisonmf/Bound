@@ -4,5 +4,19 @@ using UnityEngine;
 
 public class InventorySlot : MonoBehaviour
 {
+    public bool full;
+
+    private void Update()
+    {
+        if(gameObject.transform.childCount != 1)
+        {
+            full = true;
+        }
+        else
+        {
+            full = false;
+        }
+
+    }
 
 }

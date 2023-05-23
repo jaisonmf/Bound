@@ -18,6 +18,7 @@ public class imageSnap : MonoBehaviour
     [HideInInspector]public GameObject parent;
     private removeChild removeChild;
     private textUpdate textUpdate;
+    private bool full;
 
     void Start()
     {
@@ -37,7 +38,7 @@ public class imageSnap : MonoBehaviour
 
             string currentTag = gameObject.tag;
             GameObject parent = itemScript.inventorySpot;
-            bool full = parent.transform.childCount > 0;
+            
 
             if (currentTag == "Head")
             {
@@ -64,7 +65,7 @@ public class imageSnap : MonoBehaviour
                 snapPointObject = GameObject.Find("LeftLeg");
             }
 
-            if (snapPointObject != null && full == false)
+            if (snapPointObject != null && snapPointObject.GetComponent<InventorySlot>().full == false)
             {
                 Transform snapPointTransform = snapPointObject.transform;
 
