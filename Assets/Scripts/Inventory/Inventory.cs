@@ -15,7 +15,9 @@ public class Inventory : MonoBehaviour
     [SerializeField] private float scaleMultiplier;
     private GameObject item;
     public bool inInventory;
-    
+    public int inventoryCounter;
+    public List<GameObject> numberofInventory;
+    public GameObject objectToDelete;
 
     //Inventory Grid
     private int columns = 3;
@@ -23,19 +25,42 @@ public class Inventory : MonoBehaviour
 
     public void Start()
     {
+
+        /*
+        GameObject[] instance = FindObjectsOfType<GameObject>();
+        int instancesCount = instance.Length;
+        int deletionCount = 0;
+        for (int i = 0; i < instancesCount; i++)
+        {
+            if (instance[i] == objectToDelete)
+            {
+                deletionCount++;
+            }
+            if(deletionCount == 2)
+            {
+                Destroy(instance[i]);
+                break;
+            }
+        }
+        */
+
+    }
+
+  
+
+
+    public void GenerateInventory()
+    {
+
         playerInventory = GameObject.Find("playerStats").GetComponent<playerInventory>();
 
 
+        //Grabbing the inventory to add to prefab inventory
         foreach (GameObject prefab in playerInventory.Prefabinventory)
         {
             GameObject copiedPrefab = prefab;
             playerInventory.inventory.Add(copiedPrefab);
         }
-
-        
-
-        GenerateInventory();
-
 
         ItemScript[] objectsWithScript = FindObjectsOfType<ItemScript>();
 
@@ -44,13 +69,9 @@ public class Inventory : MonoBehaviour
             obj.FindInventory();
         }
         inInventory = true;
-    }
 
 
-
-
-    public void GenerateInventory()
-    {
+        //Inventory Generator
         inventoryCount = playerInventory.inventory.Count;
         int rows = Mathf.CeilToInt((float)inventoryCount / (float)columns);
 

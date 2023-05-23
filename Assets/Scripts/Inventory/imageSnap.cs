@@ -78,6 +78,9 @@ public class imageSnap : MonoBehaviour
                     inInventory = false;
                     Playerinventory.inventory.Remove(this.gameObject);
                     textUpdate.UpdateStats();
+                    GameObject Equippeditem = gameObject.GetComponent<ItemScript>().myprefab;
+                    snapPointObject.GetComponent<InventorySlot>().storedItem = Equippeditem;
+                    gameObject.GetComponent<ItemScript>().EquippedItem();
 
                 }
             }
@@ -119,6 +122,7 @@ public class imageSnap : MonoBehaviour
 
 
                 Playerinventory.inventory.Add(this.gameObject);
+                gameObject.GetComponent<ItemScript>().UnEquipItem();
                 textUpdate.UpdateStats();
               
 

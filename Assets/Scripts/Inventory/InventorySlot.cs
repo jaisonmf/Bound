@@ -5,6 +5,7 @@ using UnityEngine;
 public class InventorySlot : MonoBehaviour
 {
     public bool full;
+    public GameObject storedItem;
 
     private void Update()
     {
@@ -17,6 +18,13 @@ public class InventorySlot : MonoBehaviour
             full = false;
         }
 
+    }
+
+    public void Start()
+    {
+        Instantiate(storedItem);
+        storedItem.transform.SetParent(gameObject.transform, false);
+        storedItem.GetComponent<ItemScript>().EquippedItem();
     }
 
 }

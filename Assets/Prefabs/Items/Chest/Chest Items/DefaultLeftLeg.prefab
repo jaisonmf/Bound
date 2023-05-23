@@ -1,5 +1,54 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4412720911011313350
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2297383682295252651}
+  - component: {fileID: 7469662050114863646}
+  m_Layer: 5
+  m_Name: DefaultLeftLegEffect
+  m_TagString: LeftArm
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2297383682295252651
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4412720911011313350}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4763894006670847165}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &7469662050114863646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4412720911011313350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1325ec269f3cfff40b61cfdc1b7afd7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6688367706017289505
 GameObject:
   m_ObjectHideFlags: 0
@@ -12,11 +61,11 @@ GameObject:
   - component: {fileID: 4763894006670847162}
   - component: {fileID: 4763894006670847163}
   - component: {fileID: 4763894006670847164}
-  - component: {fileID: 1595411275033994326}
-  - component: {fileID: 7580670850388457172}
+  - component: {fileID: 7289775737842055084}
+  - component: {fileID: 9028128261717774139}
   m_Layer: 5
-  m_Name: Body1
-  m_TagString: Body
+  m_Name: DefaultLeftLeg
+  m_TagString: LeftLeg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,7 +81,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2297383682295252651}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -69,7 +119,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8a0b6e444bac1ce4caa404eda127104f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e1f5615d6ea0fe54e85a0d32d8633981, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -123,7 +173,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1595411275033994326}
+      - m_Target: {fileID: 7289775737842055084}
         m_TargetAssemblyTypeName: ItemScript, Assembly-CSharp
         m_MethodName: GrabItem
         m_Mode: 1
@@ -135,7 +185,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7580670850388457172}
+      - m_Target: {fileID: 9028128261717774139}
         m_TargetAssemblyTypeName: imageSnap, Assembly-CSharp
         m_MethodName: SnapToTarget
         m_Mode: 1
@@ -147,7 +197,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1595411275033994326
+--- !u!114 &7289775737842055084
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -159,12 +209,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97057557d5bc97c4db0b9dc84f657a69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Equipped: 0
   myprefab: {fileID: 6688367706017289505}
   inInventory: 0
   inventory: {fileID: 0}
   inventorySpot: {fileID: 0}
---- !u!114 &7580670850388457172
+  equipped: 0
+  targetScriptName: Default
+  targetObjectName: 
+  EquipFunctionName: EquipLeftLeg
+  UnequipFunctionName: UnequipLeftLeg
+--- !u!114 &9028128261717774139
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -180,3 +234,4 @@ MonoBehaviour:
   previousTransform: {x: 0, y: 0}
   isEnabled: 0
   inInventory: 1
+  parent: {fileID: 0}

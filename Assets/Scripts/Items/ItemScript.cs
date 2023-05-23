@@ -15,6 +15,16 @@ public class ItemScript : MonoBehaviour
     public Inventory inventory;
     private MapEvent mapEvent;
     public GameObject inventorySpot;
+    public bool equipped;
+
+
+    [Header("Equip")]
+    public string targetScriptName;
+    public string targetObjectName;
+    public string EquipFunctionName;
+
+    [Header("Unequip")]
+    public string UnequipFunctionName;
 
 
     public void Start()
@@ -67,7 +77,78 @@ public class ItemScript : MonoBehaviour
         playerInventory.inventory.Remove(objToRemove);
     }
 
+    public void EquippedItem()
+    {
+        equipped = true;
+        int childIndex = 0;
+        if(childIndex >= 0 && childIndex < gameObject.transform.childCount)
+        {
+            GameObject childObject = gameObject.transform.GetChild(childIndex).gameObject;
+            
+            if(childObject != null)
+            {
+                targetObjectName = childObject.name;
+                GameObject targetObject = GameObject.Find(targetObjectName);
+                
+                
+                if(targetObject != null)
+                {
+                    Component targetScript = targetObject.GetComponent(targetScriptName);
+                    
+                    if (targetScript != null)
+                    {
+                        System.Type targetType = System.Type.GetType(targetScriptName);
+                        System.Reflection.MethodInfo targetFunction = targetType.GetMethod(EquipFunctionName);
+     
+                        if (targetFunction != null)
+                        {
+                            Debug.Log("L");
+                            targetFunction.Invoke(targetScript, null);
+                            
+                            
+                        }
+                    }
+                }
+            }
+        }
 
+    }
+    
+    public void UnEquipItem()
+    {
+        equipped = false;
+        int childIndex = 0;
+        if (childIndex >= 0 && childIndex < gameObject.transform.childCount)
+        {
+            GameObject childObject = gameObject.transform.GetChild(childIndex).gameObject;
+
+            if (childObject != null)
+            {
+                targetObjectName = childObject.name;
+                GameObject targetObject = GameObject.Find(targetObjectName);
+
+
+                if (targetObject != null)
+                {
+                    Component targetScript = targetObject.GetComponent(targetScriptName);
+
+                    if (targetScript != null)
+                    {
+                        System.Type targetType = System.Type.GetType(targetScriptName);
+                        System.Reflection.MethodInfo targetFunction = targetType.GetMethod(UnequipFunctionName);
+        
+                        if (targetFunction != null)
+                        {
+
+                            targetFunction.Invoke(targetScript, null);
+
+
+                        }
+                    }
+                }
+            }
+        }
+    }
 
 
 }

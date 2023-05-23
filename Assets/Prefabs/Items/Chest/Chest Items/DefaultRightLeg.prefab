@@ -1,5 +1,54 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1926765237453183189
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8199985916030887085}
+  - component: {fileID: 2720582698439428489}
+  m_Layer: 5
+  m_Name: DefaultRightLegEffect
+  m_TagString: RightLeg
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &8199985916030887085
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1926765237453183189}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4763894006670847165}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2720582698439428489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1926765237453183189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1325ec269f3cfff40b61cfdc1b7afd7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6688367706017289505
 GameObject:
   m_ObjectHideFlags: 0
@@ -12,11 +61,11 @@ GameObject:
   - component: {fileID: 4763894006670847162}
   - component: {fileID: 4763894006670847163}
   - component: {fileID: 4763894006670847164}
-  - component: {fileID: 5464894591189209871}
-  - component: {fileID: 3126045116565345534}
+  - component: {fileID: 6867758359079426940}
+  - component: {fileID: 8188042888139489753}
   m_Layer: 5
-  m_Name: Arm2
-  m_TagString: LeftArm
+  m_Name: DefaultRightLeg
+  m_TagString: RightLeg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,7 +81,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 8199985916030887085}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -69,7 +119,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ca4268c32da82184c8fa5e48b3942ca9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cd2ec14b0ef14664da5defcc2afb223e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -123,7 +173,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5464894591189209871}
+      - m_Target: {fileID: 6867758359079426940}
         m_TargetAssemblyTypeName: ItemScript, Assembly-CSharp
         m_MethodName: GrabItem
         m_Mode: 1
@@ -135,7 +185,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 3126045116565345534}
+      - m_Target: {fileID: 8188042888139489753}
         m_TargetAssemblyTypeName: imageSnap, Assembly-CSharp
         m_MethodName: SnapToTarget
         m_Mode: 1
@@ -147,7 +197,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &5464894591189209871
+--- !u!114 &6867758359079426940
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -163,7 +213,12 @@ MonoBehaviour:
   inInventory: 0
   inventory: {fileID: 0}
   inventorySpot: {fileID: 0}
---- !u!114 &3126045116565345534
+  equipped: 0
+  targetScriptName: Default
+  targetObjectName: 
+  EquipFunctionName: EquipRightLeg
+  UnequipFunctionName: UnequipRightLeg
+--- !u!114 &8188042888139489753
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -179,4 +234,4 @@ MonoBehaviour:
   previousTransform: {x: 0, y: 0}
   isEnabled: 0
   inInventory: 1
-  list: []
+  parent: {fileID: 0}
