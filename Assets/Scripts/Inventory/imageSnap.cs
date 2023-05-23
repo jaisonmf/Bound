@@ -10,18 +10,19 @@ public class imageSnap : MonoBehaviour
     private Inventory inventory;
     private Image image;
     private Transform targetTransform;
-    public Vector2 previousTransform;
+    [HideInInspector] public Vector2 previousTransform;
     public bool isEnabled;
     private playerInventory Playerinventory;
     private ItemScript itemScript;
-    public bool inInventory = true;
-    public GameObject parent;
+    [HideInInspector] public bool inInventory = true;
+    [HideInInspector]public GameObject parent;
     private removeChild removeChild;
+    private textUpdate textUpdate;
 
     void Start()
     {
         image = GetComponent<Image>();
-        
+        textUpdate = GameObject.FindObjectOfType<textUpdate>();
         previousTransform = transform.position;
         Playerinventory = GameObject.Find("playerStats").GetComponent<playerInventory>();
         itemScript = GetComponent<ItemScript>();
@@ -75,7 +76,7 @@ public class imageSnap : MonoBehaviour
                     isSnapped = true;
                     inInventory = false;
                     Playerinventory.inventory.Remove(this.gameObject);
-
+                    textUpdate.UpdateStats();
 
                 }
             }
@@ -117,6 +118,7 @@ public class imageSnap : MonoBehaviour
 
 
                 Playerinventory.inventory.Add(this.gameObject);
+                textUpdate.UpdateStats();
               
 
 
