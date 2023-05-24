@@ -32,8 +32,10 @@ public class imageSnap : MonoBehaviour
     
     public void SnapToTarget()
     {
+
         if (isEnabled && inInventory == true)
         {
+
             GameObject snapPointObject = null;
 
             string currentTag = gameObject.tag;

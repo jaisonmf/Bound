@@ -61,11 +61,11 @@ public class ItemScript : MonoBehaviour
         
          if(inventory != null)
          {
-             this.gameObject.GetComponent<imageSnap>().isEnabled = true;
+             gameObject.GetComponent<imageSnap>().isEnabled = true;
          }
          else
          {
-            this.gameObject.GetComponent<imageSnap>().isEnabled = false;
+            gameObject.GetComponent<imageSnap>().isEnabled = false;
          }
        
 
@@ -102,7 +102,7 @@ public class ItemScript : MonoBehaviour
      
                         if (targetFunction != null)
                         {
-                            Debug.Log("L");
+
                             targetFunction.Invoke(targetScript, null);
                             
                             
