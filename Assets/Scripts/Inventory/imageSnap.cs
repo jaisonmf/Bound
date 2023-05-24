@@ -73,7 +73,7 @@ public class imageSnap : MonoBehaviour
             if (snapPointObject != null && inventorySlot.full == false)
             {
                 Transform snapPointTransform = snapPointObject.transform;
-
+                //Going into equip slot when it isnt full
                 if (!isSnapped && snapPointTransform != null)
                 {
                     targetTransform = snapPointTransform;
@@ -89,6 +89,7 @@ public class imageSnap : MonoBehaviour
 
                 }
             }
+            //Going into equip slot if its full
             else if (inventorySlot.full == true)
             {
                 // Store the original parent of the current item
@@ -103,22 +104,32 @@ public class imageSnap : MonoBehaviour
 
                 gameObject.transform.position = occupiedPosition;
                 inventorySlot.storedItem.transform.position = originalPosition;
+                inventorySlot.storedItem.GetComponent<imageSnap>().isSnapped = false;
+                inventorySlot.storedItem.GetComponent<imageSnap>().inInventory = true;
 
                 // Swap the stored items in the inventory slots
                 inventorySlot.storedItem = gameObject;
+
+
+                //Update stats
+                
                 gameObject.GetComponent<ItemScript>().EquippedItem();
+                inventorySlot.storedItem.GetComponent<ItemScript>().UnEquipItem();
+
+                Playerinventory.inventory.Remove(gameObject);
+                Playerinventory.inventory.Add(inventorySlot.gameObject);
+
+                textUpdate.UpdateStats();
+                Debug.Log(inventorySlot.gameObject);
+
             }
+            //Going into inventory from equip slot and is not replacing anything
             else if(gameObject.GetComponent<ItemScript>().equipped == true)
             {
                 ReturntoInventory();
             }
         }
 
-
-        else
-        {
-            ReturntoInventory();
-        }
 
 
 
