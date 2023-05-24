@@ -40,7 +40,7 @@ public class imageSnap : MonoBehaviour
 
             string currentTag = gameObject.tag;
             GameObject parent = itemScript.inventorySpot;
-            
+
 
             if (currentTag == "Head")
             {
@@ -67,7 +67,10 @@ public class imageSnap : MonoBehaviour
                 snapPointObject = GameObject.Find("LeftLeg");
             }
 
-            if (snapPointObject != null && snapPointObject.GetComponent<InventorySlot>().full == false)
+
+            InventorySlot inventorySlot = snapPointObject.GetComponent<InventorySlot>();
+
+            if (snapPointObject != null && inventorySlot.full == false)
             {
                 Transform snapPointTransform = snapPointObject.transform;
 
@@ -78,7 +81,7 @@ public class imageSnap : MonoBehaviour
                     image.rectTransform.anchoredPosition = Vector2.zero;
                     isSnapped = true;
                     inInventory = false;
-                    Playerinventory.inventory.Remove(this.gameObject);
+                    Playerinventory.inventory.Remove(gameObject);
                     textUpdate.UpdateStats();
                     GameObject Equippeditem = gameObject.GetComponent<ItemScript>().myprefab;
                     snapPointObject.GetComponent<InventorySlot>().storedItem = Equippeditem;
@@ -86,11 +89,32 @@ public class imageSnap : MonoBehaviour
 
                 }
             }
-            else
+            else if (inventorySlot.full == true)
+            {
+                // Store the original parent of the current item
+                Transform originalParent = gameObject.transform.parent;
+
+                // Swap the positions of the current item and the occupied item
+                Vector3 originalPosition = gameObject.transform.position;
+                Vector3 occupiedPosition = inventorySlot.storedItem.transform.position;
+
+                gameObject.transform.SetParent(inventorySlot.storedItem.transform.parent, true);
+                inventorySlot.storedItem.transform.SetParent(originalParent, true);
+
+                gameObject.transform.position = occupiedPosition;
+                inventorySlot.storedItem.transform.position = originalPosition;
+
+                // Swap the stored items in the inventory slots
+                inventorySlot.storedItem = gameObject;
+                gameObject.GetComponent<ItemScript>().EquippedItem();
+            }
+            else if(gameObject.GetComponent<ItemScript>().equipped == true)
             {
                 ReturntoInventory();
             }
         }
+
+
         else
         {
             ReturntoInventory();

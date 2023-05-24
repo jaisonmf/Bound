@@ -35,6 +35,9 @@ public class Inventory : MonoBehaviour
             GameObject copiedPrefab = prefab;
             playerInventory.inventory.Add(copiedPrefab);
         }
+
+
+
         GenerateInventory();
 
         //THIS NEEDS TO GO AFTER GENERATEINVENTORY

@@ -22,9 +22,21 @@ public class InventorySlot : MonoBehaviour
     /*
     public void Start()
     {
-        Instantiate(storedItem);
-        storedItem.transform.SetParent(gameObject.transform, false);
-        storedItem.GetComponent<ItemScript>().EquippedItem();
+        Vector3 position = gameObject.transform.position;
+        GameObject item = Instantiate(storedItem, position, Quaternion.identity, transform);
+        
+        item.transform.SetParent(gameObject.transform, false);
+        item.transform.localScale = Vector3.one * 0.5f;
+        item.GetComponent<ItemScript>().FindInventory();
+        item.GetComponent<ItemScript>().inInventory = true;
+        //Debug.Log(item);
+        
+        if (item != null)
+        {
+            item.GetComponent<ItemScript>().EquippedItem();
+        }
+        
+        
     }
     */
 }

@@ -10,7 +10,7 @@ public class backToMap : MonoBehaviour
     private MapEvent mapEvent;
     public void Start()
     {
-        mapEvent = GameObject.Find("Map").GetComponent<MapEvent>();
+        //mapEvent = GameObject.Find("Map").GetComponent<MapEvent>();
 
     }
 

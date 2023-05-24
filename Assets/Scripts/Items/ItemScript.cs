@@ -30,7 +30,7 @@ public class ItemScript : MonoBehaviour
     public void Start()
     {
         playerInventory = GameObject.Find("playerStats").GetComponent<playerInventory>();
-        mapEvent = GameObject.Find("Map").GetComponent<MapEvent>();
+        //mapEvent = GameObject.Find("Map").GetComponent<MapEvent>();
 
     }
 
@@ -84,27 +84,30 @@ public class ItemScript : MonoBehaviour
         if(childIndex >= 0 && childIndex < gameObject.transform.childCount)
         {
             GameObject childObject = gameObject.transform.GetChild(childIndex).gameObject;
+            //Debug.Log(childObject);
             
             if(childObject != null)
             {
                 targetObjectName = childObject.name;
                 GameObject targetObject = GameObject.Find(targetObjectName);
-                
+               // Debug.Log(targetObject);
                 
                 if(targetObject != null)
                 {
                     Component targetScript = targetObject.GetComponent(targetScriptName);
+                    //Debug.Log(targetScriptName);
                     
                     if (targetScript != null)
                     {
                         System.Type targetType = System.Type.GetType(targetScriptName);
                         System.Reflection.MethodInfo targetFunction = targetType.GetMethod(EquipFunctionName);
+                        //Debug.Log(targetFunction);
      
                         if (targetFunction != null)
                         {
-
+                           
                             targetFunction.Invoke(targetScript, null);
-                            
+                            Debug.Log("lie");
                             
                         }
                     }

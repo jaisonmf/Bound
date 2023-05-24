@@ -5,15 +5,13 @@ using UnityEngine;
 public class Default : MonoBehaviour
 {
     private textUpdate textUpdate;
-    private playerStats playerStats;
+    [SerializeField] private playerStats playerStats;
     public void Start()
     {
         playerStats = GameObject.Find("playerStats").GetComponent<playerStats>();
         textUpdate = GameObject.Find("Character").GetComponent<textUpdate>();
       
     }
-
-
     public void EquipHead()
     {
         playerStats.playerMaxHealth += 10;
