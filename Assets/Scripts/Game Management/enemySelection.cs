@@ -13,8 +13,8 @@ public class enemySelection : MonoBehaviour
 
     public void Start()
     {
-        enemy = this.transform.parent.gameObject;
-        selectArrow = this.gameObject;
+        enemy = transform.parent.gameObject;
+        selectArrow = gameObject;
         playerManager = GameObject.Find("playerManager").GetComponent<playerManager>();
     }
 

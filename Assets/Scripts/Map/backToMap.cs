@@ -12,7 +12,7 @@ public class backToMap : MonoBehaviour
     private GameObject endButton;
     public void Start()
     {
-        mapEvent = GameObject.Find("Map").GetComponent<MapEvent>();
+        //mapEvent = GameObject.Find("Map").GetComponent<MapEvent>();
         inventory = GameObject.Find("playerStats").GetComponent<playerStats>();
         endButton = GameObject.Find("End");
     }

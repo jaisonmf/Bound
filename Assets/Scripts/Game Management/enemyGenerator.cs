@@ -18,10 +18,16 @@ public class enemyGenerator : MonoBehaviour
     [Header("Enemy")]
     [SerializeField] private GameObject goblin;
     [SerializeField] private GameObject knight;
+    [SerializeField] private GameObject wolf;
+    [SerializeField] private GameObject ent;
 
     //Enemy Scripts
     [SerializeField] private Goblin goblinScript;
     [SerializeField] private Knight knightScript;
+    [SerializeField] private Wolf wolfScript;
+    [SerializeField] private Ent entScript;
+
+
     [Header("Boss")]
     //Boss Objects
     [SerializeField] private GameObject goblinBoss;
@@ -48,7 +54,8 @@ public class enemyGenerator : MonoBehaviour
     {
         Type[0] = goblin;
         Type[1] = knight;
-
+        Type[2] = wolf;
+        Type[3] = ent;
 
 
         Boss[0] = goblinBoss;
@@ -65,6 +72,8 @@ public class enemyGenerator : MonoBehaviour
         {
             goblinScript.goblinStat();
             knightScript.knightStat();
+            wolfScript.wolfStat();
+            entScript.entStat();
 
 
             amount = Random.Range(MinSpawn, MaxSpawn);
