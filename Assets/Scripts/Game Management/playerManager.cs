@@ -66,7 +66,7 @@ public class playerManager : MonoBehaviour
         //player is dead
         else
         {
-            SceneManager.LoadScene("LoseScene");
+            SceneManager.LoadScene("Lose");
         }
 
 
@@ -92,7 +92,7 @@ public class playerManager : MonoBehaviour
         //idk
         if(Button == 2)
         {
-            gameManager.enemyGeneration();
+          
         }
         //idk
         if (Button == 3)
