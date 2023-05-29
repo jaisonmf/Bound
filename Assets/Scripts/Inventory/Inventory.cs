@@ -105,9 +105,15 @@ public class Inventory : MonoBehaviour
             Inventoryslot.transform.SetParent(parent.transform, false);
             Inventoryslot.AddComponent<removeChild>();
 
-            GameObject itemPrefab = playerInventory.inventory[i];
+            GameObject itemPrefab = playerInventory.Prefabinventory[i];
             GameObject item = Instantiate(itemPrefab, position, Quaternion.identity, transform);
             playerInventory.inventory[i] = item;
+
+            ItemScript itemScript = item.GetComponent<ItemScript>();
+            if (itemScript != null)
+            {
+                itemScript.myprefab = itemPrefab;
+            }
             item.transform.SetParent(parent.transform, false);
             item.transform.localScale = Vector3.one * scaleMultiplier;
             

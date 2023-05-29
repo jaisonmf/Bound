@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public class InventorySlot : MonoBehaviour
@@ -11,7 +12,7 @@ public class InventorySlot : MonoBehaviour
     private playerStats playerStats;
     private string currentTag;
 
-    private void Update()
+    public void UpdateSlot()
     {
         if(gameObject.transform.childCount != 1)
         {

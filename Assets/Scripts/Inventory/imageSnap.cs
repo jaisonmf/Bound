@@ -84,6 +84,7 @@ public class imageSnap : MonoBehaviour
                     image.rectTransform.anchoredPosition = Vector2.zero;
                     isSnapped = true;
                     inInventory = false;
+                    inventorySlot.UpdateSlot();
                     RemoveFromList();
                     textUpdate.UpdateStats();
                     GameObject Equippeditem = gameObject.GetComponent<ItemScript>().myprefab;
@@ -107,6 +108,8 @@ public class imageSnap : MonoBehaviour
 
                 gameObject.transform.SetParent(inventorySlot.storedItem.transform.parent, true);
                 inventorySlot.storedItem.transform.SetParent(originalParent, true);
+                inventorySlot.UpdateSlot();
+
 
                 gameObject.transform.position = occupiedPosition;
                 inventorySlot.storedItem.transform.position = originalPosition;
