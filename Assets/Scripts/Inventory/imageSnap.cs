@@ -114,6 +114,10 @@ public class imageSnap : MonoBehaviour
                 inventorySlot.storedItem.GetComponent<imageSnap>().inInventory = true;
 
                 // Swap the stored items in the inventory slots
+                RemoveFromList();
+              //  Playerinventory.inventory.Add(inventorySlot.gameObject);
+               // Playerinventory.Prefabinventory.Add(gameObject.GetComponent<ItemScript>().myprefab);
+
                 inventorySlot.storedItem = gameObject;
 
 
@@ -121,16 +125,14 @@ public class imageSnap : MonoBehaviour
                 gameObject.GetComponent<ItemScript>().equipped = true;
                 gameObject.GetComponent<ItemScript>().EquippedItem();
                 inventorySlot.storedItem.GetComponent<ItemScript>().UnEquipItem();
-
-                Playerinventory.inventory.Remove(gameObject);
-                Playerinventory.inventory.Add(inventorySlot.gameObject);
+              
+              
 
                 textUpdate.UpdateStats();
                 
 
             }
-            
-            
+                  
           
             
         }
@@ -142,30 +144,30 @@ public class imageSnap : MonoBehaviour
 
     public void RemoveFromList()
     {
-        Playerinventory.inventory.Remove(gameObject);
         int cloneIndex = Playerinventory.inventory.IndexOf(gameObject);
-        int prefabIndex = Playerinventory.Prefabinventory.IndexOf(gameObject);
 
-        if(cloneIndex >= 0)
+        if (cloneIndex >= 0)
         {
             Playerinventory.inventory.RemoveAt(cloneIndex);
 
-            for( int i = 0; i <Playerinventory.Prefabinventory.Count; i++)
+
+
+            string prefabNameToRemove = gameObject.name.Replace("(Clone)", string.Empty);
+
+            for (int i = Playerinventory.Prefabinventory.Count - 1; i >= 0; i--)
             {
-                Debug.Log("L");
-                if (Playerinventory.Prefabinventory[i] == gameObject)
+                GameObject prefabObject = Playerinventory.Prefabinventory[i];
+                
+                string prefabName = prefabObject.name.Replace("(Clone)", string.Empty);
+
+                if (prefabName == prefabNameToRemove)
                 {
-                    Debug.Log(Playerinventory.Prefabinventory[i]);
+
                     Playerinventory.Prefabinventory.RemoveAt(i);
-                    return;
+
                 }
             }
         }
-
-
-
-
-   
 
     }
 

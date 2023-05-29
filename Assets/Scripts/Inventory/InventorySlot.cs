@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class InventorySlot : MonoBehaviour
@@ -22,95 +23,89 @@ public class InventorySlot : MonoBehaviour
         }
 
         currentTag = gameObject.tag;
+        GameObject prefab;
         if(currentTag == "Head")
         {
-            playerStats.equippedHead = storedItem.GetComponent<ItemScript>().myprefab;
+            prefab = storedItem.GetComponent<ItemScript>().myprefab;
+            playerStats.equippedHead = prefab;
         }
         else if (currentTag == "Body")
         {
-            playerStats.equippedBody = storedItem.GetComponent<ItemScript>().myprefab;
+            prefab = storedItem.GetComponent<ItemScript>().myprefab;
+            playerStats.equippedBody = prefab;
         }
 
         else if (currentTag == "LeftArm")
         {
-            playerStats.equippedLeftArm = storedItem.GetComponent<ItemScript>().myprefab;
+            prefab = storedItem.GetComponent<ItemScript>().myprefab;
+            playerStats.equippedLeftArm = prefab;
         }
 
         else if (currentTag == "RightArm")
         {
-            playerStats.equippedRightArm = storedItem.GetComponent<ItemScript>().myprefab;
+            prefab = storedItem.GetComponent<ItemScript>().myprefab;
+            playerStats.equippedRightArm = prefab;
         }
 
         else if (currentTag == "LeftLeg")
         {
-            playerStats.equippedLeftLeg = storedItem.GetComponent<ItemScript>().myprefab;
+            prefab = storedItem.GetComponent<ItemScript>().myprefab;
+            playerStats.equippedLeftLeg = prefab;
         }
 
         else if (currentTag == "RightLeg")
         {
-            playerStats.equippedRightLeg = storedItem.GetComponent<ItemScript>().myprefab;
+            prefab = storedItem.GetComponent<ItemScript>().myprefab;
+            playerStats.equippedRightLeg = prefab;
         }
     }
     
     public void Start()
     {
         playerStats = GameObject.Find("playerStats").GetComponent<playerStats>();
-        currentTag = gameObject.tag;
+        
        
-        if (full == true)
+        GameObject spawnedItem = null;
+        string currentTag = gameObject.tag;
+        if (playerStats.equippedHead != null && currentTag == "Head" )
         {
-            Debug.Log("BAH");
-            currentTag = gameObject.tag;
-            GameObject spawnedItem = null;
-
-            if (currentTag == "Head")
-            {
-                spawnedItem = playerStats.equippedHead;
-            }
-            else if (currentTag == "Body")
-            {
-                spawnedItem = playerStats.equippedBody;
-            }
-
-            else if (currentTag == "LeftArm")
-            {
-                spawnedItem = playerStats.equippedLeftArm;
-            }
-
-            else if (currentTag == "RightArm")
-            {
-                spawnedItem = playerStats.equippedRightArm;
-            }
-
-            else if (currentTag == "LeftLeg")
-            {
-                spawnedItem = playerStats.equippedLeftLeg;
-            }
-
-            else if (currentTag == "RightLeg")
-            {
-                spawnedItem = playerStats.equippedRightLeg;
-            }
-
-
-
-            Vector3 position = gameObject.transform.position;
-            GameObject item = Instantiate(spawnedItem, position, Quaternion.identity, transform);
-
-            item.transform.SetParent(gameObject.transform, false);
-            item.transform.localScale = Vector3.one * 0.5f;
-            item.GetComponent<ItemScript>().FindInventory();
-            item.GetComponent<ItemScript>().inInventory = true;
-            //Debug.Log(item);
-
-            if (item != null)
-            {
-                item.GetComponent<ItemScript>().EquippedItem();
-            }
-
+            spawnedItem = playerStats.equippedHead;
         }
+        else if (playerStats.equippedBody != null && currentTag == "Body")
+        {
+            spawnedItem = playerStats.equippedBody;
+        }
+        else if (playerStats.equippedLeftArm != null && currentTag == "LeftArm")
+        {
+            spawnedItem = playerStats.equippedLeftArm;
+        }
+        else if (playerStats.equippedRightArm != null && currentTag == "RightArm")
+        {
+            spawnedItem = playerStats.equippedRightArm;
+        }
+        else if (playerStats.equippedLeftLeg != null && currentTag == "LeftLeg")
+        {
+            spawnedItem = playerStats.equippedLeftLeg;
+        }
+        else if (playerStats.equippedRightLeg != null && currentTag == "RightLeg")
+        {
+            spawnedItem = playerStats.equippedRightLeg;
+        }
+  
 
 
+        Vector3 position = gameObject.transform.position;
+        GameObject item = Instantiate(spawnedItem, position, Quaternion.identity, transform);
+
+        item.transform.SetParent(gameObject.transform, false);
+        item.transform.localScale = Vector3.one * 0.5f;
+        item.GetComponent<ItemScript>().FindInventory();
+        item.GetComponent<ItemScript>().inInventory = true;
+
+        if (item != null)
+        {
+            item.GetComponent<ItemScript>().EquippedItem();
+        }
     }
-    
+
 }
