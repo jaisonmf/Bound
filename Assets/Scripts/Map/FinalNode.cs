@@ -19,7 +19,7 @@ public class FinalNode : MonoBehaviour
     {
         if(gameObject.GetComponent<Button>().interactable == true)
         {
-            Debug.Log("99");
+            
         }
     }
 }
