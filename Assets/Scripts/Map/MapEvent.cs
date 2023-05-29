@@ -12,7 +12,7 @@ public class MapEvent : MonoBehaviour
     [SerializeField] private GameObject rest;
     [SerializeField] private GameObject upgrade;
     [SerializeField] private GameObject parent;
-    [SerializeField] private int rows;
+    public int rows;
     [SerializeField] private GameObject Arrow;
     [SerializeField] private GameObject spawnedArrow;
 
@@ -229,4 +229,6 @@ public class MapEvent : MonoBehaviour
         }
         */
     }
+
+
 }
