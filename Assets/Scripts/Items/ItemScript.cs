@@ -107,7 +107,7 @@ public class ItemScript : MonoBehaviour
                         {
                            
                             targetFunction.Invoke(targetScript, null);
-                            Debug.Log("lie");
+                           
                             
                         }
                     }

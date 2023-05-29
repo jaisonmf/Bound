@@ -28,13 +28,16 @@ public class imageSnap : MonoBehaviour
         Playerinventory = GameObject.Find("playerStats").GetComponent<playerInventory>();
         itemScript = GetComponent<ItemScript>();
         inventory = GameObject.Find("InventoryContainer").GetComponent<Inventory>();
+        
     }
     
     public void SnapToTarget()
     {
+       
 
         if (isEnabled && inInventory == true)
         {
+            
 
             GameObject snapPointObject = null;
 
@@ -69,7 +72,7 @@ public class imageSnap : MonoBehaviour
 
 
             InventorySlot inventorySlot = snapPointObject.GetComponent<InventorySlot>();
-
+            
             if (snapPointObject != null && inventorySlot.full == false)
             {
                 Transform snapPointTransform = snapPointObject.transform;
@@ -81,16 +84,19 @@ public class imageSnap : MonoBehaviour
                     image.rectTransform.anchoredPosition = Vector2.zero;
                     isSnapped = true;
                     inInventory = false;
-                    Playerinventory.inventory.Remove(gameObject);
+                    RemoveFromList();
                     textUpdate.UpdateStats();
                     GameObject Equippeditem = gameObject.GetComponent<ItemScript>().myprefab;
                     snapPointObject.GetComponent<InventorySlot>().storedItem = Equippeditem;
                     gameObject.GetComponent<ItemScript>().EquippedItem();
 
                 }
+
+
             }
+            
             //Going into equip slot if its full
-            else if (inventorySlot.full == true)
+            else if (inventorySlot.full == true && inventorySlot.transform.GetChild(1) != this.gameObject)
             {
                 // Store the original parent of the current item
                 Transform originalParent = gameObject.transform.parent;
@@ -112,7 +118,7 @@ public class imageSnap : MonoBehaviour
 
 
                 //Update stats
-                
+                gameObject.GetComponent<ItemScript>().equipped = true;
                 gameObject.GetComponent<ItemScript>().EquippedItem();
                 inventorySlot.storedItem.GetComponent<ItemScript>().UnEquipItem();
 
@@ -120,14 +126,13 @@ public class imageSnap : MonoBehaviour
                 Playerinventory.inventory.Add(inventorySlot.gameObject);
 
                 textUpdate.UpdateStats();
-                Debug.Log(inventorySlot.gameObject);
+                
 
             }
-            //Going into inventory from equip slot and is not replacing anything
-            else if(gameObject.GetComponent<ItemScript>().equipped == true)
-            {
-                ReturntoInventory();
-            }
+            
+            
+          
+            
         }
 
 
@@ -135,6 +140,37 @@ public class imageSnap : MonoBehaviour
 
     }
 
+    public void RemoveFromList()
+    {
+        Playerinventory.inventory.Remove(gameObject);
+        int cloneIndex = Playerinventory.inventory.IndexOf(gameObject);
+        int prefabIndex = Playerinventory.Prefabinventory.IndexOf(gameObject);
+
+        if(cloneIndex >= 0)
+        {
+            Playerinventory.inventory.RemoveAt(cloneIndex);
+
+            for( int i = 0; i <Playerinventory.Prefabinventory.Count; i++)
+            {
+                Debug.Log("L");
+                if (Playerinventory.Prefabinventory[i] == gameObject)
+                {
+                    Debug.Log(Playerinventory.Prefabinventory[i]);
+                    Playerinventory.Prefabinventory.RemoveAt(i);
+                    return;
+                }
+            }
+        }
+
+
+
+
+   
+
+    }
+
+
+    /*
     public void ReturntoInventory()
     {
         if (inInventory == false)
@@ -167,7 +203,9 @@ public class imageSnap : MonoBehaviour
 
             }
         }
+        
     }
+    */
 
 
 
