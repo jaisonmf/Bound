@@ -6,7 +6,7 @@ public class Knight : MonoBehaviour
 {
     [SerializeField] private enemyManager enemyManager;
     [SerializeField] private CSVReader cSVReader;
-    [SerializeField] private playerManager playerManager;
+    [SerializeField] private playerStats playerStats;
 
     [SerializeField] private GameObject enemy;
 
@@ -14,6 +14,7 @@ public class Knight : MonoBehaviour
     public void knightStat()
     {
         cSVReader = GameObject.Find("enemyCSV").GetComponent<CSVReader>();
+        playerStats = GameObject.Find("playerStats").GetComponent<playerStats>();
 
         enemy.GetComponent<enemyManager>().enemyMaxHealth = cSVReader.myEnemyList.enemy[1].maxHealth;
         enemy.GetComponent<enemyManager>().enemyMinHealth = cSVReader.myEnemyList.enemy[1].minHealth;
@@ -23,5 +24,32 @@ public class Knight : MonoBehaviour
 
     }
 
+
+    public void KnightAction()
+    {
+        int action = gameObject.GetComponent<enemyManager>().action;
+        int damage = Random.Range(gameObject.GetComponent<enemyManager>().enemyMinDamage, gameObject.GetComponent<enemyManager>().enemyMaxDamage);
+
+        if (action == 1)
+        {
+            playerStats.playerHealth -= damage;
+        }
+        else if (action == 2)
+        {
+            int flurry;
+
+            flurry = Random.Range(1, 3);
+            Debug.Log(flurry);
+            for(int i = 0; i < flurry; i++)
+            {
+                Debug.Log("flurry");
+                damage = Random.Range(gameObject.GetComponent<enemyManager>().enemyMinDamage, gameObject.GetComponent<enemyManager>().enemyMaxDamage);
+                playerStats.playerHealth -= damage;
+                Debug.Log(damage);
+            }
+            
+            
+        }
+    }
 
 }

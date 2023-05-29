@@ -526,6 +526,8 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   playerStats: {fileID: 0}
   playerManager: {fileID: 0}
+  EnemyFunctionScript: Knight
+  EnemyFunctionName: KnightAction
   enemyMinHealth: 15
   enemyMaxHealth: 30
   enemyCurrentHealth: 0

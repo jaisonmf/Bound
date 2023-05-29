@@ -6,7 +6,7 @@ public class Ent : MonoBehaviour
 {
     [SerializeField] private enemyManager enemyManager;
     [SerializeField] private CSVReader cSVReader;
-    [SerializeField] private playerManager playerManager;
+    [SerializeField] private playerStats playerStats;
 
     [SerializeField] private GameObject enemy;
 
@@ -16,12 +16,34 @@ public class Ent : MonoBehaviour
     public void entStat()
     {
         cSVReader = GameObject.Find("enemyCSV").GetComponent<CSVReader>();
+        playerStats = GameObject.Find("playerStats").GetComponent<playerStats>();
 
-        enemy.GetComponent<enemyManager>().enemyMaxHealth = cSVReader.myEnemyList.enemy[0].maxHealth;
-        enemy.GetComponent<enemyManager>().enemyMinHealth = cSVReader.myEnemyList.enemy[0].minHealth;
+        enemy.GetComponent<enemyManager>().enemyMaxHealth = cSVReader.myEnemyList.enemy[3].maxHealth;
+        enemy.GetComponent<enemyManager>().enemyMinHealth = cSVReader.myEnemyList.enemy[3].minHealth;
 
-        enemy.GetComponent<enemyManager>().enemyMaxDamage = cSVReader.myEnemyList.enemy[0].maxDamage;
-        enemy.GetComponent<enemyManager>().enemyMinDamage = cSVReader.myEnemyList.enemy[0].minDamage;
+        enemy.GetComponent<enemyManager>().enemyMaxDamage = cSVReader.myEnemyList.enemy[3].maxDamage;
+        enemy.GetComponent<enemyManager>().enemyMinDamage = cSVReader.myEnemyList.enemy[3].minDamage;
     }
+
+
+    public void EntAction()
+    {
+        
+        int action = gameObject.GetComponent<enemyManager>().action;
+
+
+        if(action == 1)
+        {
+            int damage = Random.Range(gameObject.GetComponent<enemyManager>().enemyMinDamage, gameObject.GetComponent<enemyManager>().enemyMaxDamage);
+            playerStats.playerHealth -= damage;
+        }
+        else if (action == 2)
+        {
+            gameObject.GetComponent<enemyManager>().enemyCurrentHealth += gameObject.GetComponent<enemyManager>().enemyCurrentHealth / 2;
+        }
+       
+
+    }
+
 
 }

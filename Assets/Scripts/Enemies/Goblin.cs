@@ -6,7 +6,7 @@ public class Goblin : MonoBehaviour
 {
     [SerializeField] private enemyManager enemyManager;
     [SerializeField] private CSVReader cSVReader;
-    [SerializeField] private playerManager playerManager;
+    [SerializeField] private playerStats playerStats;
 
     [SerializeField] private GameObject enemy;
 
@@ -16,6 +16,7 @@ public class Goblin : MonoBehaviour
     public void goblinStat()
     {
         cSVReader = GameObject.Find("enemyCSV").GetComponent<CSVReader>();
+        playerStats = GameObject.Find("playerStats").GetComponent<playerStats>();
 
         enemy.GetComponent<enemyManager>().enemyMaxHealth = cSVReader.myEnemyList.enemy[0].maxHealth;
         enemy.GetComponent<enemyManager>().enemyMinHealth = cSVReader.myEnemyList.enemy[0].minHealth;

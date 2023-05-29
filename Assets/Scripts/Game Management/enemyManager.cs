@@ -10,6 +10,9 @@ public class enemyManager : MonoBehaviour
     [SerializeField] private playerStats playerStats;
     [SerializeField] private playerManager playerManager;
 
+    //Enemy Script
+    public string EnemyFunctionScript;
+    public string EnemyFunctionName;
 
     //enemyStats
     public int enemyMinHealth;
@@ -18,7 +21,7 @@ public class enemyManager : MonoBehaviour
     [SerializeField] private int enemyDamage;
     [HideInInspector] public int enemyMinDamage;
     [HideInInspector] public int enemyMaxDamage;
-    private int action;
+    [HideInInspector] public int action;
     public bool alive;
 
 
@@ -74,33 +77,23 @@ public class enemyManager : MonoBehaviour
 
         yield return new WaitForSeconds(time);
 
-        action = Random.Range(1, 3);
-        action = 1;
-        if (action == 1)
+        //action = Random.Range(1, 3);
+        action = 2;
+        GameObject targetObject = gameObject;
+        Component targetScript = targetObject.GetComponent(EnemyFunctionScript);
+        System.Type targetType = System.Type.GetType(EnemyFunctionScript);
+        System.Reflection.MethodInfo targetFunction = targetType.GetMethod(EnemyFunctionName);
+        if(targetFunction != null)
         {
-            
-            enemyDamage = Random.Range(enemyMinDamage, enemyMaxDamage);
+            targetFunction.Invoke(targetScript, null);
+        }
 
-            playerStats.playerHealth -= enemyDamage;
-            playerManager.UpdateHealthBar(playerStats.playerHealth, playerStats.playerMaxHealth);
-            /*
-            if(playerStats.playerHealth <= 0)
-            {
-                SceneManager.LoadScene("LoseScene");
-            }
-            */
-        }
-        else if (action == 2)
-        {
-            Debug.Log("i did a thing");
-        }
-        else
-        {
-            Debug.Log("i did another thing");
-        }
+        UpdateEnemyHealthBar(enemyCurrentHealth, enemyMaxHealth);
+        playerManager.UpdateHealthBar(playerStats.playerHealth, playerStats.playerMaxHealth);
 
         gameManager.playerTurn();
         isCoroutineOn = false;
+
     }
 
 
