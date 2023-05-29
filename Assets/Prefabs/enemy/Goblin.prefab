@@ -648,8 +648,8 @@ MonoBehaviour:
   enemyMaxHealth: 50
   enemyCurrentHealth: 0
   enemyDamage: 0
-  enemyMinDamage: 1
-  enemyMaxDamage: 5
+  enemyMinDamage: 5
+  enemyMaxDamage: 15
   alive: 0
   enemyHealthBar: {fileID: 7082869552524874816}
   enemyCount: 0
