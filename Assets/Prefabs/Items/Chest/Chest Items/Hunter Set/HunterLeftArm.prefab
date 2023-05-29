@@ -1,5 +1,55 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1444417344977198887
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2945215898761512748}
+  - component: {fileID: 359425036480536986}
+  m_Layer: 5
+  m_Name: HunterLeftArmEffect
+  m_TagString: LeftArm
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2945215898761512748
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444417344977198887}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4763894006670847165}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &359425036480536986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444417344977198887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 418eeda9867af8e4a94df5959120eb93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStats: {fileID: 0}
 --- !u!1 &6688367706017289505
 GameObject:
   m_ObjectHideFlags: 0
@@ -12,10 +62,11 @@ GameObject:
   - component: {fileID: 4763894006670847162}
   - component: {fileID: 4763894006670847163}
   - component: {fileID: 4763894006670847164}
-  - component: {fileID: 8158544428312235754}
+  - component: {fileID: 5464894591189209871}
+  - component: {fileID: 3126045116565345534}
   m_Layer: 5
-  m_Name: Chest2
-  m_TagString: Untagged
+  m_Name: HunterLeftArm
+  m_TagString: LeftArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,7 +82,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2945215898761512748}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -68,7 +120,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2ee115e428054174d8cf451ba7637ab8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c988be37cf2e96a428c9d24bb5ebe2e8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -122,19 +174,31 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8158544428312235754}
-        m_TargetAssemblyTypeName: Chest1, Assembly-CSharp
-        m_MethodName: Chest1Items
+      - m_Target: {fileID: 5464894591189209871}
+        m_TargetAssemblyTypeName: ItemScript, Assembly-CSharp
+        m_MethodName: GrabItem
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8158544428312235754
+      - m_Target: {fileID: 3126045116565345534}
+        m_TargetAssemblyTypeName: imageSnap, Assembly-CSharp
+        m_MethodName: SnapToTarget
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5464894591189209871
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,22 +207,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 6688367706017289505}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fceb6963b2c133468069adefd5c02ce, type: 3}
+  m_Script: {fileID: 11500000, guid: 97057557d5bc97c4db0b9dc84f657a69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChestList:
-  - {fileID: 6688367706017289505, guid: be7fcbdd240b3a04cbbd0c2899d10cf2, type: 3}
-  - {fileID: 6688367706017289505, guid: 72b8030a6e855ff41b472032e853ff5c, type: 3}
-  - {fileID: 6688367706017289505, guid: a4400dfd88658334cb61e383bcd89acc, type: 3}
-  - {fileID: 6688367706017289505, guid: f8292ce134ae22046ab0c2cbe6ae38a2, type: 3}
-  - {fileID: 6688367706017289505, guid: 2b80a144bffe6da40aa2edf66547ddf4, type: 3}
-  - {fileID: 6688367706017289505, guid: f8292ce134ae22046ab0c2cbe6ae38a2, type: 3}
-  - {fileID: 6688367706017289505, guid: dbcd9c652785c0a4b87cb9d58cc4c228, type: 3}
-  - {fileID: 6688367706017289505, guid: 833746f4038a49b4fa8c2b408479594d, type: 3}
-  - {fileID: 6688367706017289505, guid: 960777e8ff3b6ba42b479668b68524b4, type: 3}
-  - {fileID: 6688367706017289505, guid: 4ca48dc0eb6c93d4b9fb642a45806a4b, type: 3}
-  - {fileID: 6688367706017289505, guid: 549f20fb427d2d64884ee160c3fa3faa, type: 3}
-  - {fileID: 6688367706017289505, guid: 6a80e3dc2b19b5e4c806fd3c6e3ba594, type: 3}
-  item: {fileID: 0}
+  myprefab: {fileID: 6688367706017289505}
+  inInventory: 0
+  inventory: {fileID: 0}
+  inventorySpot: {fileID: 0}
+  equipped: 0
+  targetScriptName: Hunter
+  targetObjectName: 
+  EquipFunctionName: EquipLeftArm
+  UnequipFunctionName: UnequipLeftArm
+--- !u!114 &3126045116565345534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6688367706017289505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab337dd8deb99304eb7fcfac79196b1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSnapped: 0
+  previousTransform: {x: 0, y: 0}
+  isEnabled: 0
+  inInventory: 1
   parent: {fileID: 0}
-  spawneditem: {fileID: 0}

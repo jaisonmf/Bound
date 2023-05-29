@@ -147,10 +147,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ChestList:
-  - {fileID: 6688367706017289505, guid: 72b8030a6e855ff41b472032e853ff5c, type: 3}
-  - {fileID: 6688367706017289505, guid: af4b650b43e743746933e5e286c5c382, type: 3}
-  - {fileID: 6688367706017289505, guid: 2b80a144bffe6da40aa2edf66547ddf4, type: 3}
-  - {fileID: 6688367706017289505, guid: a4400dfd88658334cb61e383bcd89acc, type: 3}
   - {fileID: 6688367706017289505, guid: be7fcbdd240b3a04cbbd0c2899d10cf2, type: 3}
+  - {fileID: 6688367706017289505, guid: 72b8030a6e855ff41b472032e853ff5c, type: 3}
+  - {fileID: 6688367706017289505, guid: a4400dfd88658334cb61e383bcd89acc, type: 3}
   - {fileID: 6688367706017289505, guid: f8292ce134ae22046ab0c2cbe6ae38a2, type: 3}
-  - {fileID: 6688367706017289505, guid: 878e0b380e09b3c4d90be351d17abf14, type: 3}
+  - {fileID: 6688367706017289505, guid: 2b80a144bffe6da40aa2edf66547ddf4, type: 3}
+  - {fileID: 6688367706017289505, guid: f8292ce134ae22046ab0c2cbe6ae38a2, type: 3}
+  - {fileID: 6688367706017289505, guid: dbcd9c652785c0a4b87cb9d58cc4c228, type: 3}
+  - {fileID: 6688367706017289505, guid: 833746f4038a49b4fa8c2b408479594d, type: 3}
+  - {fileID: 6688367706017289505, guid: 960777e8ff3b6ba42b479668b68524b4, type: 3}
+  - {fileID: 6688367706017289505, guid: 4ca48dc0eb6c93d4b9fb642a45806a4b, type: 3}
+  - {fileID: 6688367706017289505, guid: 549f20fb427d2d64884ee160c3fa3faa, type: 3}
+  - {fileID: 6688367706017289505, guid: 6a80e3dc2b19b5e4c806fd3c6e3ba594, type: 3}
+  item: {fileID: 0}
+  parent: {fileID: 0}
+  spawneditem: {fileID: 0}
