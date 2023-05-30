@@ -29,18 +29,17 @@ public class imageSnap : MonoBehaviour
         previousTransform = transform.position;
         Playerinventory = GameObject.Find("playerStats").GetComponent<playerInventory>();
         itemScript = GetComponent<ItemScript>();
-        inventory = GameObject.Find("InventoryContainer").GetComponent<Inventory>();
+        
         
     }
     
     public void SnapToTarget()
     {
        
-
         if (isEnabled && inInventory == true)
         {
-            
 
+            inventory = GameObject.Find("InventoryContainer").GetComponent<Inventory>();
             GameObject snapPointObject = null;
 
             string currentTag = gameObject.tag;
@@ -113,8 +112,7 @@ public class imageSnap : MonoBehaviour
                
                 inventorySlot.storedItem.transform.SetParent(originalParent, true);
 
-                Debug.Log(gameObject);
-                Debug.Log(inventorySlot.storedItem);
+
 
                 gameObject.transform.position = occupiedPosition;
                 inventorySlot.storedItem.transform.position = originalPosition;
@@ -123,8 +121,15 @@ public class imageSnap : MonoBehaviour
                 inventorySlot.storedItem.GetComponent<ItemScript>().equipped = false;
                
                 GameObject prefab;
+                GameObject item;
+                
                 prefab = inventorySlot.storedItem.GetComponent<ItemScript>().myprefab;
+                item = inventorySlot.storedItem.GetComponent<ItemScript>().gameObject;
+
+
                 Playerinventory.Prefabinventory.Add(prefab);
+                Playerinventory.inventory.Add(item);
+
                 inventorySlot.storedItem = thisObject;
                
                 
@@ -164,10 +169,10 @@ public class imageSnap : MonoBehaviour
 
     public void RemoveFromList()
     {
-       
 
+        
         int cloneIndex = Playerinventory.inventory.IndexOf(gameObject);
-
+        Debug.Log(Playerinventory.inventory.IndexOf(gameObject));
         if (cloneIndex >= 0)
         {
             Playerinventory.inventory.RemoveAt(cloneIndex);
@@ -184,7 +189,7 @@ public class imageSnap : MonoBehaviour
 
                 if (prefabName == prefabNameToRemove)
                 {
-
+                    Debug.Log("removed prefab");
                     Playerinventory.Prefabinventory.RemoveAt(i);
 
                 }
