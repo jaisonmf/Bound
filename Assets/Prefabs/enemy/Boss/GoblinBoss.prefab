@@ -186,7 +186,7 @@ MonoBehaviour:
   playerManager: {fileID: 0}
   selectButton: {fileID: 6572402757232593450}
   selectArrow: {fileID: 0}
-  enemy: {fileID: 0}
+  enemy: {fileID: 8124828832793792006}
 --- !u!1 &3039531753415213197
 GameObject:
   m_ObjectHideFlags: 0
@@ -644,10 +644,10 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   playerStats: {fileID: 0}
   playerManager: {fileID: 0}
-  EnemyFunctionScript: 
-  EnemyFunctionName: 
-  enemyMinHealth: 10
-  enemyMaxHealth: 50
+  EnemyFunctionScript: goblinBoss
+  EnemyFunctionName: GoblinBossAction
+  enemyMinHealth: 150
+  enemyMaxHealth: 200
   enemyCurrentHealth: 0
   enemyDamage: 0
   enemyMinDamage: 5

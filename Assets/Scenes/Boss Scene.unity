@@ -2140,6 +2140,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1024269965}
     m_Modifications:
+    - target: {fileID: 4109734741948760137, guid: b9620277ec410cf45a2ed93d7cb5da6f, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 225055731}
+    - target: {fileID: 4109734741948760137, guid: b9620277ec410cf45a2ed93d7cb5da6f, type: 3}
+      propertyPath: enemyGenerator
+      value: 
+      objectReference: {fileID: 1862644420}
     - target: {fileID: 4109734741948760140, guid: b9620277ec410cf45a2ed93d7cb5da6f, type: 3}
       propertyPath: m_Name
       value: playerManager

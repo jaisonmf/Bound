@@ -118,7 +118,9 @@ public class playerManager : MonoBehaviour
     public void PlayerAttack(int listIndex)
     {
         //Player attacks individual enemy so it doesnt hit all
+        Debug.Log(enemyGenerator.spawnedEnemyList[listIndex]);
         GameObject enemy = enemyGenerator.spawnedEnemyList[listIndex];
+        Debug.Log(enemy);
         bool alive = false;
         damage = Random.Range(playerStats.playerMinDamage, playerStats.playerMaxDamage);
         enemy.GetComponent<enemyManager>().enemyCurrentHealth -= damage;
