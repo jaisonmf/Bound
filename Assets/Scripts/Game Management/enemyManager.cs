@@ -77,8 +77,8 @@ public class enemyManager : MonoBehaviour
 
         yield return new WaitForSeconds(time);
 
-        //action = Random.Range(1, 3);
-        action = 2;
+        action = Random.Range(1, 4);
+        //action = 2;
         GameObject targetObject = gameObject;
         Component targetScript = targetObject.GetComponent(EnemyFunctionScript);
         System.Type targetType = System.Type.GetType(EnemyFunctionScript);

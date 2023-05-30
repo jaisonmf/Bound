@@ -91,7 +91,7 @@ public class imageSnap : MonoBehaviour
                     textUpdate.UpdateStats();
 
                    
-                    Debug.Log(thisObject);
+                
                     gameObject.GetComponent<ItemScript>().EquippedItem();
                     RemoveFromList();
                 }
@@ -110,8 +110,11 @@ public class imageSnap : MonoBehaviour
                 Vector3 occupiedPosition = inventorySlot.storedItem.transform.position;
 
                 gameObject.transform.SetParent(inventorySlot.storedItem.transform.parent, true);
-                inventorySlot.storedItem = thisObject;
+               
                 inventorySlot.storedItem.transform.SetParent(originalParent, true);
+
+                Debug.Log(gameObject);
+                Debug.Log(inventorySlot.storedItem);
 
                 gameObject.transform.position = occupiedPosition;
                 inventorySlot.storedItem.transform.position = originalPosition;
@@ -119,13 +122,15 @@ public class imageSnap : MonoBehaviour
                 inventorySlot.storedItem.GetComponent<imageSnap>().inInventory = true;
                 inventorySlot.storedItem.GetComponent<ItemScript>().equipped = false;
                 inventorySlot.storedItem.GetComponent<ItemScript>().UnEquipItem();
-
-
+                GameObject prefab;
+                prefab = inventorySlot.storedItem.GetComponent<ItemScript>().myprefab;
+                Playerinventory.Prefabinventory.Add(prefab);
+                inventorySlot.storedItem = thisObject;
 
                 //  Playerinventory.inventory.Add(inventorySlot.gameObject);
                 // Playerinventory.Prefabinventory.Add(gameObject.GetComponent<ItemScript>().myprefab);
 
-                
+
 
 
                 //Update stats

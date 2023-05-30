@@ -1,5 +1,5 @@
 ﻿Name,maxHealth,minHealth,maxDamage,minDamage
-Goblin,35,15,15,5
-Knight,50,30,15,10
-Wolf,20,10,20,15
-Ent,75,50,10,3
+Goblin,50,25,15,5
+Knight,75,50,15,10
+Wolf,40,25,20,15
+Ent,150,100,10,3

@@ -87,31 +87,37 @@ public class InventorySlot : MonoBehaviour
         {
             playerStats.equippedHead = Instantiate(playerStats.PrefabequippedHead);
             spawnedItem = playerStats.equippedHead;
+            full = true;
         }
         else if (playerStats.PrefabequippedBody != null && currentTag == "Body")
         {
             playerStats.equippedBody = Instantiate(playerStats.PrefabequippedBody);
             spawnedItem = playerStats.equippedBody;
+            full = true;
         }
         else if (playerStats.PrefabequippedLeftArm != null && currentTag == "LeftArm")
         {
             playerStats.equippedLeftArm = Instantiate(playerStats.PrefabequippedLeftArm);
             spawnedItem = playerStats.equippedLeftArm;
+            full = true;
         }
         else if (playerStats.PrefabequippedRightArm != null && currentTag == "RightArm")
         {
             playerStats.equippedRightArm = Instantiate(playerStats.PrefabequippedRightArm);
             spawnedItem = playerStats.equippedRightArm;
+            full = true;
         }
         else if (playerStats.PrefabequippedLeftLeg != null && currentTag == "LeftLeg")
         {
             playerStats.equippedLeftLeg = Instantiate(playerStats.PrefabequippedLeftLeg);
             spawnedItem = playerStats.equippedLeftLeg;
+            full = true;
         }
         else if (playerStats.PrefabequippedRightLeg != null && currentTag == "RightLeg")
         {
             playerStats.equippedRightLeg = Instantiate(playerStats.PrefabequippedRightLeg);
             spawnedItem = playerStats.equippedRightLeg;
+            full = true;
         }
   
 
@@ -123,8 +129,9 @@ public class InventorySlot : MonoBehaviour
             item.transform.SetParent(gameObject.transform, false);
             item.transform.localScale = Vector3.one * 0.5f;
             item.GetComponent<ItemScript>().FindInventory();
-            item.GetComponent<ItemScript>().inInventory = true;
+
             item.GetComponent<imageSnap>().isEnabled = true;
+            storedItem = item;
 
 
         }

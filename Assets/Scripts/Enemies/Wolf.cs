@@ -25,4 +25,33 @@ public class Wolf : MonoBehaviour
         enemy.GetComponent<enemyManager>().enemyMinDamage = cSVReader.myEnemyList.enemy[2].minDamage;
     }
 
+
+
+    public void KnightAction()
+    {
+        int action = gameObject.GetComponent<enemyManager>().action;
+        int damage = Random.Range(gameObject.GetComponent<enemyManager>().enemyMinDamage, gameObject.GetComponent<enemyManager>().enemyMaxDamage);
+
+        if (action == 1)
+        {
+            playerStats.playerHealth -= damage;
+        }
+        else if (action == 2)
+        {
+            int flurry;
+
+            flurry = Random.Range(1, 6);
+            Debug.Log(flurry);
+            for (int i = 0; i < flurry; i++)
+            {
+                Debug.Log("flurry");
+                damage = Random.Range(gameObject.GetComponent<enemyManager>().enemyMinDamage, gameObject.GetComponent<enemyManager>().enemyMaxDamage);
+                playerStats.playerHealth -= damage;
+                Debug.Log(damage);
+            }
+
+
+        }
+    }
+
 }
