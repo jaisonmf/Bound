@@ -715,6 +715,30 @@ PrefabInstance:
       propertyPath: mainMenu
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6475073955228600011, guid: 1dc43000ff2c9ce4296508dfc58105c3, type: 3}
+      propertyPath: events.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6475073955228600011, guid: 1dc43000ff2c9ce4296508dfc58105c3, type: 3}
+      propertyPath: events.Array.data[0]
+      value: 
+      objectReference: {fileID: 1830213872993935678, guid: b2cd6ca10c7a1ba44a96ce70144a33d2, type: 3}
+    - target: {fileID: 6475073955228600011, guid: 1dc43000ff2c9ce4296508dfc58105c3, type: 3}
+      propertyPath: events.Array.data[1]
+      value: 
+      objectReference: {fileID: 1830213872993935678, guid: b2cd6ca10c7a1ba44a96ce70144a33d2, type: 3}
+    - target: {fileID: 6475073955228600011, guid: 1dc43000ff2c9ce4296508dfc58105c3, type: 3}
+      propertyPath: events.Array.data[2]
+      value: 
+      objectReference: {fileID: 6688367706017289505, guid: 1359a83349fe10a4baf42a78b0bbac2c, type: 3}
+    - target: {fileID: 6475073955228600011, guid: 1dc43000ff2c9ce4296508dfc58105c3, type: 3}
+      propertyPath: events.Array.data[3]
+      value: 
+      objectReference: {fileID: 6688367706017289505, guid: 007a006a2e26c3c4a83eab0f328cb87e, type: 3}
+    - target: {fileID: 6475073955228600011, guid: 1dc43000ff2c9ce4296508dfc58105c3, type: 3}
+      propertyPath: events.Array.data[4]
+      value: 
+      objectReference: {fileID: 1830213872993935678, guid: ebf1b1187eb1111469ba44961e8262ee, type: 3}
     - target: {fileID: 6475073955228600052, guid: 1dc43000ff2c9ce4296508dfc58105c3, type: 3}
       propertyPath: m_Name
       value: Map
@@ -1327,6 +1351,18 @@ PrefabInstance:
       propertyPath: inventory.Array.data[19]
       value: 
       objectReference: {fileID: 6688367706017289505, guid: f8292ce134ae22046ab0c2cbe6ae38a2, type: 3}
+    - target: {fileID: 1387446922038180432, guid: 87b83ad5d070e8547bc2795d4e30c834, type: 3}
+      propertyPath: Prefabinventory.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1387446922038180432, guid: 87b83ad5d070e8547bc2795d4e30c834, type: 3}
+      propertyPath: Prefabinventory.Array.data[0]
+      value: 
+      objectReference: {fileID: 6688367706017289505, guid: be7fcbdd240b3a04cbbd0c2899d10cf2, type: 3}
+    - target: {fileID: 1387446922038180432, guid: 87b83ad5d070e8547bc2795d4e30c834, type: 3}
+      propertyPath: Prefabinventory.Array.data[1]
+      value: 
+      objectReference: {fileID: 6688367706017289505, guid: dbcd9c652785c0a4b87cb9d58cc4c228, type: 3}
     - target: {fileID: 5027555914231235909, guid: 87b83ad5d070e8547bc2795d4e30c834, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
