@@ -15,14 +15,17 @@ public class Default : MonoBehaviour
     public void EquipHead()
     {
         playerStats.playerMaxHealth += 10;
+        playerStats.playerHealth += 10;
         textUpdate = GameObject.Find("Character").GetComponent<textUpdate>();
         textUpdate.UpdateStats();
+
     }
 
 
     public void EquipBody()
     {
         playerStats.playerMaxHealth += 20;
+        playerStats.playerHealth += 20;
         textUpdate = GameObject.Find("Character").GetComponent<textUpdate>();
         textUpdate.UpdateStats();
     }
@@ -58,6 +61,7 @@ public class Default : MonoBehaviour
     public void UnequipHead()
     {
         playerStats.playerMaxHealth -= 10;
+        playerStats.playerHealth -= 10;
         textUpdate = GameObject.Find("Character").GetComponent<textUpdate>();
         textUpdate.UpdateStats();
     }
@@ -66,6 +70,7 @@ public class Default : MonoBehaviour
     public void UnequipBody()
     {
         playerStats.playerMaxHealth -= 20;
+        playerStats.playerHealth -= 20;
         textUpdate = GameObject.Find("Character").GetComponent<textUpdate>();
         textUpdate.UpdateStats();
     }

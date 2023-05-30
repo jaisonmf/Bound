@@ -29,6 +29,7 @@ public class enemyManager : MonoBehaviour
     public Slider enemyHealthBar;
     private bool isCoroutineOn = false;
     public int enemyCount;
+    public GameObject turnArrow;
 
 
 
@@ -43,6 +44,7 @@ public class enemyManager : MonoBehaviour
 
     public void EnemyTurn()
     {
+        
         //Check if enemy health is more than 0
         if (enemyCurrentHealth > 0)
         {

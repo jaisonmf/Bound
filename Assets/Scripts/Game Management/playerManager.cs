@@ -40,7 +40,7 @@ public class playerManager : MonoBehaviour
         action3.interactable = false;
         action4.interactable = false;
         */
-        playerStats.playerHealth = playerStats.playerMaxHealth;
+      
         UpdateHealthBar(playerStats.playerHealth, playerStats.playerMaxHealth);
         playerStats.playerEnergy = playerStats.playerMaxEnergy;
         UpdateEnergyBar(playerStats.playerEnergy, playerStats.playerMaxEnergy);

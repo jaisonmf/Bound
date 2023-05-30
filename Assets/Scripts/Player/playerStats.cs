@@ -11,6 +11,8 @@ public class playerStats : MonoBehaviour
     public int playerEnergy;
     public int playerMaxEnergy = 3;
 
+
+    [Header("equippables")]
     public GameObject equippedHead = null;
     public GameObject equippedBody = null;
     public GameObject equippedLeftArm = null;
@@ -18,6 +20,7 @@ public class playerStats : MonoBehaviour
     public GameObject equippedLeftLeg = null;
     public GameObject equippedRightLeg = null;
 
+    [Header("prefab equips")]
     public GameObject PrefabequippedHead = null;
     public GameObject PrefabequippedBody = null;
     public GameObject PrefabequippedLeftArm = null;

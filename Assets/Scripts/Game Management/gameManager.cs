@@ -31,13 +31,20 @@ public class gameManager : MonoBehaviour
     public void enemyTurn()
     {
 
-        for(int i = 0; i < enemyGenerator.spawnedEnemyList.Count; i++)
+        foreach (GameObject enemy in enemyGenerator.spawnedEnemyList)
         {
-            enemyGenerator.spawnedEnemyList[i].GetComponent<enemyManager>().EnemyTurn();
-            
+            StartCoroutine(takeTurn(enemy));
         }
     }
 
-
+    IEnumerator takeTurn(GameObject enemy)
+    {
+        enemy.GetComponent<enemyManager>().turnArrow.SetActive(true);
+        yield return new WaitForSeconds(3);
+        enemy.GetComponent<enemyManager>().EnemyTurn();
+        Debug.Log("attack");
+        yield return new WaitForSeconds(1);
+        enemy.GetComponent<enemyManager>().turnArrow.SetActive(false);
+    }
 
 }

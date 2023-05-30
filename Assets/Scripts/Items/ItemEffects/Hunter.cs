@@ -25,6 +25,7 @@ public class Hunter : MonoBehaviour
     public void EquipBody()
     {
         playerStats.playerMaxHealth -= 15;
+        playerStats.playerHealth -= 15;
         Debug.Log("effect");
         textUpdate = GameObject.Find("Character").GetComponent<textUpdate>();
         textUpdate.UpdateStats();
@@ -70,6 +71,7 @@ public class Hunter : MonoBehaviour
     public void UnequipBody()
     {
         playerStats.playerMaxHealth += 15;
+        playerStats.playerHealth += 15;
         textUpdate = GameObject.Find("Character").GetComponent<textUpdate>();
         textUpdate.UpdateStats();
     }
