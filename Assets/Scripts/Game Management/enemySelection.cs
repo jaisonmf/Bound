@@ -13,8 +13,8 @@ public class enemySelection : MonoBehaviour
 
     public void Start()
     {
-        enemy = transform.parent.gameObject;
-        selectArrow = gameObject;
+        enemy = gameObject;
+     
         playerManager = GameObject.Find("playerManager").GetComponent<playerManager>();
     }
 
@@ -29,7 +29,8 @@ public class enemySelection : MonoBehaviour
 
     public void Action()
     {
-        playerManager.PlayerAttack(this.transform.parent.GetComponent<enemyManager>().enemyCount);
+ 
+        playerManager.PlayerAttack(enemy.GetComponent<enemyManager>().enemyCount);
         //this.transform.parent.GetComponent<enemyManager>().UpdateEnemyHealthBar(this.transform.parent.GetComponent<enemyManager>().enemyCurrentHealth, this.transform.parent.GetComponent<enemyManager>().enemyHealth);
     }
 }

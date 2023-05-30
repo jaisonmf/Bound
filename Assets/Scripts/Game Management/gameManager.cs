@@ -30,9 +30,11 @@ public class gameManager : MonoBehaviour
 
     public void enemyTurn()
     {
+
         for(int i = 0; i < enemyGenerator.spawnedEnemyList.Count; i++)
         {
             enemyGenerator.spawnedEnemyList[i].GetComponent<enemyManager>().EnemyTurn();
+            
         }
     }
 
