@@ -23,6 +23,7 @@ public class MapEvent : MonoBehaviour
     public bool mainMenu = false;
 
     [SerializeField] public List<List<GameObject>> location = new List<List<GameObject>>();
+    [SerializeField] public List<GameObject> buttons;
 
 
 
@@ -55,6 +56,7 @@ public class MapEvent : MonoBehaviour
         else if (playerStats.returnToMap == true && mainMenu == false)
         {
             map.SetActive(true);
+  
         }
 
     }
@@ -74,6 +76,7 @@ public class MapEvent : MonoBehaviour
                 
                 var tempSpawn = Instantiate(events[Random.Range(0, events.Count)]);
                 location[i].Add(tempSpawn);
+                buttons.Add(tempSpawn);
                 tempSpawn.transform.SetParent(parent.transform, false);
                 tempSpawn.transform.position = new Vector3((point2.transform.position.x - point1.transform.position.x)/ (rows + 1) * (i + 1) - (0 - point1.transform.position.x), Screen.height / (tempListLength + 1) * (j + 1), 0);
 

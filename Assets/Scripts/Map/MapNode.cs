@@ -12,9 +12,12 @@ public class MapNode : MonoBehaviour
     public bool maxPreviousConnections;
     public GameObject arrow;
     private FinalNode finalNode;
+   
 
     public void Start()
     {
+
+
         if(previousnodes.Count == 0)
         {
             gameObject.GetComponent<Button>().interactable = true;
@@ -31,7 +34,8 @@ public class MapNode : MonoBehaviour
 
     public void ButtonInteract(int Number)
     {
-        if(Number == 1)
+        MapEvent mapEvent = GameObject.Find("Map").GetComponent<MapEvent>();
+        if (Number == 1)
         {
             SceneManager.LoadScene("CombatScene");
         }
@@ -49,18 +53,19 @@ public class MapNode : MonoBehaviour
             SceneManager.LoadScene("ItemScene");
         }
 
+        
+        foreach (GameObject button in mapEvent.buttons)
+        {
+            button.GetComponent<Button>().interactable = false;
+        }
         foreach (GameObject gameObject in futurenodes)
         {
             gameObject.GetComponent<Button>().interactable = true;
         }
-        foreach(GameObject gameObject in previousnodes)
-        {
-            gameObject.GetComponent<Button>().interactable = false;
-        }
         gameObject.GetComponent<Button>().interactable = false;
         finalNode.countdown++;
 
-        MapEvent mapEvent = GameObject.Find("Map").GetComponent<MapEvent>();
+       
         if(finalNode.countdown == mapEvent.rows)
         {
             finalNode.Avaliable();
