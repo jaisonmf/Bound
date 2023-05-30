@@ -29,11 +29,12 @@ public class MapEvent : MonoBehaviour
 
     private void Start()
     {
+        /*
         events[0] = enemyEncounter;
         events[1] = enemyEncounter;
         events[2] = rest;
         events[3] = upgrade;
-        
+        */
         playerStats = GameObject.Find("playerStats").GetComponent<playerStats>();
 
         

@@ -121,11 +121,15 @@ public class imageSnap : MonoBehaviour
                 inventorySlot.storedItem.GetComponent<imageSnap>().isSnapped = false;
                 inventorySlot.storedItem.GetComponent<imageSnap>().inInventory = true;
                 inventorySlot.storedItem.GetComponent<ItemScript>().equipped = false;
-                inventorySlot.storedItem.GetComponent<ItemScript>().UnEquipItem();
+               
                 GameObject prefab;
                 prefab = inventorySlot.storedItem.GetComponent<ItemScript>().myprefab;
                 Playerinventory.Prefabinventory.Add(prefab);
                 inventorySlot.storedItem = thisObject;
+               
+                
+                
+
 
                 //  Playerinventory.inventory.Add(inventorySlot.gameObject);
                 // Playerinventory.Prefabinventory.Add(gameObject.GetComponent<ItemScript>().myprefab);
@@ -137,8 +141,9 @@ public class imageSnap : MonoBehaviour
                 gameObject.GetComponent<ItemScript>().equipped = true;
                 gameObject.GetComponent<ItemScript>().EquippedItem();
                 inventorySlot.storedItem.GetComponent<ItemScript>().UnEquipItem();
-              
-              
+               
+
+
 
                 textUpdate.UpdateStats();
                 inventorySlot.UpdateSlot();
@@ -159,6 +164,8 @@ public class imageSnap : MonoBehaviour
 
     public void RemoveFromList()
     {
+       
+
         int cloneIndex = Playerinventory.inventory.IndexOf(gameObject);
 
         if (cloneIndex >= 0)

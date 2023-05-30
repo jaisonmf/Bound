@@ -30,6 +30,7 @@ public class InventorySlot : MonoBehaviour
             prefab = storedItem.GetComponent<ItemScript>().myprefab;
             playerStats.PrefabequippedHead = prefab;
             playerStats.equippedHead = storedItem;
+            
 
         }
         else if (currentTag == "Body")
@@ -66,6 +67,8 @@ public class InventorySlot : MonoBehaviour
             playerStats.PrefabequippedRightLeg = prefab;
             playerStats.equippedRightLeg = storedItem;
         }
+        storedItem.GetComponent<ItemScript>().equipped = true;
+        storedItem.GetComponent<ItemScript>().EquippedItem();
     }
     
     public void Start()
