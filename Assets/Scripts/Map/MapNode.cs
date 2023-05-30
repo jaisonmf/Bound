@@ -53,6 +53,10 @@ public class MapNode : MonoBehaviour
         {
             gameObject.GetComponent<Button>().interactable = true;
         }
+        foreach(GameObject gameObject in previousnodes)
+        {
+            gameObject.GetComponent<Button>().interactable = false;
+        }
         gameObject.GetComponent<Button>().interactable = false;
         finalNode.countdown++;
 

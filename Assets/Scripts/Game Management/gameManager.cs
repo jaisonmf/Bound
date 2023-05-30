@@ -7,12 +7,14 @@ public class gameManager : MonoBehaviour
     [SerializeField] private playerManager playerManager;
     [SerializeField] private enemyManager enemyManager;
     [SerializeField] private enemyGenerator enemyGenerator;
+    [SerializeField] private playerStats playerStats;
 
 
     private void Start()
     {
         playerManager = GameObject.Find("playerManager").GetComponent<playerManager>();
-        
+        playerStats = GameObject.Find("playerStats").GetComponent<playerStats>();
+
         playerTurn();
 
     }
@@ -48,6 +50,8 @@ public class gameManager : MonoBehaviour
 
             enemy.GetComponent<enemyManager>().turnArrow.SetActive(false);
             enemy.GetComponent<enemyManager>().enabled = false; // Disable enemy script again
+            playerManager.UpdateHealthBar(playerStats.playerHealth, playerStats.playerMaxHealth);
+
         }
     }
 

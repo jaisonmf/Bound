@@ -34,7 +34,7 @@ public class goblinBoss : MonoBehaviour
 
         if(gameObject.GetComponent<enemyManager>().enemyCurrentHealth > 0)
         {
-            if (action == 1)
+            if (action == 1 || action == 4)
             {
                 playerStats.playerHealth -= damage;
             }
@@ -65,6 +65,7 @@ public class goblinBoss : MonoBehaviour
                     gameObject.GetComponent<enemyManager>().enemyCurrentHealth = gameObject.GetComponent<enemyManager>().enemyMaxHealth;
                 }
             }
+            
         }
         else
         {

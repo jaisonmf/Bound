@@ -32,12 +32,12 @@ public class Ent : MonoBehaviour
         int action = gameObject.GetComponent<enemyManager>().action;
 
 
-        if(action == 1)
+        if(action == 1 || action == 3)
         {
             int damage = Random.Range(gameObject.GetComponent<enemyManager>().enemyMinDamage, gameObject.GetComponent<enemyManager>().enemyMaxDamage);
             playerStats.playerHealth -= damage;
         }
-        else if (action == 2)
+        else if (action == 2 || action == 4)
         {
             gameObject.GetComponent<enemyManager>().enemyCurrentHealth += gameObject.GetComponent<enemyManager>().enemyCurrentHealth / 2;
             if(gameObject.GetComponent<enemyManager>().enemyCurrentHealth > gameObject.GetComponent<enemyManager>().enemyMaxHealth)

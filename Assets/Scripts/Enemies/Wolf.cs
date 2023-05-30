@@ -32,11 +32,11 @@ public class Wolf : MonoBehaviour
         int action = gameObject.GetComponent<enemyManager>().action;
         int damage = Random.Range(gameObject.GetComponent<enemyManager>().enemyMinDamage, gameObject.GetComponent<enemyManager>().enemyMaxDamage);
 
-        if (action == 1)
+        if (action == 1 || action == 3)
         {
             playerStats.playerHealth -= damage;
         }
-        else if (action == 2)
+        else if (action == 2 || action == 4)
         {
             int flurry;
 
