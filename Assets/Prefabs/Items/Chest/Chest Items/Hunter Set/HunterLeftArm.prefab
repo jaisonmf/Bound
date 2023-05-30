@@ -236,3 +236,4 @@ MonoBehaviour:
   isEnabled: 0
   inInventory: 1
   parent: {fileID: 0}
+  thisObject: {fileID: 0}

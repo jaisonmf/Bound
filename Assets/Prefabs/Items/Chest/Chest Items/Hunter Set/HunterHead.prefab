@@ -186,6 +186,7 @@ MonoBehaviour:
   isEnabled: 0
   inInventory: 1
   parent: {fileID: 0}
+  thisObject: {fileID: 0}
 --- !u!1 &7075315418983040423
 GameObject:
   m_ObjectHideFlags: 0

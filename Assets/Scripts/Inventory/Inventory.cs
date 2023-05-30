@@ -123,6 +123,7 @@ public class Inventory : MonoBehaviour
 
             item.transform.SetParent(parent.transform, false);
             item.transform.localScale = Vector3.one * scaleMultiplier;
+            item.SetActive(true);
             
 
 

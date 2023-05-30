@@ -91,7 +91,7 @@ public class imageSnap : MonoBehaviour
 
                    
                 
-                    gameObject.GetComponent<ItemScript>().EquippedItem();
+                    //gameObject.GetComponent<ItemScript>().EquippedItem();
                     RemoveFromList();
                 }
 
@@ -144,7 +144,7 @@ public class imageSnap : MonoBehaviour
 
                 //Update stats
                 gameObject.GetComponent<ItemScript>().equipped = true;
-                gameObject.GetComponent<ItemScript>().EquippedItem();
+              //  gameObject.GetComponent<ItemScript>().EquippedItem();
                 inventorySlot.storedItem.GetComponent<ItemScript>().UnEquipItem();
                
 
@@ -189,7 +189,7 @@ public class imageSnap : MonoBehaviour
 
                 if (prefabName == prefabNameToRemove)
                 {
-                    Debug.Log("removed prefab");
+         
                     Playerinventory.Prefabinventory.RemoveAt(i);
 
                 }
