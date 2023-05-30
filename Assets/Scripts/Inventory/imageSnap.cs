@@ -18,10 +18,12 @@ public class imageSnap : MonoBehaviour
     [HideInInspector]public GameObject parent;
     private removeChild removeChild;
     private textUpdate textUpdate;
-    private bool full;
+
+    public GameObject thisObject;
 
     void Start()
     {
+        thisObject = gameObject;
         image = GetComponent<Image>();
         textUpdate = GameObject.FindObjectOfType<textUpdate>();
         previousTransform = transform.position;
@@ -42,7 +44,7 @@ public class imageSnap : MonoBehaviour
             GameObject snapPointObject = null;
 
             string currentTag = gameObject.tag;
-            GameObject parent = itemScript.inventorySpot;
+
 
 
             if (currentTag == "Head")
@@ -84,20 +86,21 @@ public class imageSnap : MonoBehaviour
                     image.rectTransform.anchoredPosition = Vector2.zero;
                     isSnapped = true;
                     inInventory = false;
+                    snapPointObject.GetComponent<InventorySlot>().storedItem = thisObject;
                     inventorySlot.UpdateSlot();
-                    RemoveFromList();
                     textUpdate.UpdateStats();
-                    GameObject Equippeditem = gameObject.GetComponent<ItemScript>().myprefab;
-                    snapPointObject.GetComponent<InventorySlot>().storedItem = Equippeditem;
-                    gameObject.GetComponent<ItemScript>().EquippedItem();
 
+                   
+                    Debug.Log(thisObject);
+                    gameObject.GetComponent<ItemScript>().EquippedItem();
+                    RemoveFromList();
                 }
 
 
             }
             
             //Going into equip slot if its full
-            else if (inventorySlot.full == true && inventorySlot.transform.GetChild(1) != this.gameObject)
+            else if (inventorySlot.full == true && inventorySlot.transform.GetChild(1) != gameObject)
             {
                 // Store the original parent of the current item
                 Transform originalParent = gameObject.transform.parent;
@@ -107,21 +110,22 @@ public class imageSnap : MonoBehaviour
                 Vector3 occupiedPosition = inventorySlot.storedItem.transform.position;
 
                 gameObject.transform.SetParent(inventorySlot.storedItem.transform.parent, true);
+                inventorySlot.storedItem = thisObject;
                 inventorySlot.storedItem.transform.SetParent(originalParent, true);
-                inventorySlot.UpdateSlot();
-
 
                 gameObject.transform.position = occupiedPosition;
                 inventorySlot.storedItem.transform.position = originalPosition;
                 inventorySlot.storedItem.GetComponent<imageSnap>().isSnapped = false;
                 inventorySlot.storedItem.GetComponent<imageSnap>().inInventory = true;
+                inventorySlot.storedItem.GetComponent<ItemScript>().equipped = false;
+                inventorySlot.storedItem.GetComponent<ItemScript>().UnEquipItem();
 
-                // Swap the stored items in the inventory slots
-                RemoveFromList();
-              //  Playerinventory.inventory.Add(inventorySlot.gameObject);
-               // Playerinventory.Prefabinventory.Add(gameObject.GetComponent<ItemScript>().myprefab);
 
-                inventorySlot.storedItem = gameObject;
+
+                //  Playerinventory.inventory.Add(inventorySlot.gameObject);
+                // Playerinventory.Prefabinventory.Add(gameObject.GetComponent<ItemScript>().myprefab);
+
+                
 
 
                 //Update stats
@@ -132,12 +136,15 @@ public class imageSnap : MonoBehaviour
               
 
                 textUpdate.UpdateStats();
-                
+                inventorySlot.UpdateSlot();
+
+                // Swap the stored items in the inventory slots
+                RemoveFromList();
 
             }
                   
           
-            
+           
         }
 
 

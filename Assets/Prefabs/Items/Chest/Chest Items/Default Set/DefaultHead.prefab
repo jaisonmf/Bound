@@ -166,7 +166,7 @@ MonoBehaviour:
   inventorySpot: {fileID: 0}
   equipped: 0
   targetScriptName: Default
-  targetObjectName: 
+  targetObjectName: DefaultHeadEffect
   EquipFunctionName: EquipHead
   UnequipFunctionName: UnequipHead
 --- !u!114 &377290184957895641

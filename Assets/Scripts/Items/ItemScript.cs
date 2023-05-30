@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -31,8 +30,7 @@ public class ItemScript : MonoBehaviour
     public void Start()
     {
         playerInventory = GameObject.Find("playerStats").GetComponent<playerInventory>();
-        
-        //mapEvent = GameObject.Find("Map").GetComponent<MapEvent>();
+        mapEvent = GameObject.Find("Map").GetComponent<MapEvent>();
 
     }
 

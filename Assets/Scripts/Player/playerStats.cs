@@ -18,6 +18,16 @@ public class playerStats : MonoBehaviour
     public GameObject equippedLeftLeg = null;
     public GameObject equippedRightLeg = null;
 
+    public GameObject PrefabequippedHead = null;
+    public GameObject PrefabequippedBody = null;
+    public GameObject PrefabequippedLeftArm = null;
+    public GameObject PrefabequippedRightArm = null;
+    public GameObject PrefabequippedLeftLeg = null;
+    public GameObject PrefabequippedRightLeg = null;
+
+
+
+
     public bool returnToMap;
 
     public void Start()

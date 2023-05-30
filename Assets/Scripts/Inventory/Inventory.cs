@@ -19,6 +19,7 @@ public class Inventory : MonoBehaviour
     public List<GameObject> numberofInventory;
     public GameObject objectToDelete;
 
+
     //Inventory Grid
     private int columns = 3;
     private Vector2 gridSize = new Vector2(941f, 1163f);
@@ -105,20 +106,32 @@ public class Inventory : MonoBehaviour
             Inventoryslot.transform.SetParent(parent.transform, false);
             Inventoryslot.AddComponent<removeChild>();
 
+
             GameObject itemPrefab = playerInventory.Prefabinventory[i];
+
             GameObject item = Instantiate(itemPrefab, position, Quaternion.identity, transform);
             playerInventory.inventory[i] = item;
 
+
+            //Sets each cloned item to have its prefab value set to the actual prefab and not a clone
             ItemScript itemScript = item.GetComponent<ItemScript>();
             if (itemScript != null)
             {
                 itemScript.myprefab = itemPrefab;
             }
+        
+
             item.transform.SetParent(parent.transform, false);
             item.transform.localScale = Vector3.one * scaleMultiplier;
             
+
+
+           
+
             item.GetComponent<ItemScript>().inventorySpot = Inventoryslot;
-         
+            item.GetComponent<ItemScript>().inInventory = true;
+            item.GetComponent<imageSnap>().isEnabled = true;
+
 
         }
     }

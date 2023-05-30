@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 
 public class InventorySlot : MonoBehaviour
@@ -25,71 +24,93 @@ public class InventorySlot : MonoBehaviour
 
         currentTag = gameObject.tag;
         GameObject prefab;
+        
         if(currentTag == "Head")
         {
             prefab = storedItem.GetComponent<ItemScript>().myprefab;
-            playerStats.equippedHead = prefab;
+            playerStats.PrefabequippedHead = prefab;
+            playerStats.equippedHead = storedItem;
+
         }
         else if (currentTag == "Body")
         {
             prefab = storedItem.GetComponent<ItemScript>().myprefab;
-            playerStats.equippedBody = prefab;
+            playerStats.PrefabequippedBody = prefab;
+            playerStats.equippedBody = storedItem;
         }
 
         else if (currentTag == "LeftArm")
         {
             prefab = storedItem.GetComponent<ItemScript>().myprefab;
-            playerStats.equippedLeftArm = prefab;
+            playerStats.PrefabequippedLeftArm = prefab;
+            playerStats.equippedLeftArm = storedItem;
         }
 
         else if (currentTag == "RightArm")
         {
             prefab = storedItem.GetComponent<ItemScript>().myprefab;
-            playerStats.equippedRightArm = prefab;
+            playerStats.PrefabequippedRightArm = prefab;
+            playerStats.equippedRightArm = storedItem;
         }
 
         else if (currentTag == "LeftLeg")
         {
             prefab = storedItem.GetComponent<ItemScript>().myprefab;
-            playerStats.equippedLeftLeg = prefab;
+            playerStats.PrefabequippedLeftLeg = prefab;
+            playerStats.equippedLeftLeg = storedItem;
         }
 
         else if (currentTag == "RightLeg")
         {
             prefab = storedItem.GetComponent<ItemScript>().myprefab;
-            playerStats.equippedRightLeg = prefab;
+            playerStats.PrefabequippedRightLeg = prefab;
+            playerStats.equippedRightLeg = storedItem;
         }
     }
     
     public void Start()
     {
+        storedItem = null;
         playerStats = GameObject.Find("playerStats").GetComponent<playerStats>();
+
+
+     
+    
         
        
+      
+       
+
         GameObject spawnedItem = null;
         string currentTag = gameObject.tag;
-        if (playerStats.equippedHead != null && currentTag == "Head" )
+        if (playerStats.PrefabequippedHead != null && currentTag == "Head" )
         {
+            playerStats.equippedHead = Instantiate(playerStats.PrefabequippedHead);
             spawnedItem = playerStats.equippedHead;
         }
-        else if (playerStats.equippedBody != null && currentTag == "Body")
+        else if (playerStats.PrefabequippedBody != null && currentTag == "Body")
         {
+            playerStats.equippedBody = Instantiate(playerStats.PrefabequippedBody);
             spawnedItem = playerStats.equippedBody;
         }
-        else if (playerStats.equippedLeftArm != null && currentTag == "LeftArm")
+        else if (playerStats.PrefabequippedLeftArm != null && currentTag == "LeftArm")
         {
+            playerStats.equippedLeftArm = Instantiate(playerStats.PrefabequippedLeftArm);
             spawnedItem = playerStats.equippedLeftArm;
         }
-        else if (playerStats.equippedRightArm != null && currentTag == "RightArm")
+        else if (playerStats.PrefabequippedRightArm != null && currentTag == "RightArm")
         {
+            playerStats.equippedRightArm = Instantiate(playerStats.PrefabequippedRightArm);
             spawnedItem = playerStats.equippedRightArm;
         }
-        else if (playerStats.equippedLeftLeg != null && currentTag == "LeftLeg")
+        else if (playerStats.PrefabequippedLeftLeg != null && currentTag == "LeftLeg")
         {
+            playerStats.equippedLeftLeg = Instantiate(playerStats.PrefabequippedLeftLeg);
             spawnedItem = playerStats.equippedLeftLeg;
         }
-        else if (playerStats.equippedRightLeg != null && currentTag == "RightLeg")
+        else if (playerStats.PrefabequippedRightLeg != null && currentTag == "RightLeg")
         {
+            playerStats.equippedRightLeg = Instantiate(playerStats.PrefabequippedRightLeg);
             spawnedItem = playerStats.equippedRightLeg;
         }
   
@@ -103,11 +124,9 @@ public class InventorySlot : MonoBehaviour
             item.transform.localScale = Vector3.one * 0.5f;
             item.GetComponent<ItemScript>().FindInventory();
             item.GetComponent<ItemScript>().inInventory = true;
+            item.GetComponent<imageSnap>().isEnabled = true;
 
-            if (item != null)
-            {
-                item.GetComponent<ItemScript>().EquippedItem();
-            }
+
         }
        
     }

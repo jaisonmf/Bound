@@ -9,11 +9,11 @@ public class goToInventory : MonoBehaviour
     public void ToInventory()
     {
         SceneManager.LoadScene("Inventory");
-
-        GameObject Inventory = GameObject.Find("Character").GetComponentInChildren<Inventory>().gameObject;
+        /*
+        GameObject Inventory = GameObject.Find("Canvas").GetComponentInChildren<Inventory>().gameObject;
         Inventory.SetActive(true);
         Inventory.GetComponent<Inventory>().GenerateInventory();
-        
+        */
 
     }
 }
