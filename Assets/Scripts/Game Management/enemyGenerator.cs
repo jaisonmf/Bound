@@ -91,6 +91,8 @@ public class enemyGenerator : MonoBehaviour
                     StatGeneration();
                     spawnedEnemy.GetComponent<enemyManager>().enemyCount = i;
 
+                    spawnedEnemy.GetComponent<enemyManager>().enabled = false;
+
                 }
             }
         }

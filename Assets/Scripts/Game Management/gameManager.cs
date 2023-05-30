@@ -31,20 +31,24 @@ public class gameManager : MonoBehaviour
     public void enemyTurn()
     {
 
-        foreach (GameObject enemy in enemyGenerator.spawnedEnemyList)
-        {
-            StartCoroutine(takeTurn(enemy));
-        }
+            StartCoroutine(takeTurn());
+
     }
 
-    IEnumerator takeTurn(GameObject enemy)
+    IEnumerator takeTurn()
     {
-        enemy.GetComponent<enemyManager>().turnArrow.SetActive(true);
-        yield return new WaitForSeconds(3);
-        enemy.GetComponent<enemyManager>().EnemyTurn();
-        Debug.Log("attack");
-        yield return new WaitForSeconds(1);
-        enemy.GetComponent<enemyManager>().turnArrow.SetActive(false);
+        foreach (GameObject enemy in enemyGenerator.spawnedEnemyList)
+        {
+            enemy.GetComponent<enemyManager>().enabled = true; // Enable enemy script
+            enemy.GetComponent<enemyManager>().turnArrow.SetActive(true);
+
+            yield return new WaitForSeconds(1);
+
+            enemy.GetComponent<enemyManager>().EnemyTurn();
+
+            enemy.GetComponent<enemyManager>().turnArrow.SetActive(false);
+            enemy.GetComponent<enemyManager>().enabled = false; // Disable enemy script again
+        }
     }
 
 }
