@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class goblinBoss : MonoBehaviour
 {
@@ -30,34 +31,46 @@ public class goblinBoss : MonoBehaviour
         int action = gameObject.GetComponent<enemyManager>().action;
         int damage = Random.Range(gameObject.GetComponent<enemyManager>().enemyMinDamage, gameObject.GetComponent<enemyManager>().enemyMaxDamage);
 
-        if (action == 1)
-        {
-            playerStats.playerHealth -= damage;
-        }
-        else if (action == 2)
-        {
-            int flurry;
 
-            flurry = Random.Range(1, 3);
-            Debug.Log(flurry);
-            for (int i = 0; i < flurry; i++)
+        if(gameObject.GetComponent<enemyManager>().enemyCurrentHealth > 0)
+        {
+            if (action == 1)
             {
-                Debug.Log("flurry");
-                damage = Random.Range(gameObject.GetComponent<enemyManager>().enemyMinDamage, gameObject.GetComponent<enemyManager>().enemyMaxDamage);
                 playerStats.playerHealth -= damage;
-                Debug.Log(damage);
             }
-
-
-        }
-        else if (action == 3)
-        {
-            enemyGenerator generator = GameObject.Find("enemyGenerator").GetComponent<enemyGenerator>(); 
-            for(int i = 0; i < generator.spawnedEnemyList.Count; i++)
+            else if (action == 2)
             {
-                gameObject.GetComponent<enemyManager>().enemyCurrentHealth += 20;
+                int flurry;
+
+                flurry = Random.Range(1, 3);
+               
+                for (int i = 0; i < flurry; i++)
+                {
+                    Debug.Log("flurry");   damage = Random.Range(gameObject.GetComponent<enemyManager>().enemyMinDamage, gameObject.GetComponent<enemyManager>().enemyMaxDamage);
+                    playerStats.playerHealth -= damage;
+            
+                }
+
+
+            }
+            else if (action == 3)
+            {
+                enemyGenerator generator = GameObject.Find("enemyGenerator").GetComponent<enemyGenerator>();
+                for (int i = 0; i < generator.spawnedEnemyList.Count; i++)
+                {
+                    gameObject.GetComponent<enemyManager>().enemyCurrentHealth += 20;
+                }
+                if (gameObject.GetComponent<enemyManager>().enemyCurrentHealth > gameObject.GetComponent<enemyManager>().enemyMaxHealth)
+                {
+                    gameObject.GetComponent<enemyManager>().enemyCurrentHealth = gameObject.GetComponent<enemyManager>().enemyMaxHealth;
+                }
             }
         }
+        else
+        {
+            SceneManager.LoadScene("EndZone");
+        }
+       
         
     }
 }

@@ -40,6 +40,10 @@ public class Ent : MonoBehaviour
         else if (action == 2)
         {
             gameObject.GetComponent<enemyManager>().enemyCurrentHealth += gameObject.GetComponent<enemyManager>().enemyCurrentHealth / 2;
+            if(gameObject.GetComponent<enemyManager>().enemyCurrentHealth > gameObject.GetComponent<enemyManager>().enemyMaxHealth)
+            {
+                gameObject.GetComponent<enemyManager>().enemyCurrentHealth = gameObject.GetComponent<enemyManager>().enemyMaxHealth;
+            }
         }
        
 

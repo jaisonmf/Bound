@@ -19,7 +19,11 @@ public class playerManager : MonoBehaviour
     [SerializeField] private Button action4;
     [SerializeField] private Slider playerHealthbar;
     [SerializeField] private Slider playerEnergybar;
-    
+
+    [SerializeField] private GameObject buttonSet1;
+    [SerializeField] private GameObject buttonSet2;
+
+
     public bool selecting = false;
     private int damage;
     private bool isCoroutineOn;
@@ -89,10 +93,11 @@ public class playerManager : MonoBehaviour
             UpdateEnergyBar(playerStats.playerEnergy, playerStats.playerMaxEnergy);
         }
 
-        //idk
+        //Special Attacks
         if(Button == 2)
         {
-          
+            buttonSet1.SetActive(false);
+            buttonSet2.SetActive(true);
         }
         //idk
         if (Button == 3)

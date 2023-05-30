@@ -39,13 +39,13 @@ public class Knight : MonoBehaviour
             int flurry;
 
             flurry = Random.Range(1, 3);
-            Debug.Log(flurry);
+        
             for(int i = 0; i < flurry; i++)
             {
-                Debug.Log("flurry");
+             
                 damage = Random.Range(gameObject.GetComponent<enemyManager>().enemyMinDamage, gameObject.GetComponent<enemyManager>().enemyMaxDamage);
                 playerStats.playerHealth -= damage;
-                Debug.Log(damage);
+            
             }
             
             

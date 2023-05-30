@@ -652,6 +652,7 @@ MonoBehaviour:
   enemyDamage: 0
   enemyMinDamage: 5
   enemyMaxDamage: 15
+  action: 0
   alive: 0
   enemyHealthBar: {fileID: 7082869552524874816}
   enemyCount: 0
@@ -669,5 +670,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyManager: {fileID: 1850138387024882731}
   cSVReader: {fileID: 0}
-  playerManager: {fileID: 0}
+  playerStats: {fileID: 0}
   enemy: {fileID: 8124828832793792006}

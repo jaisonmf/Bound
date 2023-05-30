@@ -47,10 +47,23 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   MaxSpawn: 4
   MinSpawn: 1
-  goblin: {fileID: 0}
-  enemyTwo: {fileID: 0}
+  bossFight: 0
+  goblin: {fileID: 8124828832793792006, guid: 476cc1880845458438b0886922c1b329, type: 3}
+  knight: {fileID: 8124828832793792006, guid: 8c70edacfa429a04a812c7c5d769e906, type: 3}
+  wolf: {fileID: 8124828832793792006, guid: 500904a21ba25234ca32283d37b6fc2e, type: 3}
+  ent: {fileID: 8124828832793792006, guid: d69db519dc24c7747969e296559a4f24, type: 3}
+  goblinScript: {fileID: 818172425, guid: 476cc1880845458438b0886922c1b329, type: 3}
+  knightScript: {fileID: 456606838, guid: 8c70edacfa429a04a812c7c5d769e906, type: 3}
+  wolfScript: {fileID: 3404577329789122990, guid: 500904a21ba25234ca32283d37b6fc2e, type: 3}
+  entScript: {fileID: 7965722397953521850, guid: d69db519dc24c7747969e296559a4f24, type: 3}
+  goblinBoss: {fileID: 8124828832793792006, guid: d26646f87314b9f43a5944aa3747a67c, type: 3}
+  goblinBossScript: {fileID: 4394441893197261802, guid: d26646f87314b9f43a5944aa3747a67c, type: 3}
   parent: {fileID: 0}
   spawnedEnemyList: []
   Type:
   - {fileID: 8124828832793792006, guid: 476cc1880845458438b0886922c1b329, type: 3}
   - {fileID: 8124828832793792006, guid: 8c70edacfa429a04a812c7c5d769e906, type: 3}
+  - {fileID: 8124828832793792006, guid: 500904a21ba25234ca32283d37b6fc2e, type: 3}
+  - {fileID: 8124828832793792006, guid: d69db519dc24c7747969e296559a4f24, type: 3}
+  Boss:
+  - {fileID: 8124828832793792006, guid: d26646f87314b9f43a5944aa3747a67c, type: 3}

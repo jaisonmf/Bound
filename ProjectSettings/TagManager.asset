@@ -11,6 +11,8 @@ TagManager:
   - RightArm
   - LeftLeg
   - RightLeg
+  - Boss
+  - Enemy
   layers:
   - Default
   - TransparentFX

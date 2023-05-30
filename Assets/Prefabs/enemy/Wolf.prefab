@@ -601,7 +601,7 @@ GameObject:
   - component: {fileID: 3404577329789122990}
   m_Layer: 5
   m_Name: Wolf
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -646,12 +646,13 @@ MonoBehaviour:
   playerManager: {fileID: 0}
   EnemyFunctionScript: Wolf
   EnemyFunctionName: WolfAction
-  enemyMinHealth: 10
-  enemyMaxHealth: 50
+  enemyMinHealth: 25
+  enemyMaxHealth: 40
   enemyCurrentHealth: 0
   enemyDamage: 0
-  enemyMinDamage: 5
-  enemyMaxDamage: 15
+  enemyMinDamage: 15
+  enemyMaxDamage: 20
+  action: 0
   alive: 0
   enemyHealthBar: {fileID: 7082869552524874816}
   enemyCount: 0
@@ -669,5 +670,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyManager: {fileID: 1850138387024882731}
   cSVReader: {fileID: 0}
-  playerManager: {fileID: 0}
+  playerStats: {fileID: 0}
   enemy: {fileID: 8124828832793792006}

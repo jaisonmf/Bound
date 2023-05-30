@@ -483,7 +483,7 @@ GameObject:
   - component: {fileID: 456606838}
   m_Layer: 5
   m_Name: Knight
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -528,12 +528,13 @@ MonoBehaviour:
   playerManager: {fileID: 0}
   EnemyFunctionScript: Knight
   EnemyFunctionName: KnightAction
-  enemyMinHealth: 15
-  enemyMaxHealth: 30
+  enemyMinHealth: 50
+  enemyMaxHealth: 75
   enemyCurrentHealth: 0
   enemyDamage: 0
   enemyMinDamage: 10
-  enemyMaxDamage: 20
+  enemyMaxDamage: 15
+  action: 0
   alive: 0
   enemyHealthBar: {fileID: 3470621306515052140}
   enemyCount: 0
@@ -551,7 +552,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyManager: {fileID: 8138993678892320006}
   cSVReader: {fileID: 0}
-  playerManager: {fileID: 0}
+  playerStats: {fileID: 0}
   enemy: {fileID: 8124828832793792006}
 --- !u!1 &8161701908499223734
 GameObject:
