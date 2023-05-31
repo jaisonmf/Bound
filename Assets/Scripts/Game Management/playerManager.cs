@@ -31,8 +31,7 @@ public class playerManager : MonoBehaviour
     [SerializeField] private GameObject UI;
 
 
-    //Status Effects
-    public List<GameObject> statusEffect;
+
 
 
     private void Start()

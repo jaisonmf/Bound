@@ -751,6 +751,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4109734741948760142}
   - component: {fileID: 4109734741948760137}
+  - component: {fileID: 1683774414}
   m_Layer: 0
   m_Name: playerManager
   m_TagString: Untagged
@@ -801,6 +802,22 @@ MonoBehaviour:
   buttonSet2: {fileID: 0}
   selecting: 0
   UI: {fileID: 4109734741489979690}
+--- !u!114 &1683774414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4109734741948760140}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9239c34be8f54c74faa2512183ebc6d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layoutGroup: {fileID: 1006318040726960188}
+  statusEffect: []
+  onFireIcon: {fileID: 6688367706017289505, guid: 197d31bab6429a64a870aa24e220f3d4, type: 3}
+  onFireStacks: 0
 --- !u!1 &4109734742017090855
 GameObject:
   m_ObjectHideFlags: 0
@@ -838,8 +855,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -109, y: 5}
-  m_SizeDelta: {x: 151.3195, y: 46.1814}
+  m_AnchoredPosition: {x: 263, y: 148.06}
+  m_SizeDelta: {x: 299.9475, y: 104.0681}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4109734742017090851
 CanvasRenderer:
@@ -1003,7 +1020,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 801e8b16115dae24284a39606eeb9ccc, type: 3}
-    m_FontSize: 20
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2

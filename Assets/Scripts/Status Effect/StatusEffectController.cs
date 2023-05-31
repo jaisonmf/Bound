@@ -8,7 +8,7 @@ public class StatusEffectController : MonoBehaviour
     [SerializeField] private HorizontalLayoutGroup layoutGroup;
     private playerStats playerStats;
     private playerManager playerManager;
-
+    public List<GameObject> statusEffect;
 
     [SerializeField] private GameObject onFireIcon;
     private bool onFire;
@@ -27,10 +27,10 @@ public class StatusEffectController : MonoBehaviour
         if(onFire == false)
         {
             onFire = true;
-            playerManager.statusEffect.Add(onFireIcon);
+            statusEffect.Add(onFireIcon);
             onFireStacks++;
 
-            foreach (GameObject obj in playerManager.statusEffect)
+            foreach (GameObject obj in statusEffect)
             {
                 Instantiate(obj, layoutGroup.transform);
             }
