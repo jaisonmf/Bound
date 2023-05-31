@@ -10,6 +10,7 @@ public class playerManager : MonoBehaviour
     [SerializeField] private enemyManager enemyManager;
     [SerializeField] private enemyGenerator enemyGenerator;
     [SerializeField] private playerStats playerStats;
+    private StatusEffectController statusEffectController;
 
 
     //UI
@@ -29,7 +30,10 @@ public class playerManager : MonoBehaviour
     private bool isCoroutineOn;
     [SerializeField] private GameObject UI;
 
-   
+
+    //Status Effects
+    public List<GameObject> statusEffect;
+
 
     private void Start()
     {
@@ -49,16 +53,12 @@ public class playerManager : MonoBehaviour
 
     }
 
-    private void Update()
-    {
-        
-    }
-
 
 
     public void PlayerTurn()
     {
         playerStats = GameObject.Find("playerStats").GetComponent<playerStats>();
+        statusEffectController = GetComponent<StatusEffectController>();
      
         //player doesnt go over max health
         if (playerStats.playerHealth > playerStats.playerMaxHealth)
@@ -74,11 +74,14 @@ public class playerManager : MonoBehaviour
             action2.interactable = true;
             action3.interactable = true;
             action4.interactable = true;
+            statusEffectController.EffectUpdate();
+            UpdateHealthBar(playerStats.playerHealth, playerStats.playerMaxHealth);
             playerStats.playerEnergy = playerStats.playerMaxEnergy;
             UpdateEnergyBar(playerStats.playerEnergy, playerStats.playerMaxEnergy);
+            
         }
         //player is dead
-        else
+        else if (playerStats.playerHealth <= 0)
         {
             SceneManager.LoadScene("Lose");
         }
@@ -112,7 +115,7 @@ public class playerManager : MonoBehaviour
         //idk
         if (Button == 3)
         {
-
+            statusEffectController.AddEffect();
         }
         //end turn
         if (Button == 4)
@@ -122,6 +125,7 @@ public class playerManager : MonoBehaviour
             action2.interactable = false;
             action3.interactable = false;
             action4.interactable = false;
+
         }
     }
 
@@ -135,7 +139,7 @@ public class playerManager : MonoBehaviour
         damage = Random.Range(playerStats.playerMinDamage, playerStats.playerMaxDamage);
         enemy.GetComponent<enemyManager>().enemyCurrentHealth -= damage;
         enemy.GetComponent<enemyManager>().UpdateEnemyHealthBar(enemy.GetComponent<enemyManager>().enemyCurrentHealth, enemy.GetComponent<enemyManager>().enemyMaxHealth);
-
+     
 
         selecting = false;
         action1.interactable = true;
