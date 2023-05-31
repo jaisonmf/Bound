@@ -595,6 +595,7 @@ MonoBehaviour:
   enemyHealthBar: {fileID: 7082869552524874816}
   enemyCount: 0
   turnArrow: {fileID: 2001740245001270483}
+  statusEffect: []
 --- !u!114 &4394441893197261802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -625,5 +626,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerManager: {fileID: 0}
   selectButton: {fileID: 9042718642822249086}
-  selectArrow: {fileID: 0}
   enemy: {fileID: 0}
