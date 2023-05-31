@@ -29,10 +29,11 @@ public class playerManager : MonoBehaviour
     private bool isCoroutineOn;
     [SerializeField] private GameObject UI;
 
+   
 
- 
     private void Start()
     {
+      
         playerStats = GameObject.Find("playerStats").GetComponent<playerStats>();
         /*
         action1.interactable = false;
@@ -47,6 +48,14 @@ public class playerManager : MonoBehaviour
 
 
     }
+
+    private void Update()
+    {
+        
+    }
+
+
+
     public void PlayerTurn()
     {
         playerStats = GameObject.Find("playerStats").GetComponent<playerStats>();
@@ -119,7 +128,7 @@ public class playerManager : MonoBehaviour
     public void PlayerAttack(int listIndex)
     {
         //Player attacks individual enemy so it doesnt hit all
-        Debug.Log(enemyGenerator.spawnedEnemyList[listIndex]);
+    
         GameObject enemy = enemyGenerator.spawnedEnemyList[listIndex];
         Debug.Log(enemy);
         bool alive = false;

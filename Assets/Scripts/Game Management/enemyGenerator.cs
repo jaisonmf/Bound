@@ -40,7 +40,7 @@ public class enemyGenerator : MonoBehaviour
 
     
 
-    private GameObject spawnedEnemy;
+    [HideInInspector] public GameObject spawnedEnemy;
     private GameObject enemyType;
     [SerializeField] private GameObject parent;
 
@@ -91,7 +91,7 @@ public class enemyGenerator : MonoBehaviour
                     StatGeneration();
                     spawnedEnemy.GetComponent<enemyManager>().enemyCount = i;
 
-                    spawnedEnemy.GetComponent<enemyManager>().enabled = false;
+                    //spawnedEnemy.GetComponent<enemyManager>().enabled = false;
 
                 }
             }

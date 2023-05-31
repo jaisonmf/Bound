@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Ent : MonoBehaviour
 {
@@ -30,7 +31,7 @@ public class Ent : MonoBehaviour
     {
         
         int action = gameObject.GetComponent<enemyManager>().action;
-
+        enemyGenerator enemyGenerator = GameObject.Find("enemyGenerator").GetComponent<enemyGenerator>();
 
         if(action == 1 || action == 3)
         {
@@ -45,8 +46,18 @@ public class Ent : MonoBehaviour
                 gameObject.GetComponent<enemyManager>().enemyCurrentHealth = gameObject.GetComponent<enemyManager>().enemyMaxHealth;
             }
         }
-       
+        /*
+        else if (action == 4)
+        {
+            foreach (GameObject enemy in enemyGenerator.spawnedEnemyList)
+            {
+                enemy.GetComponent<Button>().interactable = false;
 
+            }
+            gameObject.GetComponent<Button>().interactable = true;
+        }
+       
+        */
     }
 
 

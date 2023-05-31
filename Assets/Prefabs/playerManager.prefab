@@ -248,7 +248,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -558, y: -74.1}
+  m_AnchoredPosition: {x: -555, y: -96.13}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &3172024534619004114
@@ -413,8 +413,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 281.5136, y: -89.98473}
-  m_SizeDelta: {x: 1495.5967, y: 166.7033}
+  m_AnchoredPosition: {x: 423.9726, y: -39.1065}
+  m_SizeDelta: {x: 2594.5674, y: 268.4598}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4109734741489979687
 CanvasRenderer:
@@ -602,7 +602,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 801e8b16115dae24284a39606eeb9ccc, type: 3}
-    m_FontSize: 20
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -651,8 +651,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 158.5, y: 17.7}
-  m_SizeDelta: {x: 206.3273, y: 59.2338}
+  m_AnchoredPosition: {x: 351.62, y: 97}
+  m_SizeDelta: {x: 398.2713, y: 126.46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4109734741804674622
 MonoBehaviour:
@@ -1049,7 +1049,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 9}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4109734742021493567
@@ -1082,10 +1082,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 801e8b16115dae24284a39606eeb9ccc, type: 3}
-    m_FontSize: 20
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 2
+    m_MinSize: 0
     m_MaxSize: 78
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -1171,8 +1171,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -109, y: 80}
-  m_SizeDelta: {x: 151.3195, y: 46.1814}
+  m_AnchoredPosition: {x: -70.68593, y: 148.0567}
+  m_SizeDelta: {x: 299.9475, y: 104.0681}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4109734742090914059
 CanvasRenderer:
@@ -1412,6 +1412,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4109734742534384928}
+  - component: {fileID: 472460552}
   m_Layer: 5
   m_Name: Fill Area
   m_TagString: Untagged
@@ -1437,9 +1438,54 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 3.8499985, y: 0}
+  m_AnchoredPosition: {x: 3.850006, y: 0}
   m_SizeDelta: {x: 0.099996805, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &472460552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4109734742534384929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: hoverController, Assembly-CSharp
+          m_MethodName: PlayerHealthText
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: hoverController, Assembly-CSharp
+          m_MethodName: HoverExit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &4109734742656358835
 GameObject:
   m_ObjectHideFlags: 0
@@ -1513,7 +1559,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -3.3250198, y: 0.6}
+  m_AnchoredPosition: {x: -3.3250122, y: 0.5999985}
   m_SizeDelta: {x: 3.7499542, y: 3.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4109734742707659758
@@ -1589,8 +1635,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 12.226, y: 16.1753}
-  m_SizeDelta: {x: 75.188, y: 26.9506}
+  m_AnchoredPosition: {x: 76.241, y: 84}
+  m_SizeDelta: {x: 152.4811, y: 84.9203}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4109734742852721397
 CanvasRenderer:
@@ -1622,7 +1668,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 801e8b16115dae24284a39606eeb9ccc, type: 3}
-    m_FontSize: 20
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -1669,8 +1715,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -97, y: 83.35163}
-  m_SizeDelta: {x: 47.4987, y: 159.1752}
+  m_AnchoredPosition: {x: -98.92553, y: 133.96594}
+  m_SizeDelta: {x: 43.6475, y: 253.551}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4109734742957392755
 CanvasRenderer:
@@ -1823,8 +1869,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 132.5, y: 5}
-  m_SizeDelta: {x: 151.3195, y: 46.1814}
+  m_AnchoredPosition: {x: -70.686, y: 25}
+  m_SizeDelta: {x: 299.9475, y: 104.0681}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4109734743174499112
 CanvasRenderer:
@@ -2623,7 +2669,7 @@ GameObject:
   - component: {fileID: 9040810477863953644}
   - component: {fileID: 1366606347661680637}
   m_Layer: 5
-  m_Name: playerManaBar
+  m_Name: playerEnergyBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2649,8 +2695,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 35.499985, y: 71.74797}
-  m_SizeDelta: {x: 206.3273, y: 59.2338}
+  m_AnchoredPosition: {x: -321, y: 78}
+  m_SizeDelta: {x: 398.2713, y: 126.46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1366606347661680637
 MonoBehaviour:
@@ -3148,8 +3194,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -110.77402, y: 70.10593}
-  m_SizeDelta: {x: 75.188, y: 26.9506}
+  m_AnchoredPosition: {x: -607, y: 66.634}
+  m_SizeDelta: {x: 142.1752, y: 69.4616}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7055880407832222866
 CanvasRenderer:
@@ -3181,7 +3227,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 801e8b16115dae24284a39606eeb9ccc, type: 3}
-    m_FontSize: 20
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -3192,7 +3238,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Mana:'
+  m_Text: 'Energy:'
 --- !u!1 &8353989389996469788
 GameObject:
   m_ObjectHideFlags: 0
@@ -3362,7 +3408,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -3.3250198, y: 0.6}
+  m_AnchoredPosition: {x: -3.3250275, y: 0.6000004}
   m_SizeDelta: {x: 3.7499542, y: 3.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7923275218291618368
@@ -3412,6 +3458,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8008361997705479428}
+  - component: {fileID: 755324160}
   m_Layer: 5
   m_Name: Fill Area
   m_TagString: Untagged
@@ -3437,6 +3484,51 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 3.8499985, y: 0}
+  m_AnchoredPosition: {x: 3.850006, y: 0}
   m_SizeDelta: {x: 0.099996805, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &755324160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9201297515064219215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: hoverController, Assembly-CSharp
+          m_MethodName: EnergyText
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: hoverController, Assembly-CSharp
+          m_MethodName: HoverExit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2

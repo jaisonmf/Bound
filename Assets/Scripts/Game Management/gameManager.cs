@@ -41,7 +41,7 @@ public class gameManager : MonoBehaviour
     {
         foreach (GameObject enemy in enemyGenerator.spawnedEnemyList)
         {
-            enemy.GetComponent<enemyManager>().enabled = true; // Enable enemy script
+            //enemy.GetComponent<enemyManager>().enabled = true; // Enable enemy script
             enemy.GetComponent<enemyManager>().turnArrow.SetActive(true);
 
             yield return new WaitForSeconds(1);
@@ -49,7 +49,7 @@ public class gameManager : MonoBehaviour
             enemy.GetComponent<enemyManager>().EnemyTurn();
 
             enemy.GetComponent<enemyManager>().turnArrow.SetActive(false);
-            enemy.GetComponent<enemyManager>().enabled = false; // Disable enemy script again
+           // enemy.GetComponent<enemyManager>().enabled = false; // Disable enemy script again
             playerManager.UpdateHealthBar(playerStats.playerHealth, playerStats.playerMaxHealth);
 
         }

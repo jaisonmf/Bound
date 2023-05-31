@@ -3,12 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using UnityEngine.Events;
+
 
 public class enemyManager : MonoBehaviour
 {
     [SerializeField] private gameManager gameManager;
     [SerializeField] private playerStats playerStats;
     [SerializeField] private playerManager playerManager;
+    private hoverController hoverController;
+    private enemyGenerator enemyGenerator;
 
     //Enemy Script
     public string EnemyFunctionScript;
@@ -31,6 +36,8 @@ public class enemyManager : MonoBehaviour
     public int enemyCount;
     public GameObject turnArrow;
 
+    //Status Effects
+    public List<GameObject> statusEffect;
 
 
     public void Start()
@@ -40,6 +47,11 @@ public class enemyManager : MonoBehaviour
         gameManager = GameObject.Find("GameManager").GetComponent<gameManager>();
         playerStats = GameObject.Find("playerStats").GetComponent<playerStats>();
         playerManager = GameObject.Find("playerManager").GetComponent<playerManager>();
+        hoverController = GameObject.Find("EventSystem").GetComponent<hoverController>();
+        enemyGenerator = GameObject.Find("enemyGenerator").GetComponent<enemyGenerator>();
+
+
+
     }
 
     public void EnemyTurn()
