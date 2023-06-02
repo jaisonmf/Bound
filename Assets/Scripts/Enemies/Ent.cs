@@ -8,6 +8,7 @@ public class Ent : MonoBehaviour
     [SerializeField] private enemyManager enemyManager;
     [SerializeField] private CSVReader cSVReader;
     [SerializeField] private playerStats playerStats;
+    [SerializeField] private playerManager playerManager;
 
     [SerializeField] private GameObject enemy;
 
@@ -18,6 +19,7 @@ public class Ent : MonoBehaviour
     {
         cSVReader = GameObject.Find("enemyCSV").GetComponent<CSVReader>();
         playerStats = GameObject.Find("playerStats").GetComponent<playerStats>();
+        playerManager = GameObject.Find("playerManager").GetComponent<playerManager>();
 
         enemy.GetComponent<enemyManager>().enemyMaxHealth = cSVReader.myEnemyList.enemy[3].maxHealth;
         enemy.GetComponent<enemyManager>().enemyMinHealth = cSVReader.myEnemyList.enemy[3].minHealth;
@@ -58,6 +60,8 @@ public class Ent : MonoBehaviour
         }
        
         */
+
+        playerManager.UpdateHealthBar(playerStats.playerHealth, playerStats.playerMaxHealth);
     }
 
 

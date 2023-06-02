@@ -49,7 +49,7 @@ public class WinLose : MonoBehaviour
         }
         else if (Button == 1)
         {
-            SceneManager.LoadScene("MainMenu");
+            Application.Quit();
         }
     }
 

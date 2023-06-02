@@ -66,7 +66,7 @@ public class hoverController : MonoBehaviour
 
     private IEnumerator ResetHoverCooldown()
     {
-        yield return new WaitForSeconds(0.75f); 
+        yield return new WaitForSeconds(1f); 
         isHovering = false;
         hoverBox.SetActive(false);
         hoverText.text = "";

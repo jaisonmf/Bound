@@ -7,6 +7,7 @@ public class Goblin : MonoBehaviour
     [SerializeField] private enemyManager enemyManager;
     [SerializeField] private CSVReader cSVReader;
     [SerializeField] private playerStats playerStats;
+    [SerializeField] private playerManager playerManager;
 
     [SerializeField] private GameObject enemy;
 
@@ -17,6 +18,8 @@ public class Goblin : MonoBehaviour
     {
         cSVReader = GameObject.Find("enemyCSV").GetComponent<CSVReader>();
         playerStats = GameObject.Find("playerStats").GetComponent<playerStats>();
+        playerManager = GameObject.Find("playerManager").GetComponent<playerManager>();
+
 
         enemy.GetComponent<enemyManager>().enemyMaxHealth = cSVReader.myEnemyList.enemy[0].maxHealth;
         enemy.GetComponent<enemyManager>().enemyMinHealth = cSVReader.myEnemyList.enemy[0].minHealth;
@@ -40,8 +43,13 @@ public class Goblin : MonoBehaviour
             playerStats.playerHealth -= damage * 2;
 
         }
-      
+
+        playerManager.UpdateHealthBar(playerStats.playerHealth, playerStats.playerMaxHealth);
+
     }
+
+
+
 
 
 

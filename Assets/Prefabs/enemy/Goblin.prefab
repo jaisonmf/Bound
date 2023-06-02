@@ -453,8 +453,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8465997337610275439}
         m_TargetAssemblyTypeName: enemySelection, Assembly-CSharp
-        m_MethodName: Action
-        m_Mode: 1
+        m_MethodName: Select
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -609,6 +609,7 @@ MonoBehaviour:
   enemyHealthBar: {fileID: 7082869552524874816}
   enemyCount: 0
   turnArrow: {fileID: 2479640802855509346}
+  statusEffect: []
 --- !u!114 &818172425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -639,5 +640,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerManager: {fileID: 0}
   selectButton: {fileID: 8808270864936720372}
-  selectArrow: {fileID: 0}
   enemy: {fileID: 0}

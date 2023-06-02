@@ -439,8 +439,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3443777980417736040}
         m_TargetAssemblyTypeName: enemySelection, Assembly-CSharp
-        m_MethodName: Action
-        m_Mode: 1
+        m_MethodName: Select
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

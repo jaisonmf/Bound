@@ -67,7 +67,7 @@ public class playerManager : MonoBehaviour
             
         }
         //player is above 0 health and can take their turn
-        if(playerStats.playerHealth > 0)
+        if(playerStats.playerHealth != 0)
         {
             action1.interactable = true;
             action2.interactable = true;
@@ -79,6 +79,7 @@ public class playerManager : MonoBehaviour
             UpdateEnergyBar(playerStats.playerEnergy, playerStats.playerMaxEnergy);
             
         }
+       
         //player is dead
         else if (playerStats.playerHealth <= 0)
         {
@@ -90,7 +91,19 @@ public class playerManager : MonoBehaviour
     }
 
 
+    public void CheckEnergy()
+    {
+         if (playerStats.playerEnergy == 0)
+        {
+            selecting = false;
+            action1.interactable = false;
+            action2.interactable = false;
+            action3.interactable = false;
+            action4.interactable = false;
+            gameManager.enemyTurn();
 
+        }
+    }
     public void playerActions(int Button)
     {
         //Attack
@@ -110,6 +123,7 @@ public class playerManager : MonoBehaviour
         {
             buttonSet1.SetActive(false);
             buttonSet2.SetActive(true);
+
         }
         //idk
         if (Button == 3)
@@ -133,7 +147,7 @@ public class playerManager : MonoBehaviour
         //Player attacks individual enemy so it doesnt hit all
     
         GameObject enemy = enemyGenerator.spawnedEnemyList[listIndex];
-        Debug.Log(enemy);
+        
         bool alive = false;
         damage = Random.Range(playerStats.playerMinDamage, playerStats.playerMaxDamage);
         enemy.GetComponent<enemyManager>().enemyCurrentHealth -= damage;
@@ -201,6 +215,7 @@ public class playerManager : MonoBehaviour
 
 
         }
+        CheckEnergy();
 
     }
 

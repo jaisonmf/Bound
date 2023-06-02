@@ -7,6 +7,7 @@ public class Knight : MonoBehaviour
     [SerializeField] private enemyManager enemyManager;
     [SerializeField] private CSVReader cSVReader;
     [SerializeField] private playerStats playerStats;
+    [SerializeField] private playerManager playerManager;
 
     [SerializeField] private GameObject enemy;
 
@@ -15,6 +16,8 @@ public class Knight : MonoBehaviour
     {
         cSVReader = GameObject.Find("enemyCSV").GetComponent<CSVReader>();
         playerStats = GameObject.Find("playerStats").GetComponent<playerStats>();
+        playerManager = GameObject.Find("playerManager").GetComponent<playerManager>();
+
 
         enemy.GetComponent<enemyManager>().enemyMaxHealth = cSVReader.myEnemyList.enemy[1].maxHealth;
         enemy.GetComponent<enemyManager>().enemyMinHealth = cSVReader.myEnemyList.enemy[1].minHealth;
@@ -50,6 +53,9 @@ public class Knight : MonoBehaviour
             
             
         }
+
+        playerManager.UpdateHealthBar(playerStats.playerHealth, playerStats.playerMaxHealth);
+
     }
 
 }

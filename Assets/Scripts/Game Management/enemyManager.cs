@@ -103,9 +103,9 @@ public class enemyManager : MonoBehaviour
         }
 
         UpdateEnemyHealthBar(enemyCurrentHealth, enemyMaxHealth);
-        playerManager.UpdateHealthBar(playerStats.playerHealth, playerStats.playerMaxHealth);
+       // playerManager.UpdateHealthBar(playerStats.playerHealth, playerStats.playerMaxHealth);
 
-        gameManager.playerTurn();
+        
         isCoroutineOn = false;
 
     }

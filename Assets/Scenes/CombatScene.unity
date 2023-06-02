@@ -508,7 +508,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7403037351760300437, guid: 87b83ad5d070e8547bc2795d4e30c834, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87b83ad5d070e8547bc2795d4e30c834, type: 3}
@@ -2447,6 +2447,10 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1386954983}
+    - target: {fileID: 472460552, guid: b9620277ec410cf45a2ed93d7cb5da6f, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: HoverExit
+      objectReference: {fileID: 0}
     - target: {fileID: 755324160, guid: b9620277ec410cf45a2ed93d7cb5da6f, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
