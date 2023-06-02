@@ -219,6 +219,8 @@ MonoBehaviour:
   targetObjectName: 
   EquipFunctionName: EquipRightArm
   UnequipFunctionName: UnequipRightArm
+  AbilityScriptName: DefaultAbility
+  AbilityScriptFunction: DefaultRarmAbility
 --- !u!114 &3250212091891422065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,3 +238,4 @@ MonoBehaviour:
   isEnabled: 0
   inInventory: 1
   parent: {fileID: 0}
+  thisObject: {fileID: 0}

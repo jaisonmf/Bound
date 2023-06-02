@@ -27,10 +27,17 @@ public class ItemScript : MonoBehaviour
     public string UnequipFunctionName;
 
 
+    [Header("Ability")]
+    public string AbilityScriptName;
+    public string AbilityScriptFunction;
+
+
     public void Start()
     {
         playerInventory = GameObject.Find("playerStats").GetComponent<playerInventory>();
         mapEvent = GameObject.Find("Map").GetComponent<MapEvent>();
+
+        
 
     }
 

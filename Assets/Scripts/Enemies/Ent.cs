@@ -40,7 +40,7 @@ public class Ent : MonoBehaviour
             int damage = Random.Range(gameObject.GetComponent<enemyManager>().enemyMinDamage, gameObject.GetComponent<enemyManager>().enemyMaxDamage);
             playerStats.playerHealth -= damage;
         }
-        else if (action == 2 || action == 4)
+        else if (action == 2)
         {
             gameObject.GetComponent<enemyManager>().enemyCurrentHealth += gameObject.GetComponent<enemyManager>().enemyCurrentHealth / 2;
             if(gameObject.GetComponent<enemyManager>().enemyCurrentHealth > gameObject.GetComponent<enemyManager>().enemyMaxHealth)
@@ -48,18 +48,27 @@ public class Ent : MonoBehaviour
                 gameObject.GetComponent<enemyManager>().enemyCurrentHealth = gameObject.GetComponent<enemyManager>().enemyMaxHealth;
             }
         }
-        /*
+        
         else if (action == 4)
         {
-            foreach (GameObject enemy in enemyGenerator.spawnedEnemyList)
-            {
-                enemy.GetComponent<Button>().interactable = false;
+            StatusEffectController StatusEffectController = gameObject.GetComponent<StatusEffectController>();
+            enemy.GetComponent<enemyManager>().GetComponent<StatusEffectController>().AddTaunt();
 
+            if (StatusEffectController.tauntStacks != 0)
+            {
+                foreach (GameObject enemy in enemyGenerator.spawnedEnemyList)
+                {
+                    if (enemy != gameObject && enemy.GetComponent<StatusEffectController>().tauntStacks == 0)
+                    {
+                        enemy.GetComponentInChildren<Button>().interactable = false;
+                        StatusEffectController.tauntStacks--;
+                    }
+
+                }
             }
-            gameObject.GetComponent<Button>().interactable = true;
         }
        
-        */
+        
 
         playerManager.UpdateHealthBar(playerStats.playerHealth, playerStats.playerMaxHealth);
     }

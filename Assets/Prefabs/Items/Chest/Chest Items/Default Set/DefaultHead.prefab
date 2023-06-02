@@ -169,6 +169,9 @@ MonoBehaviour:
   targetObjectName: DefaultHeadEffect
   EquipFunctionName: EquipHead
   UnequipFunctionName: UnequipHead
+  AbilityScriptName: DefaultAbility
+  AbilityScriptFunction: DefaultHeadAbility
+  AbilityScriptObject: 
 --- !u!114 &377290184957895641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,6 +189,7 @@ MonoBehaviour:
   isEnabled: 0
   inInventory: 1
   parent: {fileID: 0}
+  thisObject: {fileID: 0}
 --- !u!1 &7075315418983040423
 GameObject:
   m_ObjectHideFlags: 0

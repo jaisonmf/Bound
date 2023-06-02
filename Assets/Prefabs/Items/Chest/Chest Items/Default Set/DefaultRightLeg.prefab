@@ -219,6 +219,8 @@ MonoBehaviour:
   targetObjectName: 
   EquipFunctionName: EquipRightLeg
   UnequipFunctionName: UnequipRightLeg
+  AbilityScriptName: DefaultAbility
+  AbilityScriptFunction: DefaultRlegAbility
 --- !u!114 &8188042888139489753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,3 +238,4 @@ MonoBehaviour:
   isEnabled: 0
   inInventory: 1
   parent: {fileID: 0}
+  thisObject: {fileID: 0}

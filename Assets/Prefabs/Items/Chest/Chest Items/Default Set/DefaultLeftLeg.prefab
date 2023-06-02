@@ -219,6 +219,8 @@ MonoBehaviour:
   targetObjectName: 
   EquipFunctionName: EquipLeftLeg
   UnequipFunctionName: UnequipLeftLeg
+  AbilityScriptName: DefaultAbility
+  AbilityScriptFunction: DefaultLlegAbility
 --- !u!114 &9028128261717774139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,3 +238,4 @@ MonoBehaviour:
   isEnabled: 0
   inInventory: 1
   parent: {fileID: 0}
+  thisObject: {fileID: 0}

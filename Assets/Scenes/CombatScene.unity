@@ -414,6 +414,10 @@ PrefabInstance:
       propertyPath: playerMaxHealth
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 355705035643864433, guid: 87b83ad5d070e8547bc2795d4e30c834, type: 3}
+      propertyPath: PrefabequippedBody
+      value: 
+      objectReference: {fileID: 6688367706017289505, guid: be7fcbdd240b3a04cbbd0c2899d10cf2, type: 3}
     - target: {fileID: 1387446922038180432, guid: 87b83ad5d070e8547bc2795d4e30c834, type: 3}
       propertyPath: inventory.Array.size
       value: 0
@@ -2447,10 +2451,6 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1386954983}
-    - target: {fileID: 472460552, guid: b9620277ec410cf45a2ed93d7cb5da6f, type: 3}
-      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: HoverExit
-      objectReference: {fileID: 0}
     - target: {fileID: 755324160, guid: b9620277ec410cf45a2ed93d7cb5da6f, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2514,6 +2514,10 @@ PrefabInstance:
     - target: {fileID: 4109734741948760142, guid: b9620277ec410cf45a2ed93d7cb5da6f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4109734742265917463, guid: b9620277ec410cf45a2ed93d7cb5da6f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4109734742707659756, guid: b9620277ec410cf45a2ed93d7cb5da6f, type: 3}
       propertyPath: m_AnchorMax.x
