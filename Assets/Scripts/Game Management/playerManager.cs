@@ -150,6 +150,7 @@ public class playerManager : MonoBehaviour
     {
         GameObject bodyPart;
 
+        //Head
         if(Button == 1)
         {
             bodyPart = playerStats.GetComponent<playerStats>().PrefabequippedHead.gameObject;
@@ -167,6 +168,7 @@ public class playerManager : MonoBehaviour
                 targetFunction.Invoke(targetScript, null);
             }
         }
+        //Body
         if (Button == 2)
         {
             bodyPart = playerStats.GetComponent<playerStats>().PrefabequippedBody.gameObject;
@@ -185,12 +187,14 @@ public class playerManager : MonoBehaviour
             }
 
         }
+        //Larm
         if (Button == 3)
         {
             bodyPart = playerStats.GetComponent<playerStats>().PrefabequippedLeftArm.gameObject;
 
             GameObject targetObject = bodyPart.GetComponent<ItemScript>().gameObject;
 
+            Debug.Log(bodyPart);
             Component targetScript = targetObject.GetComponent(bodyPart.GetComponent<ItemScript>().AbilityScriptName);
 
 
@@ -199,9 +203,13 @@ public class playerManager : MonoBehaviour
 
             if (targetFunction != null)
             {
+                
+                Debug.Log(targetScript);
+    
                 targetFunction.Invoke(targetScript, null);
             }
         }
+        //Rarm
         if (Button == 4)
         {
             bodyPart = playerStats.GetComponent<playerStats>().PrefabequippedRightArm.gameObject;
@@ -219,6 +227,7 @@ public class playerManager : MonoBehaviour
                 targetFunction.Invoke(targetScript, null);
             }
         }
+        //Lleg
         if (Button == 5)
         {
             bodyPart = playerStats.GetComponent<playerStats>().PrefabequippedLeftLeg.gameObject;
@@ -236,6 +245,7 @@ public class playerManager : MonoBehaviour
                 targetFunction.Invoke(targetScript, null);
             }
         }
+        //Rleg
         if (Button == 6)
         {
             bodyPart = playerStats.GetComponent<playerStats>().PrefabequippedRightLeg.gameObject;
@@ -254,6 +264,7 @@ public class playerManager : MonoBehaviour
             }
 
         }
+        //Exit
         if (Button == 7)
         {
             buttonSet1.SetActive(true);

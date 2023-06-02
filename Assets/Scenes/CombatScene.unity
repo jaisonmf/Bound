@@ -417,19 +417,23 @@ PrefabInstance:
     - target: {fileID: 355705035643864433, guid: 87b83ad5d070e8547bc2795d4e30c834, type: 3}
       propertyPath: PrefabequippedBody
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6688367706017289505, guid: be7fcbdd240b3a04cbbd0c2899d10cf2, type: 3}
+    - target: {fileID: 355705035643864433, guid: 87b83ad5d070e8547bc2795d4e30c834, type: 3}
+      propertyPath: PrefabequippedLeftArm
+      value: 
+      objectReference: {fileID: 6688367706017289505, guid: a4400dfd88658334cb61e383bcd89acc, type: 3}
     - target: {fileID: 1387446922038180432, guid: 87b83ad5d070e8547bc2795d4e30c834, type: 3}
       propertyPath: inventory.Array.size
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1387446922038180432, guid: 87b83ad5d070e8547bc2795d4e30c834, type: 3}
       propertyPath: Prefabinventory.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1387446922038180432, guid: 87b83ad5d070e8547bc2795d4e30c834, type: 3}
       propertyPath: Prefabinventory.Array.data[0]
       value: 
-      objectReference: {fileID: 6688367706017289505, guid: be7fcbdd240b3a04cbbd0c2899d10cf2, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 5027555914231235909, guid: 87b83ad5d070e8547bc2795d4e30c834, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1324,6 +1328,7 @@ MonoBehaviour:
   Inventory: {fileID: 3911037801693568788, guid: e9341a914a1dfb1459dd777ad73e9a04, type: 3}
   parent: {fileID: 1420800795}
   SpawnedInventory: {fileID: 0}
+  PlayerInventory: {fileID: 0}
 --- !u!1 &955433530
 GameObject:
   m_ObjectHideFlags: 0
@@ -2631,7 +2636,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4109734741948760142, guid: b9620277ec410cf45a2ed93d7cb5da6f, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4109734741948760142, guid: b9620277ec410cf45a2ed93d7cb5da6f, type: 3}
       propertyPath: m_LocalPosition.x
