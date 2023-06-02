@@ -6,20 +6,29 @@ using UnityEngine.EventSystems;
 
 public class imageSnap : MonoBehaviour
 {
-    [SerializeField] private bool isSnapped;
+    private playerInventory Playerinventory;
     private Inventory inventory;
+    private ItemScript itemScript;
+    private DeleteItem deleteItem;
+
+    [SerializeField] private bool isSnapped;
+
     private Image image;
     private Transform targetTransform;
     [HideInInspector] public Vector2 previousTransform;
     public bool isEnabled;
-    private playerInventory Playerinventory;
-    private ItemScript itemScript;
+   
+
     [HideInInspector] public bool inInventory = true;
     [HideInInspector]public GameObject parent;
     private removeChild removeChild;
     private textUpdate textUpdate;
 
     public GameObject thisObject;
+
+
+
+
 
     void Start()
     {
@@ -29,14 +38,15 @@ public class imageSnap : MonoBehaviour
         previousTransform = transform.position;
         Playerinventory = GameObject.Find("playerStats").GetComponent<playerInventory>();
         itemScript = GetComponent<ItemScript>();
-        
-        
+        deleteItem = GameObject.Find("Delete Item").GetComponent<DeleteItem>();
+
+
     }
     
     public void SnapToTarget()
     {
        
-        if (isEnabled && inInventory == true)
+        if (isEnabled && inInventory == true && deleteItem.deleting == false)
         {
 
             inventory = GameObject.Find("InventoryContainer").GetComponent<Inventory>();
@@ -161,6 +171,11 @@ public class imageSnap : MonoBehaviour
           
            
         }
+        else if(isEnabled && inInventory == true && deleteItem.deleting == true)
+        {
+            RemoveFromList();
+            Destroy(gameObject);
+        }
 
 
 
@@ -172,7 +187,7 @@ public class imageSnap : MonoBehaviour
 
         
         int cloneIndex = Playerinventory.inventory.IndexOf(gameObject);
-        Debug.Log(Playerinventory.inventory.IndexOf(gameObject));
+      
         if (cloneIndex >= 0)
         {
             Playerinventory.inventory.RemoveAt(cloneIndex);

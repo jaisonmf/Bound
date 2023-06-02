@@ -127,19 +127,11 @@ public class Inventory : MonoBehaviour
             item.SetActive(true);
 
 
+            item.GetComponent<ItemScript>().inventorySpot = Inventoryslot;
+            item.GetComponent<ItemScript>().inInventory = true;
+            item.GetComponent<imageSnap>().isEnabled = true;
 
-            playerManager playerManager = GameObject.Find("playerManager").GetComponent<playerManager>();
 
-            if(playerManager == null)
-            {
-                item.GetComponent<ItemScript>().inventorySpot = Inventoryslot;
-                item.GetComponent<ItemScript>().inInventory = true;
-                item.GetComponent<imageSnap>().isEnabled = true;
-            }
-            else
-            {
-                item.GetComponent<Button>().interactable = false;
-            }
 
             
 
