@@ -23,7 +23,7 @@ public class textUpdate : MonoBehaviour
 
     public void UpdateStats()
     {
-        Healthtext.text = (playerStats.playerMaxHealth.ToString());
+        Healthtext.text = (playerStats.playerHealth.ToString() + "/" + playerStats.playerMaxHealth.ToString());
         DamageText.text = (playerStats.playerMinDamage.ToString() + "-" + playerStats.playerMaxDamage.ToString());
         EnergyText.text = (playerStats.playerMaxEnergy.ToString());
     }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class Inventory : MonoBehaviour
@@ -124,14 +125,23 @@ public class Inventory : MonoBehaviour
             item.transform.SetParent(parent.transform, false);
             item.transform.localScale = Vector3.one * scaleMultiplier;
             item.SetActive(true);
+
+
+
+            playerManager playerManager = GameObject.Find("playerManager").GetComponent<playerManager>();
+
+            if(playerManager == null)
+            {
+                item.GetComponent<ItemScript>().inventorySpot = Inventoryslot;
+                item.GetComponent<ItemScript>().inInventory = true;
+                item.GetComponent<imageSnap>().isEnabled = true;
+            }
+            else
+            {
+                item.GetComponent<Button>().interactable = false;
+            }
+
             
-
-
-           
-
-            item.GetComponent<ItemScript>().inventorySpot = Inventoryslot;
-            item.GetComponent<ItemScript>().inInventory = true;
-            item.GetComponent<imageSnap>().isEnabled = true;
 
 
         }
