@@ -417,11 +417,19 @@ PrefabInstance:
     - target: {fileID: 355705035643864433, guid: 87b83ad5d070e8547bc2795d4e30c834, type: 3}
       propertyPath: PrefabequippedBody
       value: 
-      objectReference: {fileID: 6688367706017289505, guid: be7fcbdd240b3a04cbbd0c2899d10cf2, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 1387446922038180432, guid: 87b83ad5d070e8547bc2795d4e30c834, type: 3}
       propertyPath: inventory.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1387446922038180432, guid: 87b83ad5d070e8547bc2795d4e30c834, type: 3}
+      propertyPath: Prefabinventory.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1387446922038180432, guid: 87b83ad5d070e8547bc2795d4e30c834, type: 3}
+      propertyPath: Prefabinventory.Array.data[0]
+      value: 
+      objectReference: {fileID: 6688367706017289505, guid: be7fcbdd240b3a04cbbd0c2899d10cf2, type: 3}
     - target: {fileID: 5027555914231235909, guid: 87b83ad5d070e8547bc2795d4e30c834, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1179,8 +1187,9 @@ GameObject:
   - component: {fileID: 882422186}
   - component: {fileID: 882422185}
   - component: {fileID: 882422184}
+  - component: {fileID: 882422187}
   m_Layer: 5
-  m_Name: Image
+  m_Name: OpenInventory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1249,7 +1258,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 882422185}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 882422187}
+        m_TargetAssemblyTypeName: ShowInventory, Assembly-CSharp
+        m_MethodName: OpenInventory
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &882422185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1288,6 +1309,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 882422182}
   m_CullTransparentMesh: 1
+--- !u!114 &882422187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882422182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54696bff618d21a4784fc7bb1827e6e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Inventory: {fileID: 3911037801693568788, guid: e9341a914a1dfb1459dd777ad73e9a04, type: 3}
+  parent: {fileID: 1420800795}
+  SpawnedInventory: {fileID: 0}
 --- !u!1 &955433530
 GameObject:
   m_ObjectHideFlags: 0
