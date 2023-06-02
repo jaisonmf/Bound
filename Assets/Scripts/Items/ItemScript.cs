@@ -16,6 +16,7 @@ public class ItemScript : MonoBehaviour
     private MapEvent mapEvent;
     public GameObject inventorySpot;
     public bool equipped;
+    private bool inCombat;
 
 
     [Header("Equip")]

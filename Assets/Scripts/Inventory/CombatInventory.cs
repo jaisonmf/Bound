@@ -1,17 +1,13 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Globalization;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-
-public class Inventory : MonoBehaviour
+public class CombatInventory : MonoBehaviour
 {
     private playerInventory playerInventory;
     public int inventoryCount;
-    [HideInInspector] public GameObject parent;
+    public GameObject parent;
     private GameObject spawnedItem;
     [SerializeField] private float scaleMultiplier;
     private GameObject item;
@@ -28,7 +24,7 @@ public class Inventory : MonoBehaviour
 
     public void Start()
     {
-        
+
         playerInventory = GameObject.Find("playerStats").GetComponent<playerInventory>();
 
 
@@ -52,9 +48,9 @@ public class Inventory : MonoBehaviour
         }
         inInventory = true;
 
-        
 
-        
+
+
 
         /*
         GameObject[] instance = FindObjectsOfType<GameObject>();
@@ -76,13 +72,13 @@ public class Inventory : MonoBehaviour
 
     }
 
-  
+
 
 
     public void GenerateInventory()
     {
-        
-       
+
+
 
         //Inventory Generator
         inventoryCount = playerInventory.inventory.Count;
@@ -101,13 +97,13 @@ public class Inventory : MonoBehaviour
 
             Vector3 position = transform.TransformPoint(localPosition);
 
-            
+            /*
             GameObject Inventoryslot = Instantiate(new GameObject(), position, Quaternion.identity, transform);
             nameNumber++;
             Inventoryslot.name = "InventorySlot" + nameNumber;
             Inventoryslot.transform.SetParent(parent.transform, false);
             Inventoryslot.AddComponent<removeChild>();
-
+            */
 
             GameObject itemPrefab = playerInventory.Prefabinventory[i];
 
@@ -121,28 +117,26 @@ public class Inventory : MonoBehaviour
             {
                 itemScript.myprefab = itemPrefab;
             }
-        
+
 
             item.transform.SetParent(parent.transform, false);
             item.transform.localScale = Vector3.one * scaleMultiplier;
             item.SetActive(true);
 
-            
+            item.GetComponent<Button>().interactable = false;
 
 
 
-            item.GetComponent<imageSnap>().isEnabled = true;
-
-            item.GetComponent<ItemScript>().inventorySpot = Inventoryslot;
-            item.GetComponent<ItemScript>().inInventory = true;
-           
+    
 
 
 
-            
+
+
 
 
         }
     }
 
 }
+

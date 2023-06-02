@@ -1406,7 +1406,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3911037801631734650}
-  - component: {fileID: 3911037801631734651}
+  - component: {fileID: 3855343798285065087}
   m_Layer: 5
   m_Name: InventoryContainer
   m_TagString: Untagged
@@ -1434,7 +1434,7 @@ RectTransform:
   m_AnchoredPosition: {x: -501.99988, y: 544}
   m_SizeDelta: {x: 941.49, y: 1163}
   m_Pivot: {x: 0, y: 1}
---- !u!114 &3911037801631734651
+--- !u!114 &3855343798285065087
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1443,16 +1443,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 3911037801631734653}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa912af5f1e3bfc4098cb1b838e890c2, type: 3}
+  m_Script: {fileID: 11500000, guid: 653b929b3668df6469d091b04a8bf371, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryCount: 0
-  parent: {fileID: 3911037801631734653}
+  parent: {fileID: 3348797633880632962}
   scaleMultiplier: 0.5
   inInventory: 0
   inventoryCounter: 0
   numberofInventory: []
   objectToDelete: {fileID: 3348797633880632962}
+  inCombat: 0
 --- !u!1 &3911037801693568788
 GameObject:
   m_ObjectHideFlags: 0
