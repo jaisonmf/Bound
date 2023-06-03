@@ -64,6 +64,7 @@ GameObject:
   - component: {fileID: 4763894006670847164}
   - component: {fileID: 5464894591189209871}
   - component: {fileID: 3126045116565345534}
+  - component: {fileID: -5803602833545205022}
   m_Layer: 5
   m_Name: DefaultLeftArm
   m_TagString: LeftArm
@@ -239,3 +240,16 @@ MonoBehaviour:
   inInventory: 1
   parent: {fileID: 0}
   thisObject: {fileID: 0}
+--- !u!114 &-5803602833545205022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6688367706017289505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4d423a9ec94ba84bbc960ed0d68c652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  energyCost: 2

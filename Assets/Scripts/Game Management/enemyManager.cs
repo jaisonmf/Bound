@@ -72,6 +72,12 @@ public class enemyManager : MonoBehaviour
         }
         if(alive == true)
         {
+            if(statusEffectController.tauntStacks != 0)
+            {
+                statusEffectController.tauntStacks--;
+            }
+
+
             StartCoroutine(EnemyAction(3));
 
             
@@ -96,8 +102,8 @@ public class enemyManager : MonoBehaviour
 
         yield return new WaitForSeconds(time);
 
-        //action = Random.Range(1, 4);
-        action = 4;
+        action = Random.Range(1, 4);
+        //action = 4;
         GameObject targetObject = gameObject;
         Component targetScript = targetObject.GetComponent(EnemyFunctionScript);
         System.Type targetType = System.Type.GetType(EnemyFunctionScript);
@@ -109,8 +115,12 @@ public class enemyManager : MonoBehaviour
 
         UpdateEnemyHealthBar(enemyCurrentHealth, enemyMaxHealth);
        // playerManager.UpdateHealthBar(playerStats.playerHealth, playerStats.playerMaxHealth);
-
         
+        if (playerStats.playerHealth <= 0)
+        {
+            SceneManager.LoadScene("Lose");
+        }
+
         isCoroutineOn = false;
 
     }

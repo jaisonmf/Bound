@@ -20,7 +20,7 @@ public class StatusEffectController : MonoBehaviour
 
     [SerializeField] private GameObject TauntIcon;
     private bool taunting;
-    [HideInInspector] public int tauntStacks;
+    public int tauntStacks;
 
 
     public void Start()

@@ -21,12 +21,23 @@ public class playerManager : MonoBehaviour
     [SerializeField] private Slider playerHealthbar;
     [SerializeField] private Slider playerEnergybar;
 
-    [SerializeField] private GameObject buttonSet1;
-    [SerializeField] private GameObject buttonSet2;
+    public GameObject buttonSet1;
+    public GameObject buttonSet2;
 
+    public Button special1;
+    public Button special2;
+    public Button special3;
+    public Button special4;
+    public Button special5;
+    public Button special6;
+    public Button specialExit;
+
+
+    [HideInInspector] public int MaxDamage;
+    [HideInInspector] public int MinDamage;
 
     public bool selecting = false;
-    private int damage;
+    public int damage;
     private bool isCoroutineOn;
     [SerializeField] private GameObject UI;
 
@@ -69,10 +80,12 @@ public class playerManager : MonoBehaviour
         //player is above 0 health and can take their turn
         if(playerStats.playerHealth != 0)
         {
+           
             action1.interactable = true;
             action2.interactable = true;
             action3.interactable = true;
             action4.interactable = true;
+            ResetDamage();
             statusEffectController.EffectUpdate();
             UpdateHealthBar(playerStats.playerHealth, playerStats.playerMaxHealth);
             playerStats.playerEnergy = playerStats.playerMaxEnergy;
@@ -104,6 +117,12 @@ public class playerManager : MonoBehaviour
 
         }
     }
+    public void ResetDamage()
+    {
+        MinDamage = playerStats.playerMinDamage;
+        MaxDamage = playerStats.playerMaxDamage;
+
+    }
     //Default Menu
     public void playerActions(int Button)
     {
@@ -124,6 +143,7 @@ public class playerManager : MonoBehaviour
         {
             buttonSet2.SetActive(true);
             buttonSet1.SetActive(false);
+            SpecialButtonCheck();
             
             
 
@@ -145,6 +165,62 @@ public class playerManager : MonoBehaviour
         }
     }
 
+    public void SpecialButtonCheck()
+    {
+        if(playerStats.PrefabequippedHead != null)
+        {
+            special1.interactable = true;
+        }
+        else
+        {
+            special1.interactable = false;
+        }
+        if(playerStats.PrefabequippedBody != null)
+        {
+            special2.interactable = true;
+        }
+        else
+        {
+            special2.interactable = false;
+        }
+        if(playerStats.PrefabequippedLeftArm != null)
+        {
+            special3.interactable = true;
+        }
+        else
+        {
+            special3.interactable = false;
+
+        }
+        if(playerStats.PrefabequippedRightArm != null)
+        {
+            special4.interactable = true;
+        }
+        else
+        {
+            special4.interactable = false;
+        }
+        if(playerStats.PrefabequippedLeftLeg != null)
+        {
+            special5.interactable = false;
+        }
+        else
+        {
+            special5.interactable = false;
+        }
+        if(playerStats.PrefabequippedRightLeg != null)
+        {
+            special6.interactable = true;
+        }
+        else
+        {
+            special6.interactable = false;
+        }
+    }
+
+
+
+
     //Special Menu
     public void Special(int Button)
     {
@@ -155,113 +231,133 @@ public class playerManager : MonoBehaviour
         {
             bodyPart = playerStats.GetComponent<playerStats>().PrefabequippedHead.gameObject;
 
-            GameObject targetObject = bodyPart.GetComponent<ItemScript>().gameObject;
-
-            Component targetScript = targetObject.GetComponent(bodyPart.GetComponent<ItemScript>().AbilityScriptName);
-
-
-            System.Type targetType = System.Type.GetType(bodyPart.GetComponent<ItemScript>().AbilityScriptName);
-            System.Reflection.MethodInfo targetFunction = targetType.GetMethod(bodyPart.GetComponent<ItemScript>().AbilityScriptFunction);
-
-            if (targetFunction != null)
+            if (playerStats.playerEnergy >= bodyPart.GetComponent<DefaultAbility>().energyCost)
             {
-                targetFunction.Invoke(targetScript, null);
+                GameObject targetObject = bodyPart.GetComponent<ItemScript>().gameObject;
+
+
+                Component targetScript = targetObject.GetComponent(bodyPart.GetComponent<ItemScript>().AbilityScriptName);
+
+                System.Type targetType = System.Type.GetType(bodyPart.GetComponent<ItemScript>().AbilityScriptName);
+                System.Reflection.MethodInfo targetFunction = targetType.GetMethod(bodyPart.GetComponent<ItemScript>().AbilityScriptFunction);
+
+                if (targetFunction != null)
+                {
+                    targetFunction.Invoke(targetScript, null);
+                }
             }
+
         }
         //Body
         if (Button == 2)
         {
             bodyPart = playerStats.GetComponent<playerStats>().PrefabequippedBody.gameObject;
 
-            GameObject targetObject = bodyPart.GetComponent<ItemScript>().gameObject;
-            
-            Component targetScript = targetObject.GetComponent(bodyPart.GetComponent<ItemScript>().AbilityScriptName);
-
-
-            System.Type targetType = System.Type.GetType(bodyPart.GetComponent<ItemScript>().AbilityScriptName);
-            System.Reflection.MethodInfo targetFunction = targetType.GetMethod(bodyPart.GetComponent<ItemScript>().AbilityScriptFunction);
-
-            if (targetFunction != null)
+            if (playerStats.playerEnergy >= bodyPart.GetComponent<DefaultAbility>().energyCost)
             {
-                targetFunction.Invoke(targetScript, null);
+                GameObject targetObject = bodyPart.GetComponent<ItemScript>().gameObject;
+
+
+                Component targetScript = targetObject.GetComponent(bodyPart.GetComponent<ItemScript>().AbilityScriptName);
+
+                System.Type targetType = System.Type.GetType(bodyPart.GetComponent<ItemScript>().AbilityScriptName);
+                System.Reflection.MethodInfo targetFunction = targetType.GetMethod(bodyPart.GetComponent<ItemScript>().AbilityScriptFunction);
+
+                if (targetFunction != null)
+                {
+                    targetFunction.Invoke(targetScript, null);
+                }
             }
+
 
         }
         //Larm
         if (Button == 3)
         {
+            
             bodyPart = playerStats.GetComponent<playerStats>().PrefabequippedLeftArm.gameObject;
-
-            GameObject targetObject = bodyPart.GetComponent<ItemScript>().gameObject;
-
-            Debug.Log(bodyPart);
-            Component targetScript = targetObject.GetComponent(bodyPart.GetComponent<ItemScript>().AbilityScriptName);
-
-
-            System.Type targetType = System.Type.GetType(bodyPart.GetComponent<ItemScript>().AbilityScriptName);
-            System.Reflection.MethodInfo targetFunction = targetType.GetMethod(bodyPart.GetComponent<ItemScript>().AbilityScriptFunction);
-
-            if (targetFunction != null)
+            if (playerStats.playerEnergy >= bodyPart.GetComponent<DefaultAbility>().energyCost)
             {
-                
-                Debug.Log(targetScript);
-    
-                targetFunction.Invoke(targetScript, null);
+                GameObject targetObject = bodyPart.GetComponent<ItemScript>().gameObject;
+
+
+                Component targetScript = targetObject.GetComponent(bodyPart.GetComponent<ItemScript>().AbilityScriptName);
+
+                System.Type targetType = System.Type.GetType(bodyPart.GetComponent<ItemScript>().AbilityScriptName);
+                System.Reflection.MethodInfo targetFunction = targetType.GetMethod(bodyPart.GetComponent<ItemScript>().AbilityScriptFunction);
+
+                if (targetFunction != null)
+                {
+                    targetFunction.Invoke(targetScript, null);
+                }
             }
+           
         }
         //Rarm
         if (Button == 4)
         {
             bodyPart = playerStats.GetComponent<playerStats>().PrefabequippedRightArm.gameObject;
 
-            GameObject targetObject = bodyPart.GetComponent<ItemScript>().gameObject;
-
-            Component targetScript = targetObject.GetComponent(bodyPart.GetComponent<ItemScript>().AbilityScriptName);
-
-
-            System.Type targetType = System.Type.GetType(bodyPart.GetComponent<ItemScript>().AbilityScriptName);
-            System.Reflection.MethodInfo targetFunction = targetType.GetMethod(bodyPart.GetComponent<ItemScript>().AbilityScriptFunction);
-
-            if (targetFunction != null)
+            if (playerStats.playerEnergy >= bodyPart.GetComponent<DefaultAbility>().energyCost)
             {
-                targetFunction.Invoke(targetScript, null);
+                GameObject targetObject = bodyPart.GetComponent<ItemScript>().gameObject;
+
+
+                Component targetScript = targetObject.GetComponent(bodyPart.GetComponent<ItemScript>().AbilityScriptName);
+
+                System.Type targetType = System.Type.GetType(bodyPart.GetComponent<ItemScript>().AbilityScriptName);
+                System.Reflection.MethodInfo targetFunction = targetType.GetMethod(bodyPart.GetComponent<ItemScript>().AbilityScriptFunction);
+
+                if (targetFunction != null)
+                {
+                    targetFunction.Invoke(targetScript, null);
+                }
             }
+
         }
         //Lleg
         if (Button == 5)
         {
             bodyPart = playerStats.GetComponent<playerStats>().PrefabequippedLeftLeg.gameObject;
 
-            GameObject targetObject = bodyPart.GetComponent<ItemScript>().gameObject;
-
-            Component targetScript = targetObject.GetComponent(bodyPart.GetComponent<ItemScript>().AbilityScriptName);
-
-
-            System.Type targetType = System.Type.GetType(bodyPart.GetComponent<ItemScript>().AbilityScriptName);
-            System.Reflection.MethodInfo targetFunction = targetType.GetMethod(bodyPart.GetComponent<ItemScript>().AbilityScriptFunction);
-
-            if (targetFunction != null)
+            if (playerStats.playerEnergy >= bodyPart.GetComponent<DefaultAbility>().energyCost)
             {
-                targetFunction.Invoke(targetScript, null);
+                GameObject targetObject = bodyPart.GetComponent<ItemScript>().gameObject;
+
+
+                Component targetScript = targetObject.GetComponent(bodyPart.GetComponent<ItemScript>().AbilityScriptName);
+
+                System.Type targetType = System.Type.GetType(bodyPart.GetComponent<ItemScript>().AbilityScriptName);
+                System.Reflection.MethodInfo targetFunction = targetType.GetMethod(bodyPart.GetComponent<ItemScript>().AbilityScriptFunction);
+
+                if (targetFunction != null)
+                {
+                    targetFunction.Invoke(targetScript, null);
+                }
             }
+
         }
         //Rleg
         if (Button == 6)
         {
+            
             bodyPart = playerStats.GetComponent<playerStats>().PrefabequippedRightLeg.gameObject;
-
-            GameObject targetObject = bodyPart.GetComponent<ItemScript>().gameObject;
-
-            Component targetScript = targetObject.GetComponent(bodyPart.GetComponent<ItemScript>().AbilityScriptName);
-
-
-            System.Type targetType = System.Type.GetType(bodyPart.GetComponent<ItemScript>().AbilityScriptName);
-            System.Reflection.MethodInfo targetFunction = targetType.GetMethod(bodyPart.GetComponent<ItemScript>().AbilityScriptFunction);
-
-            if (targetFunction != null)
+            if (playerStats.playerEnergy >= bodyPart.GetComponent<DefaultAbility>().energyCost)
             {
-                targetFunction.Invoke(targetScript, null);
+                GameObject targetObject = bodyPart.GetComponent<ItemScript>().gameObject;
+
+
+                Component targetScript = targetObject.GetComponent(bodyPart.GetComponent<ItemScript>().AbilityScriptName);
+
+                System.Type targetType = System.Type.GetType(bodyPart.GetComponent<ItemScript>().AbilityScriptName);
+                System.Reflection.MethodInfo targetFunction = targetType.GetMethod(bodyPart.GetComponent<ItemScript>().AbilityScriptFunction);
+
+                if (targetFunction != null)
+                {
+                    targetFunction.Invoke(targetScript, null);
+                }
             }
+
 
         }
         //Exit
@@ -282,7 +378,7 @@ public class playerManager : MonoBehaviour
         GameObject enemy = enemyGenerator.spawnedEnemyList[listIndex];
         
         bool alive = false;
-        damage = Random.Range(playerStats.playerMinDamage, playerStats.playerMaxDamage);
+        damage = Random.Range(MinDamage, MaxDamage);
         enemy.GetComponent<enemyManager>().enemyCurrentHealth -= damage;
         enemy.GetComponent<enemyManager>().UpdateEnemyHealthBar(enemy.GetComponent<enemyManager>().enemyCurrentHealth, enemy.GetComponent<enemyManager>().enemyMaxHealth);
       

@@ -30,7 +30,11 @@ public class enemySelection : MonoBehaviour
     {
  
         playerManager.PlayerAttack(enemy.GetComponent<enemyManager>().enemyCount);
+        playerManager.ResetDamage();
+        playerManager.buttonSet2.SetActive(false);
+        playerManager.buttonSet1.SetActive(true);
+    }
 
         //this.transform.parent.GetComponent<enemyManager>().UpdateEnemyHealthBar(this.transform.parent.GetComponent<enemyManager>().enemyCurrentHealth, this.transform.parent.GetComponent<enemyManager>().enemyHealth);
-    }
+    
 }

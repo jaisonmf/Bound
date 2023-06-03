@@ -61,7 +61,7 @@ public class Ent : MonoBehaviour
                     if (enemy != gameObject && enemy.GetComponent<StatusEffectController>().tauntStacks == 0)
                     {
                         enemy.GetComponentInChildren<Button>().interactable = false;
-                        StatusEffectController.tauntStacks--;
+                        
                     }
 
                 }

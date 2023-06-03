@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4763894006670847164}
   - component: {fileID: 1492969883617042054}
   - component: {fileID: 377290184957895641}
+  - component: {fileID: -3355979894662872863}
   m_Layer: 5
   m_Name: DefaultHead
   m_TagString: Head
@@ -171,7 +172,6 @@ MonoBehaviour:
   UnequipFunctionName: UnequipHead
   AbilityScriptName: DefaultAbility
   AbilityScriptFunction: DefaultHeadAbility
-  AbilityScriptObject: 
 --- !u!114 &377290184957895641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,6 +190,19 @@ MonoBehaviour:
   inInventory: 1
   parent: {fileID: 0}
   thisObject: {fileID: 0}
+--- !u!114 &-3355979894662872863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6688367706017289505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4d423a9ec94ba84bbc960ed0d68c652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  energyCost: 1
 --- !u!1 &7075315418983040423
 GameObject:
   m_ObjectHideFlags: 0

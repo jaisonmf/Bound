@@ -10,6 +10,7 @@ public class goblinBoss : MonoBehaviour
     [SerializeField] private playerStats playerStats;
 
     [SerializeField] private GameObject boss;
+    [SerializeField] private GameObject Summon;
 
 
 
@@ -34,7 +35,7 @@ public class goblinBoss : MonoBehaviour
 
         if(gameObject.GetComponent<enemyManager>().enemyCurrentHealth > 0)
         {
-            if (action == 1 || action == 4)
+            if (action == 1)
             {
                 playerStats.playerHealth -= damage;
             }
@@ -64,6 +65,21 @@ public class goblinBoss : MonoBehaviour
                 {
                     gameObject.GetComponent<enemyManager>().enemyCurrentHealth = gameObject.GetComponent<enemyManager>().enemyMaxHealth;
                 }
+            }
+            else if (action == 4)
+            {
+                enemyGenerator generator = GameObject.Find("enemyGenerator").GetComponent<enemyGenerator>();
+                int SummonAmount = 0;
+
+                SummonAmount = Random.Range(0, 3);
+
+                for(int i = 0; i < SummonAmount; i++)
+                {
+                    GameObject summonedUnit = Instantiate(Summon); //NEED TO PUT LOCATION, PROBABLY BETWEEN POINT A AND B WHICH IS ATTATCHED TO THE GAME OBJECT. MAKE SURE THIS WORKS
+                    summonedUnit.transform.SetParent(gameObject.transform.parent, false);
+                    generator.spawnedEnemyList.Add(summonedUnit);
+                }
+
             }
             
         }
