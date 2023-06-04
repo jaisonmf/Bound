@@ -50,10 +50,12 @@ public class StatusEffectController : MonoBehaviour
             onFireStacks++;
             onFireIcon.GetComponentInChildren<Text>().text = onFireStacks.ToString();
         }
-        
-        
+        onFireIcon.GetComponentInChildren<Text>().text = onFireStacks.ToString();
+    
 
-      
+
+
+
     }
     public void AddTaunt()
     {

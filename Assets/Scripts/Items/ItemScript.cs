@@ -37,11 +37,12 @@ public class ItemScript : MonoBehaviour
     public string Statboost;
     public string Description;
     public string EnergyCost;
-
+   
     public void Start()
     {
         playerInventory = GameObject.Find("playerStats").GetComponent<playerInventory>();
         mapEvent = GameObject.Find("Map").GetComponent<MapEvent>();
+      
 
         
 

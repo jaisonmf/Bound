@@ -66,7 +66,7 @@ public class MapNode : MonoBehaviour
         finalNode.countdown++;
 
        
-        if(finalNode.countdown == mapEvent.rows)
+        if(finalNode.countdown >= mapEvent.rows)
         {
             finalNode.Avaliable();
         }

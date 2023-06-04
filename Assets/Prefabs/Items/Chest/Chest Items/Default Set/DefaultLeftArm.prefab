@@ -234,10 +234,10 @@ MonoBehaviour:
   UnequipFunctionName: UnequipLeftArm
   AbilityScriptName: DefaultAbility
   AbilityScriptFunction: DefaultLarmAbility
-  ItemName: LMAO
-  Statboost: LMAO
-  Description: LMAO
-  EnergyCost: LMAO
+  ItemName: Skeleton Left Arm
+  Statboost: +5 Minimum Damage
+  Description: Deal damage equal to the amount of enemies alive x 10
+  EnergyCost: 2
 --- !u!114 &3126045116565345534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,7 +256,6 @@ MonoBehaviour:
   inInventory: 1
   parent: {fileID: 0}
   thisObject: {fileID: 0}
-  lefShift: 0
 --- !u!114 &-5803602833545205022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,4 +269,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   energyCost: 2
-  ButtonEffect: 

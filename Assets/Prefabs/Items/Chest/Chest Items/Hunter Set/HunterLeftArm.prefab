@@ -64,6 +64,7 @@ GameObject:
   - component: {fileID: 4763894006670847164}
   - component: {fileID: 5464894591189209871}
   - component: {fileID: 3126045116565345534}
+  - component: {fileID: 9158642026003961197}
   m_Layer: 5
   m_Name: HunterLeftArm
   m_TagString: LeftArm
@@ -198,6 +199,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 3126045116565345534}
+        m_TargetAssemblyTypeName: imageSnap, Assembly-CSharp
+        m_MethodName: ViewItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &5464894591189209871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,6 +232,12 @@ MonoBehaviour:
   targetObjectName: 
   EquipFunctionName: EquipLeftArm
   UnequipFunctionName: UnequipLeftArm
+  AbilityScriptName: HunterAbilities
+  AbilityScriptFunction: HunterLarmAbility
+  ItemName: Hunter's Bow
+  Statboost: +10 Minimum Damage
+  Description: Deal damage and inflict Burn +1
+  EnergyCost: 1
 --- !u!114 &3126045116565345534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,3 +256,16 @@ MonoBehaviour:
   inInventory: 1
   parent: {fileID: 0}
   thisObject: {fileID: 0}
+--- !u!114 &9158642026003961197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6688367706017289505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e55afa1fe3ad62541bd65c98f0bd5148, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  energyCost: 1

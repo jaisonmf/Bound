@@ -184,10 +184,10 @@ MonoBehaviour:
   UnequipFunctionName: UnequipHead
   AbilityScriptName: DefaultAbility
   AbilityScriptFunction: DefaultHeadAbility
-  ItemName: 
-  Statboost: 
-  Description: 
-  EnergyCost: 
+  ItemName: Skeleton Head
+  Statboost: +10 Health
+  Description: Deal x2 Damage, Lose 5 health
+  EnergyCost: 2
 --- !u!114 &377290184957895641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,8 +218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4d423a9ec94ba84bbc960ed0d68c652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energyCost: 1
-  ButtonEffect: 
+  energyCost: 2
 --- !u!1 &7075315418983040423
 GameObject:
   m_ObjectHideFlags: 0

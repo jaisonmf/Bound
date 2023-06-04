@@ -37,7 +37,7 @@ public class playerUpgrades : MonoBehaviour
         }
         else if (Upgrade == 2)
         {
-            playerStats.playerEnergy += 1;
+            playerStats.playerMaxEnergy += 1;
             SceneManager.LoadScene("MapScene");
             mapEvent.GetComponent<Canvas>().enabled = true;
         }

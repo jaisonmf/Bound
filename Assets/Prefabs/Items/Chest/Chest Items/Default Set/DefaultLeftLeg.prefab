@@ -234,10 +234,10 @@ MonoBehaviour:
   UnequipFunctionName: UnequipLeftLeg
   AbilityScriptName: DefaultAbility
   AbilityScriptFunction: DefaultLlegAbility
-  ItemName: 
-  Statboost: 
-  Description: 
-  EnergyCost: 
+  ItemName: Skeleton Left Leg
+  Statboost: +1 Max Energy
+  Description: Lose 10 Health, Gain 1 Energy
+  EnergyCost: 0
 --- !u!114 &9028128261717774139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,5 +268,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4d423a9ec94ba84bbc960ed0d68c652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energyCost: 1
-  ButtonEffect: 
+  energyCost: 0

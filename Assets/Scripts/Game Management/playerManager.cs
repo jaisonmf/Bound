@@ -42,7 +42,12 @@ public class playerManager : MonoBehaviour
     [SerializeField] private GameObject UI;
 
 
+    //Apply Debuff
+    [HideInInspector] public bool ApplyFire;
 
+    //Apply Buff
+    [HideInInspector] public bool HealthSteal;
+    [HideInInspector] public bool energyOverflow;
 
 
     private void Start()
@@ -88,7 +93,17 @@ public class playerManager : MonoBehaviour
             ResetDamage();
             statusEffectController.EffectUpdate();
             UpdateHealthBar(playerStats.playerHealth, playerStats.playerMaxHealth);
-            playerStats.playerEnergy = playerStats.playerMaxEnergy;
+
+            if(energyOverflow == true)
+            {
+                playerStats.playerEnergy = playerStats.playerMaxEnergy + 2;
+                energyOverflow = false;
+            }
+            else
+            {
+                playerStats.playerEnergy = playerStats.playerMaxEnergy;
+            }
+            
             UpdateEnergyBar(playerStats.playerEnergy, playerStats.playerMaxEnergy);
             
         }
@@ -202,7 +217,7 @@ public class playerManager : MonoBehaviour
         }
         if(playerStats.PrefabequippedLeftLeg != null)
         {
-            special5.interactable = false;
+            special5.interactable = true;
         }
         else
         {
@@ -231,7 +246,7 @@ public class playerManager : MonoBehaviour
         {
             bodyPart = playerStats.GetComponent<playerStats>().PrefabequippedHead.gameObject;
 
-            if (playerStats.playerEnergy >= bodyPart.GetComponent<DefaultAbility>().energyCost)
+            if (playerStats.playerEnergy >= int.Parse(bodyPart.GetComponent<ItemScript>().EnergyCost))
             {
                 GameObject targetObject = bodyPart.GetComponent<ItemScript>().gameObject;
 
@@ -253,7 +268,7 @@ public class playerManager : MonoBehaviour
         {
             bodyPart = playerStats.GetComponent<playerStats>().PrefabequippedBody.gameObject;
 
-            if (playerStats.playerEnergy >= bodyPart.GetComponent<DefaultAbility>().energyCost)
+            if (playerStats.playerEnergy >= int.Parse(bodyPart.GetComponent<ItemScript>().EnergyCost))
             {
                 GameObject targetObject = bodyPart.GetComponent<ItemScript>().gameObject;
 
@@ -276,7 +291,7 @@ public class playerManager : MonoBehaviour
         {
             
             bodyPart = playerStats.GetComponent<playerStats>().PrefabequippedLeftArm.gameObject;
-            if (playerStats.playerEnergy >= bodyPart.GetComponent<DefaultAbility>().energyCost)
+            if (playerStats.playerEnergy >= int.Parse(bodyPart.GetComponent<ItemScript>().EnergyCost))
             {
                 GameObject targetObject = bodyPart.GetComponent<ItemScript>().gameObject;
 
@@ -298,7 +313,7 @@ public class playerManager : MonoBehaviour
         {
             bodyPart = playerStats.GetComponent<playerStats>().PrefabequippedRightArm.gameObject;
 
-            if (playerStats.playerEnergy >= bodyPart.GetComponent<DefaultAbility>().energyCost)
+            if (playerStats.playerEnergy >= int.Parse(bodyPart.GetComponent<ItemScript>().EnergyCost))
             {
                 GameObject targetObject = bodyPart.GetComponent<ItemScript>().gameObject;
 
@@ -313,6 +328,7 @@ public class playerManager : MonoBehaviour
                     targetFunction.Invoke(targetScript, null);
                 }
             }
+        
 
         }
         //Lleg
@@ -320,7 +336,7 @@ public class playerManager : MonoBehaviour
         {
             bodyPart = playerStats.GetComponent<playerStats>().PrefabequippedLeftLeg.gameObject;
 
-            if (playerStats.playerEnergy >= bodyPart.GetComponent<DefaultAbility>().energyCost)
+            if (playerStats.playerEnergy >= int.Parse(bodyPart.GetComponent<ItemScript>().EnergyCost))
             {
                 GameObject targetObject = bodyPart.GetComponent<ItemScript>().gameObject;
 
@@ -342,7 +358,7 @@ public class playerManager : MonoBehaviour
         {
             
             bodyPart = playerStats.GetComponent<playerStats>().PrefabequippedRightLeg.gameObject;
-            if (playerStats.playerEnergy >= bodyPart.GetComponent<DefaultAbility>().energyCost)
+            if (playerStats.playerEnergy >= int.Parse(bodyPart.GetComponent<ItemScript>().EnergyCost))
             {
                 GameObject targetObject = bodyPart.GetComponent<ItemScript>().gameObject;
 
@@ -363,6 +379,7 @@ public class playerManager : MonoBehaviour
         //Exit
         if (Button == 7)
         {
+            selecting = false;
             buttonSet1.SetActive(true);
             buttonSet2.SetActive(false);
         }
@@ -381,7 +398,22 @@ public class playerManager : MonoBehaviour
         damage = Random.Range(MinDamage, MaxDamage);
         enemy.GetComponent<enemyManager>().enemyCurrentHealth -= damage;
         enemy.GetComponent<enemyManager>().UpdateEnemyHealthBar(enemy.GetComponent<enemyManager>().enemyCurrentHealth, enemy.GetComponent<enemyManager>().enemyMaxHealth);
-      
+     
+        if(ApplyFire == true)
+        {
+            enemy.GetComponent<StatusEffectController>().AddOnFire();
+            ApplyFire = false;
+        }
+        if(HealthSteal == true)
+        {
+            playerStats.playerHealth += damage;
+            if(playerStats.playerHealth > playerStats.playerMaxHealth)
+            {
+                playerStats.playerHealth = playerStats.playerMaxHealth;
+                UpdateHealthBar(playerStats.playerHealth, playerStats.playerMaxHealth);
+            }
+            HealthSteal = false;
+        }
      
 
         selecting = false;
@@ -434,7 +466,15 @@ public class playerManager : MonoBehaviour
                 {
                     Destroy(enemyGenerator.spawnedEnemyList[i]);
                     enemyGenerator.spawnedEnemyList.Clear();
-                    SceneManager.LoadScene("Win");
+                    if (!enemyGenerator.bossFight)
+                    {
+                        SceneManager.LoadScene("Win");
+                    }
+                    else
+                    {
+                        SceneManager.LoadScene("EndZone");
+                    }
+                    
                     action1.interactable = false;
                     action2.interactable = false;
                     action3.interactable = false;

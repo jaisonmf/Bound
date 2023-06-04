@@ -58,11 +58,17 @@ public class goblinBoss : MonoBehaviour
             }
             else if (action == 3)
             {
+                int amountHealed = 0;
                 enemyGenerator generator = GameObject.Find("enemyGenerator").GetComponent<enemyGenerator>();
-                for (int i = 0; i < generator.spawnedEnemyList.Count; i++)
+               foreach(GameObject enemy in generator.spawnedEnemyList)
                 {
-                    gameObject.GetComponent<enemyManager>().enemyCurrentHealth += 20;
+                    if (enemy.activeSelf)
+                    {
+                        amountHealed += 20;
+                    }
                 }
+                gameObject.GetComponent<enemyManager>().enemyCurrentHealth += amountHealed;
+
                 if (gameObject.GetComponent<enemyManager>().enemyCurrentHealth > gameObject.GetComponent<enemyManager>().enemyMaxHealth)
                 {
                     gameObject.GetComponent<enemyManager>().enemyCurrentHealth = gameObject.GetComponent<enemyManager>().enemyMaxHealth;

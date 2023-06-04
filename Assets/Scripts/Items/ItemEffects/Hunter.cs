@@ -26,7 +26,9 @@ public class Hunter : MonoBehaviour
     {
         playerStats.playerMaxHealth -= 15;
         playerStats.playerHealth -= 15;
-        Debug.Log("effect");
+        playerStats.playerMinDamage += 7;
+        playerStats.playerMaxDamage += 7;
+
         textUpdate = GameObject.Find("Character").GetComponent<textUpdate>();
         textUpdate.UpdateStats();
     }

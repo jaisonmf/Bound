@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4763894006670847164}
   - component: {fileID: 1492969883617042054}
   - component: {fileID: 377290184957895641}
+  - component: {fileID: -8139465962920600601}
   m_Layer: 5
   m_Name: HunterHead
   m_TagString: Head
@@ -148,6 +149,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 377290184957895641}
+        m_TargetAssemblyTypeName: imageSnap, Assembly-CSharp
+        m_MethodName: ViewItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1492969883617042054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,6 +182,12 @@ MonoBehaviour:
   targetObjectName: 
   EquipFunctionName: EquipHead
   UnequipFunctionName: UnequipHead
+  AbilityScriptName: HunterAbilities
+  AbilityScriptFunction: HunerHeadAbility
+  ItemName: Hunter's Cowl
+  Statboost: All damage increased by 5
+  Description: Inflict Vulnerable x2
+  EnergyCost: 2
 --- !u!114 &377290184957895641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,6 +206,19 @@ MonoBehaviour:
   inInventory: 1
   parent: {fileID: 0}
   thisObject: {fileID: 0}
+--- !u!114 &-8139465962920600601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6688367706017289505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e55afa1fe3ad62541bd65c98f0bd5148, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  energyCost: 2
 --- !u!1 &7075315418983040423
 GameObject:
   m_ObjectHideFlags: 0

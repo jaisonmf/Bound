@@ -234,10 +234,10 @@ MonoBehaviour:
   UnequipFunctionName: UnequipRightArm
   AbilityScriptName: DefaultAbility
   AbilityScriptFunction: DefaultRarmAbility
-  ItemName: 
-  Statboost: 
-  Description: 
-  EnergyCost: 
+  ItemName: Skeleton Right Arm
+  Statboost: +5 Maximum Damage
+  Description: Deal 50 damage - 10 for each active enemy
+  EnergyCost: 3
 --- !u!114 &3250212091891422065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,5 +268,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4d423a9ec94ba84bbc960ed0d68c652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energyCost: 1
-  ButtonEffect: 
+  energyCost: 3

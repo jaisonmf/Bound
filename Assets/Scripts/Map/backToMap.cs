@@ -29,7 +29,7 @@ public class backToMap : MonoBehaviour
 
         for(int i = 0; i < mapEvent.rows; i++)
         {
-            if(i == mapEvent.rows)
+            if(i >= mapEvent.rows)
             {
                 endButton.GetComponent<FinalNode>().Avaliable();
                

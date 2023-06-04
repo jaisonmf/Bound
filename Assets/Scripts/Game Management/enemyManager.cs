@@ -82,6 +82,7 @@ public class enemyManager : MonoBehaviour
         else
         {
             gameObject.SetActive(false);
+            statusEffectController.tauntStacks = 0;
             TauntCheck();
         }
         
@@ -146,7 +147,7 @@ public class enemyManager : MonoBehaviour
 
         yield return new WaitForSeconds(time);
 
-        action = Random.Range(1, 4);
+        action = Random.Range(1, 5);
         //action = 4;
         GameObject targetObject = gameObject;
         Component targetScript = targetObject.GetComponent(EnemyFunctionScript);

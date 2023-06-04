@@ -64,6 +64,7 @@ GameObject:
   - component: {fileID: 4763894006670847164}
   - component: {fileID: 1377868729092208043}
   - component: {fileID: 3250212091891422065}
+  - component: {fileID: -583004854702118637}
   m_Layer: 5
   m_Name: HunterRightArm
   m_TagString: RightArm
@@ -198,6 +199,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 3250212091891422065}
+        m_TargetAssemblyTypeName: imageSnap, Assembly-CSharp
+        m_MethodName: ViewItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1377868729092208043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,6 +232,12 @@ MonoBehaviour:
   targetObjectName: 
   EquipFunctionName: EquipRightArm
   UnequipFunctionName: UnequipRightArm
+  AbilityScriptName: HunterAbilities
+  AbilityScriptFunction: HunterRarmAbility
+  ItemName: Hunter's Dagger
+  Statboost: +10 Maximum Damage
+  Description: Deal damage and heal the amount you dealt
+  EnergyCost: 2
 --- !u!114 &3250212091891422065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,3 +256,16 @@ MonoBehaviour:
   inInventory: 1
   parent: {fileID: 0}
   thisObject: {fileID: 0}
+--- !u!114 &-583004854702118637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6688367706017289505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e55afa1fe3ad62541bd65c98f0bd5148, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  energyCost: 2

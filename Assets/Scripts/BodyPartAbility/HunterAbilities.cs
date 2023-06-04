@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DefaultAbility : MonoBehaviour
+public class HunterAbilities : MonoBehaviour
 {
     public int energyCost;
 
 
-    public void DefaultHeadAbility()
+    public void HunterHeadAbility()
     {
         playerManager PlayerManager = GameObject.Find("playerManager").GetComponent<playerManager>();
         playerStats playerStats = GameObject.Find("playerStats").GetComponent<playerStats>();
@@ -21,11 +21,13 @@ public class DefaultAbility : MonoBehaviour
             if (child.name == "Back")
             {
                 child.GetComponent<Button>().interactable = true;
+                Debug.Log("works");
             }
             else
             {
                 child.GetComponent<Button>().interactable = false;
             }
+            Debug.Log(child);
 
 
         }
@@ -36,107 +38,23 @@ public class DefaultAbility : MonoBehaviour
 
     }
 
-    public void DefaultBodyAbility()
+    public void HunterBodyAbility()
     {
-       playerManager PlayerManager = GameObject.Find("playerManager").GetComponent<playerManager>();
-       playerStats playerStats = GameObject.Find("playerStats").GetComponent<playerStats>();
-        
-        playerStats.playerHealth += 20;
+        playerManager PlayerManager = GameObject.Find("playerManager").GetComponent<playerManager>();
+        playerStats playerStats = GameObject.Find("playerStats").GetComponent<playerStats>();
+
+        playerStats.playerHealth += 40;
         PlayerManager.UpdateHealthBar(playerStats.playerHealth, playerStats.playerMaxHealth);
         playerStats.playerEnergy -= energyCost;
         PlayerManager.UpdateEnergyBar(playerStats.playerEnergy, playerStats.playerMaxEnergy);
     }
 
-    public void DefaultLarmAbility()
+    public void HunterLarmAbility()
     {
         playerManager PlayerManager = GameObject.Find("playerManager").GetComponent<playerManager>();
         playerStats playerStats = GameObject.Find("playerStats").GetComponent<playerStats>();
         enemyGenerator enemyGenerator = GameObject.Find("enemyGenerator").GetComponent<enemyGenerator>();
 
-        foreach (GameObject enemy in enemyGenerator.spawnedEnemyList)
-        {
-            PlayerManager.MinDamage += 10;
-            PlayerManager.MaxDamage += 10;
-            PlayerManager.selecting = true;
-            foreach (Transform child in PlayerManager.buttonSet2.transform)
-            {
-                if(child.name == "Back")
-                {
-                    child.GetComponent<Button>().interactable = true;
-                }
-                else
-                {
-                    child.GetComponent<Button>().interactable = false;
-                }
-               
-               
-            }
-            playerStats.playerEnergy -= energyCost;
-            PlayerManager.UpdateEnergyBar(playerStats.playerEnergy, playerStats.playerMaxEnergy);
-        }
-        
-    }
-
-    public void DefaultRarmAbility()
-    {
-        playerManager PlayerManager = GameObject.Find("playerManager").GetComponent<playerManager>();
-        playerStats playerStats = GameObject.Find("playerStats").GetComponent<playerStats>();
-        enemyGenerator enemyGenerator = GameObject.Find("enemyGenerator").GetComponent<enemyGenerator>();
-
-        PlayerManager.MinDamage = 60;
-        PlayerManager.MaxDamage = 60;
-
-        foreach (GameObject enemy in enemyGenerator.spawnedEnemyList)
-        {
-            if (enemy.activeSelf)
-            {
-                PlayerManager.MinDamage -= 10;
-                PlayerManager.MaxDamage -= 10;
-                PlayerManager.selecting = true;
-                foreach (Transform child in PlayerManager.buttonSet2.transform)
-                {
-                    if (child.name == "Back")
-                    {
-                        child.GetComponent<Button>().interactable = true;
-                    }
-                    else
-                    {
-                        child.GetComponent<Button>().interactable = false;
-                    }
-
-
-                }
-            }
-            
-        }
-
-        
-        playerStats.playerEnergy -= energyCost;
-        PlayerManager.UpdateEnergyBar(playerStats.playerEnergy, playerStats.playerMaxEnergy);
-
-    }
-    public void DefaultLlegAbility()
-    {
-
-        
-        playerManager PlayerManager = GameObject.Find("playerManager").GetComponent<playerManager>();
-        playerStats playerStats = GameObject.Find("playerStats").GetComponent<playerStats>();
-       
-
-
-        playerStats.playerHealth -= 10;
-        PlayerManager.UpdateHealthBar(playerStats.playerHealth, playerStats.playerMaxHealth);
-        playerStats.playerEnergy++;
-        PlayerManager.UpdateEnergyBar(playerStats.playerEnergy, playerStats.playerMaxEnergy);
-
-    }
-
-    public void DefaultRlegbility()
-    {
-        playerManager PlayerManager = GameObject.Find("playerManager").GetComponent<playerManager>();
-        playerStats playerStats = GameObject.Find("playerStats").GetComponent<playerStats>();
-
-        PlayerManager.MinDamage = PlayerManager.MaxDamage;
         PlayerManager.selecting = true;
         foreach (Transform child in PlayerManager.buttonSet2.transform)
         {
@@ -151,7 +69,76 @@ public class DefaultAbility : MonoBehaviour
 
 
         }
+        PlayerManager.ApplyFire = true;
+        PlayerManager.UpdateEnergyBar(playerStats.playerEnergy, playerStats.playerMaxEnergy);
+      
+
+    }
+
+    public void HunterRarmAbility()
+    {
+        playerManager PlayerManager = GameObject.Find("playerManager").GetComponent<playerManager>();
+        playerStats playerStats = GameObject.Find("playerStats").GetComponent<playerStats>();
+        enemyGenerator enemyGenerator = GameObject.Find("enemyGenerator").GetComponent<enemyGenerator>();
+
+        PlayerManager.selecting = true;
+        foreach (Transform child in PlayerManager.buttonSet2.transform)
+        {
+            if (child.name == "Back")
+            {
+                child.GetComponent<Button>().interactable = true;
+            }
+            else
+            {
+                child.GetComponent<Button>().interactable = false;
+            }
+
+
+        }
+        PlayerManager.HealthSteal = true;
         playerStats.playerEnergy -= energyCost;
         PlayerManager.UpdateEnergyBar(playerStats.playerEnergy, playerStats.playerMaxEnergy);
+
+    }
+    public void HunterLlegAbility()
+    {
+
+
+        playerManager PlayerManager = GameObject.Find("playerManager").GetComponent<playerManager>();
+        playerStats playerStats = GameObject.Find("playerStats").GetComponent<playerStats>();
+
+
+
+        playerStats.playerHealth -= 10;
+        PlayerManager.UpdateHealthBar(playerStats.playerHealth, playerStats.playerMaxHealth);
+        playerStats.playerEnergy++;
+        PlayerManager.UpdateEnergyBar(playerStats.playerEnergy, playerStats.playerMaxEnergy);
+
+    }
+
+    public void HunterRlegbility()
+    {
+        playerManager PlayerManager = GameObject.Find("playerManager").GetComponent<playerManager>();
+        playerStats playerStats = GameObject.Find("playerStats").GetComponent<playerStats>();
+
+        PlayerManager.MinDamage = PlayerManager.MaxDamage;
+
+        foreach (Transform child in PlayerManager.buttonSet2.transform)
+        {
+            if (child.name == "Back")
+            {
+                child.GetComponent<Button>().interactable = true;
+            }
+            else
+            {
+                child.GetComponent<Button>().interactable = false;
+            }
+
+
+        }
+        PlayerManager.energyOverflow = true;
+        playerStats.playerEnergy -= energyCost;
+        PlayerManager.UpdateEnergyBar(playerStats.playerEnergy, playerStats.playerMaxEnergy);
+
     }
 }
