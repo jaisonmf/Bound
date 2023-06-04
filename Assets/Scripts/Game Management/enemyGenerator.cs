@@ -106,11 +106,31 @@ public class enemyGenerator : MonoBehaviour
             {
                 enemyType = Boss[Random.Range(0, Boss.Count)];
                 { 
-                    spawnedEnemy = Instantiate(enemyType, new Vector2((Screen.width / (amount + 1)) * (i + 1), -15), Quaternion.identity);
-                    spawnedEnemy.transform.SetParent(parent.transform, false);
-                    spawnedEnemyList.Add(spawnedEnemy);
-                    StatGeneration();
-                    spawnedEnemy.GetComponent<enemyManager>().enemyCount = i;
+                    if(enemyType == goblinBoss)
+                    {
+                        spawnedEnemy = Instantiate(enemyType, new Vector2((Screen.width / (amount + 1)) * (i + 1), -15), Quaternion.identity);
+                        spawnedEnemy.transform.SetParent(parent.transform, false);
+                        spawnedEnemyList.Add(spawnedEnemy);
+                        StatGeneration();
+                        spawnedEnemy.GetComponent<enemyManager>().enemyCount = i;
+
+                        int summon = 2;
+                        for(int j = 0; j < summon; j++)
+                        {
+                            enemyType = goblin;
+                            spawnedEnemy = Instantiate(enemyType, new Vector2((Screen.width / (amount + 2)) * (j + 1), -15), Quaternion.identity);
+                            spawnedEnemy.transform.SetParent(parent.transform, false);
+                            spawnedEnemyList.Add(spawnedEnemy);
+                            StatGeneration();
+                            spawnedEnemy.GetComponent<enemyManager>().enemyCount = j;
+                            spawnedEnemy.GetComponent<StatusEffectController>().AddTaunt();
+                            spawnedEnemy.GetComponent<StatusEffectController>().tauntStacks += 100;
+                            spawnedEnemy.GetComponent<StatusEffectController>().AddTaunt();
+                        }
+
+                      
+                    }
+                    
                 }
             }
         }

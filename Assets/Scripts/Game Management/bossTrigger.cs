@@ -8,7 +8,7 @@ public class bossTrigger : MonoBehaviour
     private enemyGenerator enemyGenerator;
 
 
-    private void Start()
+    private void Awake()
     {
         enemyGenerator = GameObject.Find("enemyGenerator").GetComponent<enemyGenerator>();
 

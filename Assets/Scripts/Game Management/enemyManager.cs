@@ -76,6 +76,23 @@ public class enemyManager : MonoBehaviour
             {
                 statusEffectController.tauntStacks--;
             }
+            else
+            {
+                statusEffectController.tauntStacks = 0;
+            }
+
+            if (gameObject.GetComponent<StatusEffectController>().tauntStacks != 0)
+            {
+                foreach (GameObject enemy in enemyGenerator.spawnedEnemyList)
+                {
+                    if (enemy != gameObject && enemy.GetComponent<StatusEffectController>().tauntStacks == 0)
+                    {
+                        enemy.GetComponentInChildren<Button>().interactable = false;
+
+                    }
+
+                }
+            }
 
 
             StartCoroutine(EnemyAction(3));
@@ -102,8 +119,8 @@ public class enemyManager : MonoBehaviour
 
         yield return new WaitForSeconds(time);
 
-        action = Random.Range(1, 4);
-        //action = 4;
+        //action = Random.Range(1, 4);
+        action = 4;
         GameObject targetObject = gameObject;
         Component targetScript = targetObject.GetComponent(EnemyFunctionScript);
         System.Type targetType = System.Type.GetType(EnemyFunctionScript);
