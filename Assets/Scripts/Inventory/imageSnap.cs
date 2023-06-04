@@ -27,7 +27,8 @@ public class imageSnap : MonoBehaviour
     public GameObject thisObject;
 
 
-
+    private bool lefShift = false;
+    private Transform parentObject;
 
 
     void Start()
@@ -39,14 +40,66 @@ public class imageSnap : MonoBehaviour
         Playerinventory = GameObject.Find("playerStats").GetComponent<playerInventory>();
         itemScript = GetComponent<ItemScript>();
         deleteItem = GameObject.Find("Delete Item").GetComponent<DeleteItem>();
+        parentObject = GameObject.Find("InventoryScene").transform;
 
 
+    }
+
+    private void Update()
+    {
+        if(Input.GetKey(KeyCode.LeftShift) == true)
+        {
+            lefShift = true;
+        }
+        else
+        {
+            lefShift = false;
+        }
+    }
+
+    public void ViewItem()
+    {
+        if (isEnabled && deleteItem.deleting == false && lefShift == true)
+        {
+            disableImages(parentObject);
+           
+         
+
+            GameObject.Find("InventoryContainer").GetComponent<Inventory>().itemOverview.SetActive(true);
+
+            //gameObject.GetComponentInParent<Inventory>().inventory.SetActive(false);
+            ItemOverview itemViewer = GameObject.Find("ItemOverview").GetComponent<ItemOverview>();
+            itemViewer.selectedItem = gameObject;
+            itemViewer.GenerateViewer();
+        }
+    }
+
+    public void disableImages(Transform parent)
+    {
+        foreach (Transform child in parent)
+        {
+            Image imageComponent = child.GetComponent<Image>();
+            Text textComponent = child.GetComponent<Text>();
+
+            if (imageComponent != null)
+            {
+                imageComponent.enabled = false;
+            }
+
+            if (textComponent != null)
+            {
+                textComponent.enabled = false;
+            }
+
+            // Recursively call DisableImagesRecursive for children of the current child
+            disableImages(child);
+        }
     }
     
     public void SnapToTarget()
     {
        
-        if (isEnabled && inInventory == true && deleteItem.deleting == false)
+        if (isEnabled && inInventory == true && deleteItem.deleting == false && lefShift == false)
         {
 
             inventory = GameObject.Find("InventoryContainer").GetComponent<Inventory>();

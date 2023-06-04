@@ -127,9 +127,11 @@ public class enemyGenerator : MonoBehaviour
                             spawnedEnemy.GetComponent<StatusEffectController>().AddTaunt();
                             spawnedEnemy.GetComponent<StatusEffectController>().tauntStacks += 100;
                             spawnedEnemy.GetComponent<StatusEffectController>().AddTaunt();
+                            
                         }
+                    
 
-                      
+
                     }
                     
                 }

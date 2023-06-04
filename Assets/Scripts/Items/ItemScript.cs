@@ -32,6 +32,11 @@ public class ItemScript : MonoBehaviour
     public string AbilityScriptName;
     public string AbilityScriptFunction;
 
+    [Header("Description")]
+    public string ItemName;
+    public string Statboost;
+    public string Description;
+    public string EnergyCost;
 
     public void Start()
     {

@@ -72,50 +72,9 @@ public class enemyManager : MonoBehaviour
         }
         if(alive == true)
         {
-            if(statusEffectController.tauntStacks != 0)
-            {
-                statusEffectController.tauntStacks--;
-            }
-            else
-            {
-                statusEffectController.tauntStacks = 0;
-            }
-
-            if (gameObject.GetComponent<StatusEffectController>().tauntStacks != 0)
-            {
-                foreach (GameObject enemy in enemyGenerator.spawnedEnemyList)
-                {
-                    if (enemy != gameObject && enemy.GetComponent<StatusEffectController>().tauntStacks == 0)
-                    {
-                        enemy.GetComponentInChildren<Button>().interactable = false;
-
-                    }
-
-                }
-            }
-            else
-            {
-                int i = 0;
-                foreach (GameObject enemy in enemyGenerator.spawnedEnemyList)
-                {
-                    if(enemy.GetComponent<StatusEffectController>().tauntStacks == 0)
-                    {
-                        i++;
-                    }
-
-                }
-                if(i == enemyGenerator.spawnedEnemyList.Count)
-                {
-                    foreach (GameObject enemy in enemyGenerator.spawnedEnemyList)
-                    {
-
-                        enemy.GetComponentInChildren<Button>().interactable = true;
-                        i = 0;
-                    }
-                }
-            }
 
 
+            TauntCheck();
             StartCoroutine(EnemyAction(3));
 
             
@@ -123,8 +82,38 @@ public class enemyManager : MonoBehaviour
         else
         {
             gameObject.SetActive(false);
-            gameObject.GetComponent<StatusEffectController>().tauntStacks = 0;
+            TauntCheck();
+        }
+        
+        
 
+    }
+
+    public void TauntCheck()
+    {
+        if (statusEffectController.tauntStacks != 0)
+        {
+            statusEffectController.tauntStacks--;
+        }
+        else
+        {
+            statusEffectController.tauntStacks = 0;
+        }
+
+        if (gameObject.GetComponent<StatusEffectController>().tauntStacks != 0)
+        {
+            foreach (GameObject enemy in enemyGenerator.spawnedEnemyList)
+            {
+                if (enemy != gameObject && enemy.GetComponent<StatusEffectController>().tauntStacks == 0)
+                {
+                    enemy.GetComponentInChildren<Button>().interactable = false;
+
+                }
+
+            }
+        }
+        else
+        {
             int i = 0;
             foreach (GameObject enemy in enemyGenerator.spawnedEnemyList)
             {
@@ -144,9 +133,6 @@ public class enemyManager : MonoBehaviour
                 }
             }
         }
-        
-        
-
     }
 
     //Enemy turn, delay is there so it doesnt happen immediately

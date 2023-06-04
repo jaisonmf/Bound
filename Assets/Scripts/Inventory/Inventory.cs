@@ -20,6 +20,8 @@ public class Inventory : MonoBehaviour
     public List<GameObject> numberofInventory;
     public GameObject objectToDelete;
     public bool inCombat;
+    public GameObject inventory;
+    public GameObject itemOverview;
 
 
     //Inventory Grid
