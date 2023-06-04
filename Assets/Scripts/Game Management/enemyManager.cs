@@ -93,6 +93,27 @@ public class enemyManager : MonoBehaviour
 
                 }
             }
+            else
+            {
+                int i = 0;
+                foreach (GameObject enemy in enemyGenerator.spawnedEnemyList)
+                {
+                    if(enemy.GetComponent<StatusEffectController>().tauntStacks == 0)
+                    {
+                        i++;
+                    }
+
+                }
+                if(i == enemyGenerator.spawnedEnemyList.Count)
+                {
+                    foreach (GameObject enemy in enemyGenerator.spawnedEnemyList)
+                    {
+
+                        enemy.GetComponentInChildren<Button>().interactable = true;
+                        i = 0;
+                    }
+                }
+            }
 
 
             StartCoroutine(EnemyAction(3));
@@ -101,7 +122,27 @@ public class enemyManager : MonoBehaviour
         }
         else
         {
-            this.gameObject.SetActive(false);
+            gameObject.SetActive(false);
+            gameObject.GetComponent<StatusEffectController>().tauntStacks = 0;
+
+            int i = 0;
+            foreach (GameObject enemy in enemyGenerator.spawnedEnemyList)
+            {
+                if (enemy.GetComponent<StatusEffectController>().tauntStacks == 0)
+                {
+                    i++;
+                }
+
+            }
+            if (i == enemyGenerator.spawnedEnemyList.Count)
+            {
+                foreach (GameObject enemy in enemyGenerator.spawnedEnemyList)
+                {
+
+                    enemy.GetComponentInChildren<Button>().interactable = true;
+                    i = 0;
+                }
+            }
         }
         
         
@@ -119,8 +160,8 @@ public class enemyManager : MonoBehaviour
 
         yield return new WaitForSeconds(time);
 
-        //action = Random.Range(1, 4);
-        action = 4;
+        action = Random.Range(1, 4);
+        //action = 4;
         GameObject targetObject = gameObject;
         Component targetScript = targetObject.GetComponent(EnemyFunctionScript);
         System.Type targetType = System.Type.GetType(EnemyFunctionScript);
