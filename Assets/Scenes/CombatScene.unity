@@ -437,7 +437,7 @@ PrefabInstance:
     - target: {fileID: 355705035643864433, guid: 87b83ad5d070e8547bc2795d4e30c834, type: 3}
       propertyPath: PrefabequippedLeftArm
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6688367706017289505, guid: 960777e8ff3b6ba42b479668b68524b4, type: 3}
     - target: {fileID: 355705035643864433, guid: 87b83ad5d070e8547bc2795d4e30c834, type: 3}
       propertyPath: PrefabequippedLeftLeg
       value: 
@@ -445,7 +445,7 @@ PrefabInstance:
     - target: {fileID: 355705035643864433, guid: 87b83ad5d070e8547bc2795d4e30c834, type: 3}
       propertyPath: PrefabequippedRightArm
       value: 
-      objectReference: {fileID: 6688367706017289505, guid: 2b80a144bffe6da40aa2edf66547ddf4, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 355705035643864433, guid: 87b83ad5d070e8547bc2795d4e30c834, type: 3}
       propertyPath: PrefabequippedRightLeg
       value: 

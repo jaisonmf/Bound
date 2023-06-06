@@ -16,7 +16,7 @@ public class StatusEffectController : MonoBehaviour
 
  
     [SerializeField] private GameObject onFireIcon;
-    private bool onFire;
+    [HideInInspector] public bool onFire;
     [SerializeField] private int onFireStacks;
 
     [SerializeField] private GameObject TauntIcon;
@@ -67,17 +67,20 @@ public class StatusEffectController : MonoBehaviour
     }
     public void AddTaunt()
     {
+        GameObject debuff = null;
         if(taunting == false)
         {
             taunting = true;
             statusEffect.Add(TauntIcon);
-            tauntStacks++;
-            TauntIcon.GetComponentInChildren<Text>().text = tauntStacks.ToString();
+          
             foreach (GameObject obj in statusEffect)
             {
-                Instantiate(obj, layoutGroup.transform);
+                debuff = Instantiate(obj, layoutGroup.transform);
             }
-           
+            tauntStacks++;
+            TauntIcon = debuff;
+            TauntIcon.GetComponentInChildren<Text>().text = tauntStacks.ToString();
+
         }
 
         else if (taunting == true)
@@ -89,18 +92,7 @@ public class StatusEffectController : MonoBehaviour
 
     }
 
-    public void EffectUpdate()
-    {
-        int damage;
-
-        if (onFire == true)
-        {
-            damage = 10 + onFireStacks;
-            playerStats.playerHealth -= damage;
-
-        }
-
-    }
+  
 
 
 }

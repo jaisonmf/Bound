@@ -91,7 +91,7 @@ public class playerManager : MonoBehaviour
             action3.interactable = true;
             action4.interactable = true;
             ResetDamage();
-            statusEffectController.EffectUpdate();
+    
             UpdateHealthBar(playerStats.playerHealth, playerStats.playerMaxHealth);
 
             if(energyOverflow == true)
@@ -114,10 +114,12 @@ public class playerManager : MonoBehaviour
             SceneManager.LoadScene("Lose");
         }
 
-
-        
     }
 
+    public void DebuffEffect()
+    {
+        //if(statusEffectController.onfi)
+    }
 
     public void CheckEnergy()
     {
@@ -489,10 +491,6 @@ public class playerManager : MonoBehaviour
 
     }
 
-
-
-
-    
     public void UpdateHealthBar(float Currentvalue, float maxValue)
     {
         float percentageResult = Currentvalue / maxValue;

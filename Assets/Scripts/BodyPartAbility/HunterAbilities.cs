@@ -21,7 +21,7 @@ public class HunterAbilities : MonoBehaviour
             if (child.name == "Back")
             {
                 child.GetComponent<Button>().interactable = true;
-                Debug.Log("works");
+     
             }
             else
             {
