@@ -1331,6 +1331,10 @@ PrefabInstance:
       propertyPath: playerMinDamage
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 355705035643864433, guid: 87b83ad5d070e8547bc2795d4e30c834, type: 3}
+      propertyPath: PrefabequippedBody
+      value: 
+      objectReference: {fileID: 6688367706017289505, guid: be7fcbdd240b3a04cbbd0c2899d10cf2, type: 3}
     - target: {fileID: 1387446922038180432, guid: 87b83ad5d070e8547bc2795d4e30c834, type: 3}
       propertyPath: inventory.Array.size
       value: 0
@@ -1481,7 +1485,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7403037351760300437, guid: 87b83ad5d070e8547bc2795d4e30c834, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87b83ad5d070e8547bc2795d4e30c834, type: 3}

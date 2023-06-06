@@ -43,7 +43,7 @@ public class CombatInventory : MonoBehaviour
         ItemScript[] objectsWithScript = FindObjectsOfType<ItemScript>();
         foreach (ItemScript obj in objectsWithScript)
         {
-
+            Debug.Log("AH");
             obj.FindInventory();
         }
         inInventory = true;

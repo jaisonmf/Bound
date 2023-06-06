@@ -158,7 +158,7 @@ public class enemyManager : MonoBehaviour
             targetFunction.Invoke(targetScript, null);
         }
 
-        UpdateEnemyHealthBar(enemyCurrentHealth, enemyMaxHealth);
+       // UpdateEnemyHealthBar(enemyCurrentHealth, enemyMaxHealth);
        // playerManager.UpdateHealthBar(playerStats.playerHealth, playerStats.playerMaxHealth);
         
         if (playerStats.playerHealth <= 0)

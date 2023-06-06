@@ -70,6 +70,7 @@ public class HunterAbilities : MonoBehaviour
 
         }
         PlayerManager.ApplyFire = true;
+        playerStats.playerEnergy -= energyCost;
         PlayerManager.UpdateEnergyBar(playerStats.playerEnergy, playerStats.playerMaxEnergy);
       
 

@@ -13,6 +13,7 @@ public class ItemScript : MonoBehaviour
     public GameObject myprefab;
     public bool inInventory = false;
     public Inventory inventory;
+    public CombatInventory combatInventory;
     private MapEvent mapEvent;
     public GameObject inventorySpot;
     public bool equipped;
@@ -72,14 +73,23 @@ public class ItemScript : MonoBehaviour
     public void FindInventory()
     {
         inventory = GameObject.Find("InventoryContainer").GetComponent<Inventory>();
-        
+        Debug.Log(inventory);
          if(inventory != null)
          {
              gameObject.GetComponent<imageSnap>().isEnabled = true;
          }
          else
          {
-            gameObject.GetComponent<imageSnap>().isEnabled = false;
+            combatInventory = GameObject.Find("InventoryContainer").GetComponent<CombatInventory>();
+
+            if(combatInventory != null)
+            {
+                gameObject.GetComponent<imageSnap>().isEnabled = true;
+            }
+            else
+            {
+                gameObject.GetComponent<imageSnap>().isEnabled = false;
+            }
          }
        
 

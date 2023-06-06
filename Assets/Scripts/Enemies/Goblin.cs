@@ -43,8 +43,8 @@ public class Goblin : MonoBehaviour
             playerStats.playerHealth -= damage * 2;
 
         }
-
-        playerManager.UpdateHealthBar(playerStats.playerHealth, playerStats.playerMaxHealth);
+       // enemyManager.UpdateEnemyHealthBar(enemyManager.enemyCurrentHealth, enemyManager.enemyMaxHealth);
+       // playerManager.UpdateHealthBar(playerStats.playerHealth, playerStats.playerMaxHealth);
 
     }
 
