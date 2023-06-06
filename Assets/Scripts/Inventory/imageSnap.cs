@@ -39,7 +39,7 @@ public class imageSnap : MonoBehaviour
         previousTransform = transform.position;
         Playerinventory = GameObject.Find("playerStats").GetComponent<playerInventory>();
         itemScript = GetComponent<ItemScript>();
-        deleteItem = GameObject.Find("Delete Item").GetComponent<DeleteItem>();
+       
         parentObject = GameObject.Find("InventoryScene").transform;
 
 
@@ -66,7 +66,7 @@ public class imageSnap : MonoBehaviour
          
 
             GameObject.Find("InventoryContainer").GetComponent<Inventory>().itemOverview.SetActive(true);
-
+            deleteItem = GameObject.Find("Delete Item").GetComponent<DeleteItem>();
             //gameObject.GetComponentInParent<Inventory>().inventory.SetActive(false);
             ItemOverview itemViewer = GameObject.Find("ItemOverview").GetComponent<ItemOverview>();
             itemViewer.selectedItem = gameObject;

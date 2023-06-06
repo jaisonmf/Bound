@@ -14,6 +14,7 @@ public class StatusEffectController : MonoBehaviour
     [SerializeField] Text stacksText;
 
 
+ 
     [SerializeField] private GameObject onFireIcon;
     private bool onFire;
     [SerializeField] private int onFireStacks;
@@ -33,24 +34,31 @@ public class StatusEffectController : MonoBehaviour
 
     public void AddOnFire()
     {
+        GameObject debuff = null;
         if(onFire == false)
         {
             onFire = true;
-            statusEffect.Add(onFireIcon);
-            onFireStacks++;
 
+            statusEffect.Add(onFireIcon);
+          
             foreach (GameObject obj in statusEffect)
             {
-                Instantiate(obj, layoutGroup.transform);
+                debuff = Instantiate(obj, layoutGroup.transform);
             }
-            onFireIcon.GetComponentInChildren<Text>().text = onFireStacks.ToString();
+            
+            onFireStacks++;
+            onFireIcon = debuff;
+            debuff.GetComponentInChildren<Text>().text = onFireStacks.ToString();
+           
         }
         else if (onFire == true)
         {
+
             onFireStacks++;
             onFireIcon.GetComponentInChildren<Text>().text = onFireStacks.ToString();
+
         }
-        onFireIcon.GetComponentInChildren<Text>().text = onFireStacks.ToString();
+      
     
 
 
@@ -64,12 +72,12 @@ public class StatusEffectController : MonoBehaviour
             taunting = true;
             statusEffect.Add(TauntIcon);
             tauntStacks++;
-
+            TauntIcon.GetComponentInChildren<Text>().text = tauntStacks.ToString();
             foreach (GameObject obj in statusEffect)
             {
                 Instantiate(obj, layoutGroup.transform);
             }
-            TauntIcon.GetComponentInChildren<Text>().text = tauntStacks.ToString();
+           
         }
 
         else if (taunting == true)

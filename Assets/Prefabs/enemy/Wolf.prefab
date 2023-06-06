@@ -761,6 +761,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layoutGroup: {fileID: 3641562887574722918}
   statusEffect: []
+  stacksText: {fileID: 0}
   onFireIcon: {fileID: 6688367706017289505, guid: 197d31bab6429a64a870aa24e220f3d4, type: 3}
   onFireStacks: 0
   TauntIcon: {fileID: 6688367706017289505, guid: eae8895f22b6e604c8382fe8cc06a8d1, type: 3}

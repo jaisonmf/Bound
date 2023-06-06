@@ -41,18 +41,23 @@ public class gameManager : MonoBehaviour
     {
         foreach (GameObject enemy in enemyGenerator.spawnedEnemyList)
         {
-            //enemy.GetComponent<enemyManager>().enabled = true; // Enable enemy script
-            enemy.GetComponent<enemyManager>().turnArrow.SetActive(true);
-            enemy.GetComponent<enemyManager>().EnemyTurn();
-            playerManager.UpdateHealthBar(playerStats.playerHealth, playerStats.playerMaxHealth);
-            enemy.GetComponent<enemyManager>().UpdateEnemyHealthBar(enemy.GetComponent<enemyManager>().enemyCurrentHealth, enemy.GetComponent<enemyManager>().enemyMaxHealth);
-            yield return new WaitForSeconds(1.5f);
+            if(enemy.activeSelf == true)
+            {
+                enemy.GetComponent<enemyManager>().turnArrow.SetActive(true);
+                enemy.GetComponent<enemyManager>().EnemyTurn();
 
-          
+                playerManager.UpdateHealthBar(playerStats.playerHealth, playerStats.playerMaxHealth);
+                enemy.GetComponent<enemyManager>().UpdateEnemyHealthBar(enemy.GetComponent<enemyManager>().enemyCurrentHealth, enemy.GetComponent<enemyManager>().enemyMaxHealth);
 
-            enemy.GetComponent<enemyManager>().turnArrow.SetActive(false);
-           enemy.GetComponent<enemyManager>().enabled = false; // Disable enemy script again
-            yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(1.5f);
+
+
+
+                enemy.GetComponent<enemyManager>().turnArrow.SetActive(false);
+                enemy.GetComponent<enemyManager>().enabled = false;
+                yield return new WaitForSeconds(1f);
+
+            }
 
         }
        
